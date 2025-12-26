@@ -1,0 +1,38 @@
+<section class="store-profile">
+  <div class="store-profile__header">
+    <img src="/frontend/public/assets/cebolla_larga.jpg" alt="Store Banner" class="store-profile__banner">
+    <div class="store-profile__info">
+      <img src="/frontend/public/assets/banano.webp" alt="Store Avatar" class="store-profile__avatar">
+      <div class="store-profile__details">
+        <h2 class="store-profile__name">Mi Tienda</h2>
+        <p class="store-profile__category">Categoría: Productos agrícolas</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="store-profile__body">
+    <div class="store-profile__section store-profile__section--description">
+      <h3 class="store-profile__title">Descripción</h3>
+      <p class="store-profile__text" id="store-description">Descripción de la tienda...</p>
+      <button 
+        class="store-profile__button" 
+        id="btn-edit-description" 
+        onclick="window.location.href='/frontend/public/views/seller-pages/edit_store.html'"><i class="fa-solid fa-pen"></i>
+        Editar Información
+      </button>
+    </div>
+
+    <div class="store-profile__section store-profile__section--payments">
+      <h3 class="store-profile__title">Métodos de pago</h3>
+      <ul class="store-profile__payments-list" id="payment-list">
+        <li class="store-profile__payment-item">Efectivo</li>
+        <li class="store-profile__payment-item">Transferencia bancaria</li>
+      </ul>
+      <button class="store-profile__button" id="btn-add-payment">Agregar método de pago</button>
+      <a href="/frontend/public/views/seller-pages/my_products.html" class="store-profile__products">
+        Ver mis productos
+     </a>
+
+    </div>
+  </div>
+</section>

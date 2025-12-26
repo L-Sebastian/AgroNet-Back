@@ -1,0 +1,66 @@
+/* Componente utilizado en cart-general.html de pages-general  */
+
+/* =============================== */
+/* Bloque: empty-cart              */
+/* =============================== */
+
+.empty-cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 60rem;
+  text-align: center;
+  background-color: var(--white);
+  font-family: var(--main-font);
+}
+
+.empty-cart__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  margin-right: 350px;
+}
+
+.empty-cart__title {
+  color: var(--primary-500);
+  font-size: var(--fs-lg);
+  font-weight: bold;
+  margin: 0;
+}
+
+.empty-cart__button {
+  background-color: var(--primary-600);
+  color: var(--white);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 0.8rem;
+  font-size: var(--fs-sm);
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.empty-cart__button:hover {
+  background-color: var(--primary-500);
+}
+
+/* =============================== */
+/* Responsivo                     */
+/* =============================== */
+
+@media (max-width: 600px) {
+  .empty-cart {
+    height: 50vh;
+  }
+
+  .empty-cart__title {
+    font-size: var(--fs-md);
+  }
+
+  .empty-cart__button {
+    font-size: var(--fs-xs);
+    padding: 10px 20px;
+  }
+}

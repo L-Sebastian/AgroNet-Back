@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Campiña verde",
+    "url": "/frontend/public/assets/banner_1.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Finca rural",
+    "url": "/frontend/public/assets/banner_2.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Montañas al amanecer",
+    "url": "/frontend/public/assets/banner_3.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Campo de flores",
+    "url": "/frontend/public/assets/banner_4.webp"
+  },
+  {
+    "id": 5,
+    "name": "Granos de café",
+    "url": "/frontend/public/assets/cafe-cultivos.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Granos de café",
+    "url": "/frontend/public/assets/cafe-cultivos.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Granos de café",
+    "url": "/frontend/public/assets/cafe-cultivos.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Huerto agrícola",
+    "url": "/frontend/public/assets/valle-cocora.jpg"
+  }
+]

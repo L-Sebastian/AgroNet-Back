@@ -1,0 +1,776 @@
+/* Componente utilizado en form_new_user.html de admin-pages  */
+
+/* FORMULARIO DATOS PERSONALES */
+
+.form-datos {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  margin-top: 90px;
+  margin-bottom: 90px;
+  padding: 20px;
+  background: var(--white);
+  border-radius: 12px;
+  font-family: var(--main-font);
+}
+
+
+.form-datos__title {
+  text-align: center;
+  font-size: var(--fs-md);
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+.form-datos__form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* ✅ dos columnas */
+  gap: 16px;
+}
+
+.form-datos__group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-datos__label {
+  margin-bottom: 5px;
+  font-weight: 500;
+  margin-left: 5px;
+}
+
+.form-datos__input {
+  padding: 10px;
+  width: 320px;
+  margin: 0 auto;
+  border: 1px solid var(--gray-200);
+  border-radius: 8px;
+  height: 56px;
+  font-size: var(--fs-xs);
+}
+
+.form-datos__input:focus {
+  outline: none;
+  border-color: var(--black);
+}
+
+/* Contenedor de los botones fuera del grid */
+.form-datos__buttons {
+  grid-column: 1 / 3; /* Ocupa las dos columnas */
+  display: flex;
+  justify-content: space-between; /* Cancelar izquierda / Guardar derecha */
+  margin-top: 10px;
+}
+
+/* Estilo base de botones ya existente NO lo cambiamos */
+.form-datos__button {
+  background: var(--secundary-500);
+  color: var(--btn-text, var(--white));
+  padding: var(--btn-padding-y, 0.5rem) var(--btn-padding-x, 1rem);
+  border-radius: var(--btn-border-radius, 0.5rem);
+  cursor: pointer;
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-xs);
+}
+
+.form-datos__button {
+  border: none; /* elimina el borde negro */
+}
+
+.form-datos__button:focus {
+  outline: none; /*  quita el contorno azul/negro del focus */
+}
+
+
+/* Botón cancelar */
+.form-datos__button--cancel {
+  background: var(--gray-300);
+}
+
+/* Hover */
+.form-datos__button--cancel:hover {
+  background: var(--gray-200);
+  color: var(--white);
+}
+
+.form-datos__button--save:hover {
+  background: var(--secundary-600);
+  color: var(--white);
+}
+
+/* ======= POPUP DE ÉXITO (Categoría registrada) ======= */
+
+#success_category_popup .icon_1_2.ok {
+  color: var(--secundary-700);
+  font-size: 50px;
+  margin-bottom: 16px;
+}
+
+#success_category_popup p {
+  color: var(--gray-900);
+  margin-top: 0.5rem;
+}
+
+/* Efecto suave al abrir */
+#success_category_popup.show .popup-content {
+  animation: popup-success 0.35s ease;
+}
+
+@keyframes popup-success {
+  from {
+    transform: translateY(-15px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ======= POPUP DE ÉXITO (Pedidos) ======= */
+#order_success_popup .icon_1_2.ok {
+  color: var(--secundary-700);
+  font-size: 50px;
+  margin-bottom: 16px;
+}
+
+#order_success_popup p {
+  color: var(--gray-900);
+  margin-top: 0.5rem;
+}
+
+#order_success_popup.show .popup-content {
+  animation: popup-success 0.35s ease;
+}
+
+@keyframes popup-success {
+  from {
+    transform: translateY(-15px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ======= POPUP DE ÉXITO (Productos) ======= */
+#product_success_popup .icon_1_2.ok {
+  color: var(--secundary-700);
+  font-size: 50px;
+  margin-bottom: 16px;
+}
+
+#product_success_popup p {
+  color: var(--gray-900);
+  margin-top: 0.5rem;
+}
+
+#product_success_popup.show .popup-content {
+  animation: popup-success 0.35s ease;
+}
+
+@keyframes popup-success {
+  from {
+    transform: translateY(-15px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ======= POPUP DE ÉXITO (Reportes) ======= */
+#report_success_popup .icon_1_2.ok {
+  color: var(--secundary-700);
+  font-size: 50px;
+  margin-bottom: 16px;
+}
+
+#report_success_popup p {
+  color: var(--gray-900);
+  margin-top: 0.5rem;
+}
+
+#report_success_popup.show .popup-content {
+  animation: popup-success 0.35s ease;
+}
+
+@keyframes popup-success {
+  from {
+    transform: translateY(-15px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ======= POPUP DE ÉXITO (Usuarios) ======= */
+#user_success_popup .icon_1_2.ok {
+  color: var(--secundary-700);
+  font-size: 50px;
+  margin-bottom: 16px;
+}
+
+#user_success_popup p {
+  color: var(--gray-900);
+  margin-top: 0.5rem;
+}
+
+#user_success_popup.show .popup-content {
+  animation: popup-success 0.35s ease;
+}
+
+@keyframes popup-success {
+  from {
+    transform: translateY(-15px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/*-------------------------------*/
+/* 🔳 Contenedores principales de los popups */
+#confirm_edit_popup,
+#edit_success_popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none; /* Oculto por defecto */
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Mostrar cuando tienen la clase "show" */
+#confirm_edit_popup.show,
+#edit_success_popup.show {
+  display: flex;
+}
+
+/* 📦 Contenido interno del popup */
+#confirm_edit_popup .popup-content,
+#edit_success_popup .popup-content {
+  background-color: var(--white);
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  width: 360px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  animation: popupFade 0.3s ease-in-out;
+}
+
+
+/* ✖️ Botón cerrar */
+#confirm_edit_popup .close-popup,
+#edit_success_popup .close-popup {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #666;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: color 0.2s ease;
+}
+
+#confirm_edit_popup .close-popup:hover,
+#edit_success_popup .close-popup:hover {
+  color: #000;
+}
+
+/* 🧩 Contenedor de botones en el popup de confirmación */
+#confirm_edit_popup .popup-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1.5rem;
+}
+
+/* 🔘 Botones generales */
+#confirm_edit_popup .btn {
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+/* 🔴 Botón cancelar */
+#confirm_edit_popup .btn.cancel {
+  background-color: var(--gray-100);
+  color: var(--gray-600);
+
+  padding: 8px 16px;
+  margin: var(--btn-margin, 0.5rem auto);
+
+  font-size: var(--btn-font-size, 0.875rem);
+  font-weight: var(--btn-font-weight, 500);
+  letter-spacing: var(--btn-letter-spacing, 0.02857em);
+
+  border: var(--btn-border, none);
+  border-radius: var(--btn-border-radius, 0.5rem);
+
+  min-height: var(--btn-min-height, 36px);
+  min-width: var(--btn-min-width, 56px);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--btn-gap, 0.5rem);
+
+  cursor: pointer;
+  user-select: none;
+  box-shadow: var(--btn-shadow, 0 1px 3px rgba(0, 0, 0, 0.15));
+  transition:
+    background var(--btn-transition-duration, 150ms) var(--btn-transition-timing, ease-in-out),
+    box-shadow var(--btn-transition-duration, 150ms) var(--btn-transition-timing, ease-in-out),
+    transform var(--btn-transition-duration, 150ms) var(--btn-transition-timing, ease-in-out);
+}
+
+#confirm_edit_popup .btn.cancel:hover {
+  background-color: var(--gray-200);
+}
+
+/* 🟢 Botón aceptar */
+#confirm_edit_popup .btn.accept {
+  background:var(--button-add-color);
+  color: var(--btn-text, var(--white));
+
+  padding: var(--btn-padding-y, 0.5rem) var(--btn-padding-x, 1rem);
+  margin: var(--btn-margin, 0.5rem auto);
+
+  font-size: var(--btn-font-size, 0.875rem);
+  font-weight: var(--btn-font-weight, 500);
+  letter-spacing: var(--btn-letter-spacing, 0.02857em);
+
+  border: var(--btn-border, none);
+  border-radius: var(--btn-border-radius, 0.5rem);
+
+  min-height: var(--btn-min-height, 36px);
+  min-width: var(--btn-min-width, 56px);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--btn-gap, 0.5rem);
+
+  cursor: pointer;
+  user-select: none;
+  box-shadow: var(--btn-shadow, 0 1px 3px rgba(0, 0, 0, 0.15));
+  transition:
+    background var(--btn-transition-duration, 150ms) var(--btn-transition-timing, ease-in-out),
+    box-shadow var(--btn-transition-duration, 150ms) var(--btn-transition-timing, ease-in-out),
+    transform var(--btn-transition-duration, 150ms) var(--btn-transition-timing, ease-in-out);
+}
+
+
+#confirm_edit_popup .btn.accept:hover {
+  background: var(--button-add-color-hover);
+  color: var(--btn-text-hover, var(--white));
+  box-shadow: var(--btn-shadow-hover, 0 2px 6px rgba(0, 0, 0, 0.2)); 
+}
+
+#confirm_edit_popup .btn.accept:active {
+  background: var(--button-add-color-hover);
+  color: var(--btn-text-pressed, var(--white));
+  box-shadow: var(--btn-shadow-pressed, 0 2px 4px rgba(0, 0, 0, 0.25));
+  transform: scale(0.98); /* pequeño feedback */
+}
+
+#confirm_edit_popup .btn.accept:disabled {
+  background: var(--button-add-color-hover);
+  color: var(--btn-text-disabled, var(--gray-500));
+  box-shadow: none;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/*  Ícono del popup de éxito */
+#edit_success_popup .icon_1_2.ok {
+  color: var(--secundary-700);
+  font-size: 50px;
+  margin-bottom: 16px;
+}
+
+/*  Animación suave al aparecer */
+@keyframes popupFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 🔳 Contenedores principales de los popups */
+#confirm_edit_order_popup,
+#edit_order_success_popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none; /* Oculto por defecto */
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Mostrar cuando tienen la clase "show" */
+#confirm_edit_order_popup.show,
+#edit_order_success_popup.show {
+  display: flex;
+}
+
+/* 📦 Contenido interno del popup */
+#confirm_edit_order_popup .popup-content,
+#edit_order_success_popup .popup-content {
+  background-color: var(--white);
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  width: 360px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  animation: popupFade 0.3s ease-in-out;
+}
+
+
+/* ✖️ Botón cerrar */
+#confirm_edit_order_popup .close-popup,
+#edit_order_success_popup .close-popup {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #666;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: color 0.2s ease;
+}
+
+
+#confirm_edit_order_popup .close-popup:hover,
+#edit_order_success_popup .close-popup:hover {
+  color: #000;
+}
+
+/* 🧩 Contenedor de botones en el popup de confirmación */
+#confirm_edit_order_popup .popup-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1.5rem;
+}
+
+/* 🔘 Botones generales */
+#confirm_edit_order_popup .btn {
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+/* 🔴 Botón cancelar */
+#confirm_edit_order_popup .btn.cancel {
+  background-color: var(--gray-100);
+  color: var(--gray-600);
+
+  padding: 8px 16px;
+  margin: var(--btn-margin, 0.5rem auto);
+
+  font-size: var(--btn-font-size, 0.875rem);
+  font-weight: var(--btn-font-weight, 500);
+  letter-spacing: var(--btn-letter-spacing, 0.02857em);
+
+  border: var(--btn-border, none);
+  border-radius: var(--btn-border-radius, 0.5rem);
+
+  min-height: var(--btn-min-height, 36px);
+  min-width: var(--btn-min-width, 56px);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--btn-gap, 0.5rem);
+
+  cursor: pointer;
+  user-select: none;
+  box-shadow: var(--btn-shadow, 0 1px 3px rgba(0, 0, 0, 0.15));
+  transition:
+    background var(--btn-transition-duration, 150ms) var(--btn-transition-timing, ease-in-out),
+    box-shadow var(--btn-transition-duration, 150ms) var(--btn-transition-timing, ease-in-out),
+    transform var(--btn-transition-duration, 150ms) var(--btn-transition-timing, ease-in-out);
+}
+
+#confirm_edit_order_popup .btn.cancel:hover {
+  background-color: var(--gray-200);
+}
+
+/* 🟢 Botón aceptar */
+#confirm_edit_order_popup .btn.accept {
+  background: var(--button-add-color);
+  color: var(--btn-text, var(--white));
+
+  padding: var(--btn-padding-y, 0.5rem) var(--btn-padding-x, 1rem);
+  margin: var(--btn-margin, 0.5rem auto);
+
+  font-size: var(--btn-font-size, 0.875rem);
+  font-weight: var(--btn-font-weight, 500);
+  letter-spacing: var(--btn-letter-spacing, 0.02857em);
+
+  border: var(--btn-border, none);
+  border-radius: var(--btn-border-radius, 0.5rem);
+
+  min-height: var(--btn-min-height, 36px);
+  min-width: var(--btn-min-width, 56px);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--btn-gap, 0.5rem);
+
+  cursor: pointer;
+  user-select: none;
+  box-shadow: var(--btn-shadow, 0 1px 3px rgba(0, 0, 0, 0.15));
+  transition:
+    background var(--btn-transition-duration, 150ms) var(--btn-transition-timing, ease-in-out),
+    box-shadow var(--btn-transition-duration, 150ms) var(--btn-transition-timing, ease-in-out),
+    transform var(--btn-transition-duration, 150ms) var(--btn-transition-timing, ease-in-out);
+}
+
+#confirm_edit_order_popup .btn.accept:hover {
+  background: var(--button-add-color-hover);
+  color: var(--btn-text-hover, var(--white));
+  box-shadow: var(--btn-shadow-hover, 0 2px 6px rgba(0, 0, 0, 0.2)); 
+}
+
+#confirm_edit_order_popup .btn.accept:active {
+  background: var(--button-add-color-hover);
+  color: var(--btn-text-pressed, var(--white));
+  box-shadow: var(--btn-shadow-pressed, 0 2px 4px rgba(0, 0, 0, 0.25));
+  transform: scale(0.98);
+}
+
+#confirm_edit_order_popup .btn.accept:disabled {
+  background: var(--button-add-color-hover);
+  color: var(--btn-text-disabled, var(--gray-500));
+  box-shadow: none;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* ✅ Ícono del popup de éxito */
+#edit_order_success_popup .icon_1_2.ok {
+  color: var(--secundary-700);
+  font-size: 50px;
+  margin-bottom: 16px;
+}
+
+/* ✨ Animación suave al aparecer */
+@keyframes popupFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 🔳 Contenedores principales de los popups */
+#confirm_settings_popup,
+#success_settings_popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none; /* Oculto por defecto */
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Mostrar cuando tienen la clase "show" */
+#confirm_settings_popup.show,
+#success_settings_popup.show {
+  display: flex;
+}
+
+/* 📦 Contenido interno del popup */
+#confirm_settings_popup .popup-content,
+#success_settings_popup .popup-content {
+  background-color: var(--white);
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  width: 360px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  animation: popupFade 0.3s ease-in-out;
+}
+
+/* ✖️ Botón cerrar */
+#confirm_settings_popup .close-popup,
+#success_settings_popup .close-popup {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #666;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: color 0.2s ease;
+}
+
+#confirm_settings_popup .close-popup:hover,
+#success_settings_popup .close-popup:hover {
+  color: #000;
+}
+
+/* 🧩 Contenedor de botones en el popup de confirmación */
+#confirm_settings_popup .popup-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1.5rem;
+}
+
+/* 🔘 Botones generales */
+#confirm_settings_popup .btn {
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+/* 🔴 Botón cancelar */
+#confirm_settings_popup .btn.cancel {
+  background-color: var(--gray-100);
+  color: var(--gray-600);
+
+  padding: 8px 16px;
+  margin: var(--btn-margin, 0.5rem auto);
+
+  font-size: var(--btn-font-size, 0.875rem);
+  font-weight: var(--btn-font-weight, 500);
+  letter-spacing: var(--btn-letter-spacing, 0.02857em);
+
+  border: var(--btn-border, none);
+  border-radius: var(--btn-border-radius, 0.5rem);
+
+  min-height: var(--btn-min-height, 36px);
+  min-width: var(--btn-min-width, 56px);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--btn-gap, 0.5rem);
+
+  cursor: pointer;
+  user-select: none;
+  box-shadow: var(--btn-shadow, 0 1px 3px rgba(0, 0, 0, 0.15));
+  transition:
+    background var(--btn-transition-duration, 150ms) var(--btn-transition-timing, ease-in-out),
+    box-shadow var(--btn-transition-duration, 150ms) var(--btn-transition-timing, ease-in-out),
+    transform var(--btn-transition-duration, 150ms) var(--btn-transition-timing, ease-in-out);
+}
+
+#confirm_settings_popup .btn.cancel:hover {
+  background-color: var(--gray-200);
+}
+
+/* 🟢 Botón aceptar */
+#confirm_settings_popup .btn.accept {
+  background: var(--button-add-color);
+  color: var(--btn-text, var(--white));
+
+  padding: var(--btn-padding-y, 0.5rem) var(--btn-padding-x, 1rem);
+  margin: var(--btn-margin, 0.5rem auto);
+
+  font-size: var(--btn-font-size, 0.875rem);
+  font-weight: var(--btn-font-weight, 500);
+  letter-spacing: var(--btn-letter-spacing, 0.02857em);
+
+  border: var(--btn-border, none);
+  border-radius: var(--btn-border-radius, 0.5rem);
+
+  min-height: var(--btn-min-height, 36px);
+  min-width: var(--btn-min-width, 56px);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--btn-gap, 0.5rem);
+
+  cursor: pointer;
+  user-select: none;
+  box-shadow: var(--btn-shadow, 0 1px 3px rgba(0, 0, 0, 0.15));
+  transition:
+    background var(--btn-transition-duration, 150ms) var(--btn-transition-timing, ease-in-out),
+    box-shadow var(--btn-transition-duration, 150ms) var(--btn-transition-timing, ease-in-out),
+    transform var(--btn-transition-duration, 150ms) var(--btn-transition-timing, ease-in-out);
+}
+
+#confirm_settings_popup .btn.accept:hover {
+  background: var(--button-add-color-hover);
+  color: var(--btn-text-hover, var(--white));
+  box-shadow: var(--btn-shadow-hover, 0 2px 6px rgba(0, 0, 0, 0.2)); 
+}
+
+#confirm_settings_popup .btn.accept:active {
+  background: var(--button-add-color-hover);
+  color: var(--btn-text-pressed, var(--white));
+  box-shadow: var(--btn-shadow-pressed, 0 2px 4px rgba(0, 0, 0, 0.25));
+  transform: scale(0.98);
+}
+
+#confirm_settings_popup .btn.accept:disabled {
+  background: var(--button-add-color-hover);
+  color: var(--btn-text-disabled, var(--gray-500));
+  box-shadow: none;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* ✅ Ícono del popup de éxito */
+#success_settings_popup .icon_1_2.ok {
+  color: var(--secundary-700);
+  font-size: 50px;
+  margin-bottom: 16px;
+}
+
+/* ✨ Animación suave al aparecer */
+@keyframes popupFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+
+

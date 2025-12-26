@@ -1,0 +1,45 @@
+/* Componente utilizado en todas las pantallas de administrador */
+
+/* =============================== */
+/* Footer Admin - BEM              */
+/* =============================== */
+
+.footer-admin {
+  background-color: var(--navbar-background);
+  border-top: 1px solid var(--white);
+  padding: 16px 20px;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  color: var(--white);
+  font-size: var(--fs-xxs);
+}
+
+.footer-admin__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.footer-admin__brand {
+  font-weight: 600;
+  color: var(--white);
+}
+
+.footer-admin__dev {
+  font-weight: 500;
+  color: rgb(87, 87, 233);
+}
+
+.footer-admin__info {
+  font-size: var(--fs-xxs);
+  color: var(--white);
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .footer-admin__content {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}

@@ -1,0 +1,115 @@
+/* Componente utilizado en index-admin.html de admin-pages */
+
+/* =============================== */
+/* Admin Dashboard - BEM           */
+/* =============================== */
+
+.admin-dashboard {
+  padding: 24px;
+  font-family: var(--main-font);
+  color: var(--navbar-background);
+}
+
+.admin-dashboard__header {
+  margin-bottom: 24px;
+}
+
+.admin-dashboard__title {
+  font-size: var(--fs-md);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.admin-dashboard__subtitle {
+  font-size: var(--fs-sm);
+  color: var(--gray-400);
+}
+
+/* Tarjetas */
+.admin-dashboard__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+  gap: 20px; /* espacio entre las cards */
+  margin-bottom: 32px;
+}
+
+.admin-dashboard__card {
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.295);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.admin-dashboard__card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.253);
+}
+
+.admin-dashboard__icon {
+  font-size: 32px;
+  background: var(--gray-50);
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.admin-dashboard__card {
+  display: flex;
+  text-decoration: none;
+  color: inherit; 
+}
+
+.admin-dashboard__card i {
+  color: inherit; 
+}
+
+
+.admin-dashboard__card:hover {
+  color: inherit;
+}
+
+
+.admin-dashboard__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-dashboard__number {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+
+.admin-dashboard__label {
+  font-size: var(--fs-xxs);
+  color: var(--gray-400);
+}
+
+/* Gráfica */
+.admin-dashboard__chart {
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.295);
+  padding: 20px;
+}
+
+.admin-dashboard__chart-title {
+  font-size: var(--fs-md);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.admin-dashboard__chart-placeholder {
+  height: 240px;
+  background: var(--white);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+

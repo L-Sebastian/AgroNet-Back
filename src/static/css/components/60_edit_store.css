@@ -1,0 +1,109 @@
+/* Componente utilizado en edit_store.html de seller-pages */
+
+.seller-edit {
+  max-width:400px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: var(--white);
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: var(--main-font);
+margin-top: 80px;
+}
+
+.seller__edit-body {
+  background-image: url("/frontend/public/assets/cafe-cultivos.jpg");
+  background-size: cover;         /* ajusta la imagen al tamaño de la pantalla */
+  background-repeat: no-repeat;   /* evita que se repita */
+  background-position: center;    /* centra la imagen */
+  height: 100vh;                  /* asegura que cubra toda la ventana */
+}
+
+.seller-edit__title {
+  font-size: var(--fs-md);
+  margin-bottom: 10px;
+  color: var(--black);
+  text-align: center;
+}
+
+.seller-edit__description {
+  text-align: center;
+  color: var(--gray-400);
+  margin-bottom: 20px;
+}
+
+.seller-edit__form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  
+}
+
+.seller-edit__group {
+  display: flex;
+  flex-direction: column;
+}
+
+.seller-edit__label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--gray-800);
+}
+
+.seller-edit__input {
+  padding: 10px 12px;
+  border: 1px solid var(--black);
+  border-radius: 8px;
+  transition: border-color 0.2s;
+  height: 48px;
+  max-height: 56px;
+  width: 320;
+  max-width: 400px;
+  font-size: var(--fs-xs);
+  
+}
+
+.seller-edit__input:focus {
+  outline: none;
+  border-color: var(--black);
+}
+
+.seller-edit__textarea {
+  resize: none;
+  font-size: var(--fs-xs);
+  font-family: var(--main-font);
+  height: 56px;
+}
+
+.seller-edit__actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.seller-edit__button {
+  background-color: var(--primary-600);
+  color: var(--white);
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s;
+  border: none;           /* quita el borde */
+  outline: none;          /* quita el contorno al enfocarse */
+  box-shadow: none;       /* elimina sombras internas */
+  cursor: pointer;        /* mantiene el cursor de botón */
+}
+
+.seller-edit__button:hover {
+  background-color: var(--primary-400);
+}
+
+.seller-edit__checkbox-group {
+  display: flex;
+  flex-direction: column; 
+  gap: 8px; 
+  margin-top: 8px;
+}
+
+

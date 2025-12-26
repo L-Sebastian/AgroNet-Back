@@ -1,0 +1,520 @@
+/* Componente utilizado en my_products.html de seller-pages */
+
+
+/* ======== PRODUCTS ======== */
+.my_products_two{
+  background-color: var(--gray-50);
+}
+
+.products {
+  padding: 2rem;
+  background: var(--gray-50);
+  min-height: 100vh;
+  margin-top: 6rem; /*  espacio debajo del navbar */
+  margin-bottom: 2rem;
+}
+
+.products__title {
+  text-align: center;
+  margin-bottom: -1px;
+  font-weight: bold;
+}
+
+.products__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* <-- Centra horizontalmente todo dentro */
+  gap: 12px; /* Espacio entre el botón y el filtro */
+}
+
+
+.products__button {
+  background-color: var(--primary-600);
+  color: var(--white);
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  margin-bottom: 16px;
+  margin-top: 20px;
+}
+
+.products__button:hover {
+  background-color: var(--primary-400);
+}
+
+
+.dropdown {
+  position: relative;   /*  Necesario para posicionar el menú respecto a este contenedor */
+  display: flex;
+  justify-content: flex-end;  /*  Alinea el botón (toggle) a la derecha */
+  margin-bottom: 20px;
+}
+
+.dropdown__toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* espacio entre texto e ícono */
+  background: var(--white);
+  border: 1px solid var(--gray-100);
+  padding: 12px 10px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.dropdown__menu {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background: var(--white);
+  border: 1px solid var(--gray-100);
+  border-radius: 8px;
+  list-style: none;
+  padding: 0.5rem 0;
+  margin: 0;
+  display: none; /* 🔹 Oculto por defecto */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  min-width: 160px;
+  z-index: 1000;
+  text-align: center;
+}
+
+
+.dropdown__menu li {
+    border-bottom: 1px solid var(--gray-100);
+}
+
+.dropdown__menu li:last-child {
+  border-bottom: none;
+}
+
+
+.dropdown__menu.show {
+  display: block; 
+}
+
+.dropdown__item {
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+}
+
+.dropdown__item:hover {
+  background: var(--gray-50);
+}
+
+.filter-icon {
+  color: var(--white); 
+  text-shadow: 
+    -1px -1px 0 var(--black),  
+     1px -1px 0 var(--black),
+    -1px  1px 0 var(--black),
+     1px  1px 0 var(--black); 
+}
+
+
+/* ======== PRODUCT GRID ======== */
+.products__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 1.5rem;
+}
+
+/* ======== PRODUCT CARD ======== */
+.product-card {
+  display: flex;
+  background: var(--white);
+  border: 1px solid var(--white);
+  border-radius: 8px;
+  overflow: hidden;
+  min-height: 180px; 
+}
+
+.product-card__img {
+  width: 30%;             /* ocupa todo el ancho del contenedor */
+  aspect-ratio: 16 / 10;   /* 🔸 más ancha que alta */
+  object-fit: cover;       /* recorta para que todas se vean iguales */
+  border-radius: 10px;     /* esquinas suaves */
+  padding: 0.5rem;
+  display: block;
+}
+
+.product-card__info {
+  padding: 0.5rem;
+  flex: 1;
+}
+
+.product-card__name {
+  margin-bottom: 0.3rem;
+}
+
+.product-card__price {
+  color: var(--gray-900);
+  margin-bottom: 0.2rem;
+  background-color: var(--primary-100);
+  display: inline-block;
+  padding: 0 4px;
+}
+
+.product-card__type span {
+  color: var(--secundary-600);
+}
+
+/* Menú de opciones en cada tarjeta */
+.product-card {
+  position: relative;
+  overflow: visible; /* Esto evita que se corte el menú */
+}
+
+.menu-card {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.menu-card__toggle {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--gray-700);
+  font-size: 1.5rem;
+}
+
+.menu-card__options {
+  position: absolute;
+  top: 120%;
+  right: 0;
+  background: var(--white);
+  border: 1px solid var(--gray-100);
+  border-radius: 8px;
+  list-style: none;
+  padding: 0.5rem 0;
+  margin: 0;
+  display: none;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  min-width: 140px;
+  z-index: 9999; /* 🔹 Siempre encima */
+  text-align: center;
+}
+
+.menu-card__item {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.menu-card__item:hover {
+  background: var(--gray-50);
+}
+
+.menu-card__options.show {
+  display: block;
+}
+
+.product-card__toggle {
+  position: absolute;
+  bottom: 10px;   /* distancia desde abajo */
+  right: 10px;    /* distancia desde la derecha */
+}
+
+
+
+/* 🔹 Estilos del switch */
+
+.product-card__toggle input[type="checkbox"] {
+  display: none;
+}
+
+#checkboxInput {
+  display: none;
+}
+
+.toggleSwitch {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  position: relative;
+  width: 50px;
+  height: 30px;
+  background-color: var(--gray-100);
+  border-radius: 20px;
+  cursor: pointer;
+  transition-duration: .2s;
+}
+
+.toggleSwitch::after {
+  content: "";
+  position: absolute;
+  height: 10px;
+  width: 10px;
+  left: 5px;
+  background-color: transparent;
+  border-radius: 50%;
+  transition-duration: .2s;
+  box-shadow: 5px 2px 7px rgba(8, 8, 8, 0.26);
+  border: 5px solid white;
+}
+
+/* Cuando está activado */
+input[type="checkbox"]:checked + .toggleSwitch {
+  background-color: var(--primary-400);
+}
+
+input[type="checkbox"]:checked + .toggleSwitch::after {
+  transform: translateX(100%);
+  background-color: white;
+}
+
+
+
+/*  Tablets */
+@media (max-width: 1024px) {
+  .products {
+    padding: 1.5rem;
+    margin-top: 4rem; /* un poco más de aire con el navbar */
+  }
+
+  .products__grid {
+    grid-template-columns: 2fr; /*  cambia a 1 columna */
+    gap: 1rem;
+  }
+
+  .product-card {
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+  }
+
+  .product-card__img {
+    width: 50%;
+    max-height: 200px;
+  }
+
+  .product-card__info {
+    padding: 1rem;
+  }
+
+  .product-card__actions {
+    justify-content: center; /*  botones al centro */
+  }
+}
+
+/*  Móviles */
+@media (max-width: 600px) {
+  .products {
+    padding: 1rem;
+    margin-top: 3rem; /* espacio justo con el navbar */
+  }
+
+  /* .products__title {
+    font-size: 1.4rem;
+  } */
+
+  .products__actions {     /* los coloca en fila */
+    flex-wrap: wrap;         /* permite que bajen si no hay espacio */
+    justify-content: center; /* centrados horizontalmente */
+    gap: 0.5rem;             /* espacio entre ellos */
+  }
+
+  .products__btn-publish,
+  .dropdown__toggle {
+    display: inline-flex;    /* botón + icono alineados */
+    align-items: center;     /* centra icono con texto */
+    padding: 0.4rem 0.8rem;  /* más compactos */
+    border-radius: 6px;
+    white-space: nowrap;     /* evita que el texto se corte en dos líneas */
+  }
+
+  .product-card {
+    min-height: auto;
+  }
+
+  .product-card__img {
+    max-height: 160px;
+    object-fit: contain; /* se adapta mejor */
+  }
+
+
+  .product-card__price {
+    /* font-size: 0.9rem; */
+    padding: 0 3px;
+  }
+
+  .product-card__btn-edit,
+  .product-card__btn-disable {
+    padding: 0.4rem 0.8rem;
+    /* font-size: 0.85rem; */
+  }
+
+  .product-card__btn-edit i {
+    margin-right: 4px; /* menos espacio */
+  }
+}
+
+/* --- POPUP DE ÉXITO --- */
+.popup {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.popup.show {
+  display: flex;
+}
+
+.popup-content {
+  background-color: var(--white);
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  width: 360px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  animation: popupFade 0.3s ease-in-out;
+  position: relative;
+}
+
+.icon.ok i {
+  font-size: 50px;
+  color: var(--primary-500);
+  margin-bottom: 5px;
+}
+
+.close-popup {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  cursor: pointer;
+  color: var(--gray-500);
+  font-size: 1.3rem;
+  transition: color 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.popup-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.popup-actions .btn {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.popup-actions:active {
+  transform: scale(0.97);
+}
+
+.popup-actions .btn.cancel {
+  background-color: var(--gray-100);
+  color: var(--gray-600);
+
+  padding: 8px 16px;
+  margin: var(--btn-margin, 0.5rem auto);
+
+  font-size: var(--btn-font-size, 0.875rem);
+  font-weight: var(--btn-font-weight, 500);
+  letter-spacing: var(--btn-letter-spacing, 0.02857em);
+
+  border: var(--btn-border, none);
+  border-radius: var(--btn-border-radius, 0.5rem);
+
+  min-height: var(--btn-min-height, 36px);
+  min-width: var(--btn-min-width, 56px);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--btn-gap, 0.5rem);
+
+  cursor: pointer;
+  user-select: none;
+  box-shadow: var(--btn-shadow, 0 1px 3px rgba(0, 0, 0, 0.15));
+  transition:
+    background var(--btn-transition-duration, 150ms) var(--btn-transition-timing, ease-in-out),
+    box-shadow var(--btn-transition-duration, 150ms) var(--btn-transition-timing, ease-in-out),
+    transform var(--btn-transition-duration, 150ms) var(--btn-transition-timing, ease-in-out);
+}
+
+.popup-actions .btn.cancel:hover {
+  background-color: var(--gray-200);
+}
+
+
+.popup-actions .btn.accept {
+  background: var(--btn-bg, var(--primary-500));
+  color: var(--btn-text, var(--white));
+
+  padding: var(--btn-padding-y, 0.5rem) var(--btn-padding-x, 1rem);
+  margin: var(--btn-margin, 0.5rem auto);
+
+  font-size: var(--btn-font-size, 0.875rem);
+  font-weight: var(--btn-font-weight, 500);
+  letter-spacing: var(--btn-letter-spacing, 0.02857em);
+
+  border: var(--btn-border, none);
+  border-radius: var(--btn-border-radius, 0.5rem);
+
+  min-height: var(--btn-min-height, 36px);
+  min-width: var(--btn-min-width, 56px);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--btn-gap, 0.5rem);
+
+  cursor: pointer;
+  user-select: none;
+  box-shadow: var(--btn-shadow, 0 1px 3px rgba(0, 0, 0, 0.15));
+  transition:
+    background var(--btn-transition-duration, 150ms) var(--btn-transition-timing, ease-in-out),
+    box-shadow var(--btn-transition-duration, 150ms) var(--btn-transition-timing, ease-in-out),
+    transform var(--btn-transition-duration, 150ms) var(--btn-transition-timing, ease-in-out);
+}
+
+.popup-actions .btn.accept:hover {
+  background: var(--btn-bg-hover, var(--primary-600));
+  color: var(--btn-text-hover, var(--white));
+  box-shadow: var(--btn-shadow-hover, 0 2px 6px rgba(0, 0, 0, 0.2)); 
+}
+
+.popup-actions .btn.accept:active {
+  background: var(--btn-bg-pressed, var(--primary-700));
+  color: var(--btn-text-pressed, var(--white));
+  box-shadow: var(--btn-shadow-pressed, 0 2px 4px rgba(0, 0, 0, 0.25));
+  transform: scale(0.98); /* pequeño feedback */
+}
+
+.popup-actions .btn.accept:disabled {
+  background: var(--btn-bg-disabled, var(--primary-200));
+  color: var(--btn-text-disabled, var(--gray-500));
+  box-shadow: none;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.popup-content.details {
+  max-width: 450px;
+  background: var(--white);
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: left;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.details-body p {
+  margin: 8px 0;
+}
+
+.details-body strong {
+  color: var(--gray-900, --gray-900);
+}

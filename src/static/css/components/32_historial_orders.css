@@ -1,0 +1,129 @@
+/* Componente utilizado en historial_orders.html de seller-pages */
+
+.body-orders {
+  background-color: var(--gray-50);
+}
+
+.myorders {
+  display: flex;
+  align-items: flex-start;
+  gap: 4rem;
+  width: 100%;
+}
+
+.orders-profile {
+  width: 75%;
+}
+
+.orders {
+  background-color: var(--white);
+  padding: 1rem 2rem;
+  width: 100%;
+}
+
+/* =============================== */
+/* Listado de pedidos (en columnas) */
+/* =============================== */
+.orders__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /*  exactamente 2 columnas */
+  gap: 3rem; /* espacio entre pedidos */
+  width: 100%;
+}
+
+/* =============================== */
+/* Bloque: order                   */
+/* =============================== */
+.order {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: var(--gray-50);
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  min-height: 90px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Pequeño efecto hover */
+.order:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.order__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.order__id {
+  margin: 0.7rem 4rem 0.8rem 0.3rem;
+  font-weight: bold;
+}
+
+.order__status {
+  display: inline-block;
+  margin: 0.3rem 0;
+  padding: 0.2rem 0.6rem;
+  border-radius: 10px;
+}
+
+/* Modificadores de estado */
+.order__status--enviado {
+  background-color: var(--primary-200);
+  color: var(--primary-900);
+}
+
+.order__status--pendiente {
+  background-color: var(--terciary-200);
+  color: var(--terciary-900);
+}
+
+/* Botón */
+.order__button {
+  background: var(--btn-bg, var(--primary-500));
+  color: var(--btn-text, var(--white));
+  padding: var(--btn-padding-y, 0.5rem) var(--btn-padding-x, 1rem);
+  margin: var(--btn-margin, 0.5rem auto);
+  margin-top: 1.8rem;
+  font-size: var(--btn-font-size, 0.875rem);
+  font-weight: var(--btn-font-weight, 500);
+  letter-spacing: var(--btn-letter-spacing, 0.02857em);
+  border: var(--btn-border, none);
+  border-radius: var(--btn-border-radius, 0.5rem);
+  min-height: var(--btn-min-height, 36px);
+  min-width: var(--btn-min-width, 56px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--btn-gap, 0.5rem);
+  cursor: pointer;
+  user-select: none;
+  box-shadow: var(--btn-shadow, 0 1px 3px rgba(0, 0, 0, 0.15));
+  transition:
+    background var(--btn-transition-duration, 150ms) var(--btn-transition-timing, ease-in-out),
+    box-shadow var(--btn-transition-duration, 150ms) var(--btn-transition-timing, ease-in-out),
+    transform var(--btn-transition-duration, 150ms) var(--btn-transition-timing, ease-in-out);
+}
+
+.order__button:hover {
+  background: var(--btn-bg-hover, var(--primary-600));
+  color: var(--btn-text-hover, var(--white));
+  box-shadow: var(--btn-shadow-hover, 0 2px 6px rgba(0, 0, 0, 0.2)); 
+}
+
+.order__button:active {
+  background: var(--btn-bg-pressed, var(--primary-700));
+  color: var(--btn-text-pressed, var(--white));
+  box-shadow: var(--btn-shadow-pressed, 0 2px 4px rgba(0, 0, 0, 0.25));
+  transform: scale(0.98);
+}
+
+.order__button:disabled {
+  background: var(--btn-bg-disabled, var(--primary-200));
+  color: var(--btn-text-disabled, var(--gray-500));
+  box-shadow: none;
+  cursor: not-allowed;
+  opacity: 0.7;
+}

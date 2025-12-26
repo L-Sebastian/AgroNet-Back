@@ -1,0 +1,20 @@
+<header class="header-orders">
+    <h1 class="header-orders__title">Historial de pedidos</h1>
+</header>
+
+<section class="customer-orders">
+  <!-- Contenedor dinámico -->
+  <div id="customerOrdersContainer" class="customer-orders__list"></div>
+
+  <!-- Template para clonar -->
+  <template id="customerOrderTemplate">
+    <article class="customer-orders__item">
+      <div class="customer-orders__info">
+        <h2 class="customer-orders__id"></h2>
+        <span class="customer-orders__status"></span>
+        <div class="customer-orders__items"></div>
+      </div>
+      <a href="/frontend/public/views/customer-pages/order-detail-customer.html" class="customer-orders__button">Ver más</a>
+    </article>
+  </template>
+</section>

@@ -1,0 +1,77 @@
+/* Componente utilizado en generate_report.html (customer-pages), historial_orders.html (customer-pages)
+my_profile.html (customer-pages), notifications.html (customer-pages) y start_sales.html (customer-pages) */
+
+
+/* =============================== */
+/* Sidebar - Mi cuenta             */
+/* =============================== */
+.sidebar {
+  margin-top: 90px;
+  margin-bottom: 90px;
+  width: 260px;
+  background-color: var(--gray-50);
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  margin-left: 1.5rem;
+}
+
+/* Título */
+.sidebar__title {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--gray-900);
+  margin: 0 0 20px 0px;
+  background: linear-gradient(135deg, var(--white), var(--primary-300));
+  border-radius: 8px;
+  padding: 14px 15px;
+}
+
+.sidebar__option {
+  background-color: var(--white);
+  box-shadow: 0 5px 6px rgba(2, 253, 56, 0.315);
+  border-radius: 8px;
+}
+
+/* Lista */
+.sidebar__menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+}
+
+/* Items */
+.sidebar__menu li {
+  margin-bottom: 8px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Enlaces */
+.sidebar__menu a {
+  display: block;
+  padding: 10px 15px;
+  color: var(--gray-900);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid transparent; /* base para que no se mueva al activar */
+}
+
+/* Hover */
+.sidebar__menu a:hover {
+  background-color: var(--primary-200);
+  border-color: var(--primary-200);
+  color: var(--primary-800);
+}
+
+/* Activo */
+.sidebar__menu li.active a {
+  background-color: var(--terciary-100); /* verde claro */
+  border: 2px solid var(--terciary-300);
+  box-shadow: 0 0 8px rgba(0, 128, 0, 0.2);
+  border-radius: 8px;
+  color: var(--terciary-900);
+  font-weight: 600;
+}

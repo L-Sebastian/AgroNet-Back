@@ -1,0 +1,208 @@
+/* Componente utilizado en my_profile.html (customer-pages) y my_profile.html (seller-pages) */
+
+.body-profile{
+    background-color: var(--gray-50);
+}
+
+.myprofile {
+  display: flex;
+  align-items: flex-start;
+  gap: 4rem;
+}
+
+.profile__card {
+  margin-bottom: 50px;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  background-color: var(--white);
+  padding: 2rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  width: 70vw;
+}
+
+/* Contenedor del avatar */
+.profiles__avatar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Círculo del perfil */
+.profiles__avatar {
+  position: relative;
+  margin-left: 20px;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background-color: var(--gray-100);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Icono dentro del círculo */
+.profiles__avatar i {
+  font-size: 60px;
+  color: var(--gray-500);
+}
+
+/* Lápiz pequeño sobre el borde inferior derecho */
+.edit-avatar-btn {
+  position: absolute;
+  bottom: 16px;
+  right: 10px;
+  background-color: var(--gray-300);
+  border: none;
+  color: var(--white);
+  width: 25px;   /* tamaño compacto */
+  height: 25px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.25);
+  transition: background 0.3s ease, transform 0.2s ease;
+  z-index: 2;
+}
+
+/* Ícono del lápiz dentro del botón */
+.edit-avatar-btn i {
+  font-size: 11px;  /* ajusta el tamaño del ícono */
+  color: white;
+}
+
+.edit-avatar-btn:hover {
+  background-color: var(--primary-500);
+  transform: scale(1.1);
+}
+
+/* Nombre o username */
+.profiles__usernames {
+  margin-top: 0.6rem;
+  margin-left: 2.4rem;
+}
+
+/* BLOQUE FORMULARIO */
+.profile-form {
+  flex: 1;
+}
+
+.profile-form__title {
+  margin: 0 5rem 1rem;
+  font-weight: var(--font-bold);
+}
+
+.profile-form__group {
+  margin-left: 50px;
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.profile-form__group--date {
+  margin-left: 48px;
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+
+.profile-form__input {
+  flex: 0 0 320px; /* ancho fijo dentro del flex */
+  height: 56px;
+  background-color: var(--gray-50);
+  border: 1px solid var(--gray-200);
+  padding: 10px;
+  border-radius: 6px;
+  text-align: center;
+  color: var(--gray-900);
+  box-sizing: border-box;
+}
+
+.profile-form__input--date {
+  flex: 0 0 210px; /* ancho fijo dentro del flex */
+  height: 56px;
+  background-color: var(--gray-50);
+  border: 1px solid var(--gray-200);
+  padding: 10px;
+  border-radius: 6px;
+  text-align: center;
+  color: var(--gray-900);
+  box-sizing: border-box;
+}
+
+.profile-form__input::placeholder {
+  color: var(--gray-900);
+}
+
+.profile-form__input--date::placeholder {
+  color: var(--gray-900);
+}
+
+.profile-form__input:disabled {
+  opacity: 0.8;
+}
+
+.profile-form__label {
+  font-weight: var(--font-bold);
+  color: var(--gray-900);
+  margin-bottom: 0.4rem;
+  margin-left: 5rem;
+  display: block;
+}
+
+.profile-form__btn {
+  background: var(--btn-bg, var(--primary-500));
+  color: var(--btn-text, var(--white));
+
+  padding: var(--btn-padding-y, 0.5rem) var(--btn-padding-x, 1rem);
+  margin: var(--btn-margin, 0.5rem auto);
+  margin-left: 730px;
+
+  font-size: var(--btn-font-size, 0.875rem);
+  font-weight: var(--btn-font-weight, 500);
+  letter-spacing: var(--btn-letter-spacing, 0.02857em);
+
+  border: var(--btn-border, none);
+  border-radius: var(--btn-border-radius, 0.5rem);
+
+  min-height: var(--btn-min-height, 36px);
+  min-width: var(--btn-min-width, 56px);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--btn-gap, 0.5rem);
+
+  cursor: pointer;
+  user-select: none;
+  box-shadow: var(--btn-shadow, 0 1px 3px rgba(0, 0, 0, 0.15));
+  transition:
+    background var(--btn-transition-duration, 150ms) var(--btn-transition-timing, ease-in-out),
+    box-shadow var(--btn-transition-duration, 150ms) var(--btn-transition-timing, ease-in-out),
+    transform var(--btn-transition-duration, 150ms) var(--btn-transition-timing, ease-in-out);
+}
+
+
+.profile-form__btn:hover {
+  background: var(--btn-bg-hover, var(--primary-600));
+  color: var(--btn-text-hover, var(--white));
+  box-shadow: var(--btn-shadow-hover, 0 2px 6px rgba(0, 0, 0, 0.2)); 
+}
+
+.profile-form__btn:active {
+  background: var(--btn-bg-pressed, var(--primary-700));
+  color: var(--btn-text-pressed, var(--white));
+  box-shadow: var(--btn-shadow-pressed, 0 2px 4px rgba(0, 0, 0, 0.25));
+  transform: scale(0.98); /* pequeño feedback */
+}
+
+.profile-form__btn:disabled {
+  background: var(--btn-bg-disabled, var(--primary-200));
+  color: var(--btn-text-disabled, var(--gray-500));
+  box-shadow: none;
+  cursor: not-allowed;
+  opacity: 0.7;
+}

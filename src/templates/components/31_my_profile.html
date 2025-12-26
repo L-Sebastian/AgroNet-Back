@@ -1,0 +1,51 @@
+<header class="header">
+    <h1 class="header__title">Mi perfil</h1>
+</header>
+
+<div class="profile">
+  <div class="profile__card">
+    <div class="profiles__avatar-container">
+      <div class="profiles__avatar">
+        <i class="fa-solid fa-user"></i>
+        <!--  Ícono de lápiz para editar foto -->
+        <a href="/frontend/public/views/customer-pages/profile_photo.html" class="edit-avatar-btn">
+          <i class="fa-solid fa-pen"></i>
+        </a>
+      </div>
+      <p class="profiles__usernames">@Usuario_1</p>
+    </div>
+    
+    <div class="profile-form">
+      <h2 class="profile-form__title">Datos personales</h2>
+
+      <div class="profile-form__group">
+        <input type="text" class="profile-form__input" placeholder="Nombre" disabled>
+        <input type="text" class="profile-form__input" placeholder="Apellido" disabled>
+      </div>
+
+      <div class="profile-form__group">
+        <input type="email" class="profile-form__input" placeholder="Correo electrónico" disabled>
+        <input type="tel" class="profile-form__input" placeholder="Número de teléfono" disabled>
+      </div>
+
+      <label class="profile-form__label">Tipo de documento</label>
+      <div class="profile-form__group">
+        <input type="text" class="profile-form__input" placeholder="Número de documento" disabled>
+        <input type="text" class="profile-form__input" placeholder="CC" disabled>
+      </div>
+
+
+      <label class="profile-form__label">Fecha de nacimiento</label>
+      <div class="profile-form__group--date">
+        <input type="text" class="profile-form__input--date" placeholder="30" disabled>
+        <input type="text" class="profile-form__input--date" placeholder="Mayo" disabled>
+        <input type="text" class="profile-form__input--date" placeholder="1990" disabled>
+      </div>
+
+      <button class="profile-form__btn profile-form__btn--edit" onclick="window.location.href='/frontend/public/views/customer-pages/edit_profile.html'">
+        <i class="fa-solid fa-pen"></i> Editar
+      </button>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,39 @@
+<!-- Sidebar (menú lateral) -->
+<aside class="sidebar-seller"></aside>
+
+<!-- Contenedor derecho (título + productos) -->
+<section class="disabled-products">
+  <div class="header2">
+    <h2 class="header2__title">Productos Deshabilitados</h2>
+  </div>
+
+  <!-- Este es el contenedor donde se insertarán las cards -->
+  <div class="disabled-products__list" id="disabled_products_container">
+    <!-- Aquí se agregarán los productos dinámicamente -->
+  </div>
+</section>
+
+<!--Template separado del contenedor -->
+<template id="disabled_product_template">
+  <div class="disabled-product__card">
+    <img src="" alt="Imagen del producto" class="disabled-product__image">
+    <div class="disabled-product__info">
+      <p class="disabled-product__name"></p>
+      <p class="disabled-product__price"></p>
+      <p class="disabled-product__type"></p>
+      <button class="disabled-product__btn">Habilitar</button>
+    </div>
+  </div>
+</template>
+
+<!-- Modal de éxito -->
+<div id="enable_success_modal" class="modal">
+  <div class="modal-content">
+    <span class="close" id="close_enable_modal"><i class="fa-solid fa-xmark"></i></span>
+    <div class="icon ok">
+      <i class="fa-solid fa-circle-check"></i>
+    </div>
+    <p>El producto se ha habilitado correctamente.</p>
+  </div>
+</div>
+

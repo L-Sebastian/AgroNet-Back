@@ -1,0 +1,83 @@
+<template id="my-products-template">
+  <section class="products">
+    <h2 class="products__title">Mis Productos Registrados</h2>
+
+    <div class="products__actions">
+      <a href="/frontend/public/views/seller-pages/create_product.html" class="products__button">
+        Registrar producto
+      </a>
+    </div>
+      <div class="dropdown">
+        <button class="dropdown__toggle"><i class="fa-solid fa-filter filter-icon"></i>Filtrar productos</button>
+        <ul class="dropdown__menu">
+          <li class="dropdown__item" data-filter="relevancia">Relevancia</li>
+          <li class="dropdown__item" data-filter="fecha">Nombre (A-Z)</li>
+          <li class="dropdown__item" data-filter="fecha">Nombre (Z-A)</li>
+          <li class="dropdown__item" data-filter="alfabetico">Precio (Mayor a Menor)</li>
+          <li class="dropdown__item" data-filter="alfabetico">Precio (Menor a Mayor)</li>
+          <li class="dropdown__item" data-filter="alfabetico">Tipo de Producto</li>
+
+        </ul>
+      
+    </div>
+
+    <div class="products__grid">
+      <!-- Aquí se inyectan los productos dinámicamente -->
+    </div>
+  </section>
+  <!-- Popup de éxito -->
+  <div id="publish_success_popup" class="popup">
+    <div class="popup-content">
+      <span class="close-popup"><i class="fa-solid fa-xmark"></i></span>
+      <div class="icon ok">
+        <i class="fa-solid fa-circle-check"></i>
+      </div>
+      <p>El producto se ha publicado con éxito.</p>
+    </div>
+  </div>
+
+  <!-- Popup de confirmación -->
+  <div id="disable_confirm_popup" class="popup">
+    <div class="popup-content">
+      <span class="close-popup"><i class="fa-solid fa-xmark"></i></span>
+      <div class="icon warning">
+      </div>
+      <p>¿Estás seguro de que deseas deshabilitar este producto?</p>
+      <div class="popup-actions">
+        <button class="btn cancel">Cancelar</button>
+        <button class="btn accept">Aceptar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Popup de éxito al deshabilitar -->
+  <div id="disable_success_popup" class="popup">
+    <div class="popup-content">
+      <span class="close-popup"><i class="fa-solid fa-xmark"></i></span>
+      <div class="icon ok">
+        <i class="fa-solid fa-circle-check"></i>
+      </div>
+      <p>El producto se ha deshabilitado con éxito.</p>
+    </div>
+  </div>
+  <!-- Popup de Detalles del Producto -->
+  <div id="details_popup" class="popup">
+    <div class="popup-content details">
+      <span class="close-popup"><i class="fa-solid fa-xmark"></i></span>
+      <h2>Detalles del Producto</h2>
+      <div class="details-body">
+        <p><strong>Nombre del producto:</strong> <span id="detail-name"></span></p>
+        <p><strong>Tipo de producto:</strong> <span id="detail-type"></span></p>
+        <p><strong>Precio:</strong> <span id="detail-price"></span></p>
+        <p><strong>Valor unitario:</strong> <span id="detail-unit"></span></p>
+        <p><strong>Stock:</strong> <span id="detail-stock"></span></p>
+        <p><strong>Descripción:</strong> <span id="detail-description"></span></p>
+        <p><strong>Unidades de peso:</strong> <span id="detail-unit-weight"></span></p>
+        <p><strong>Peso:</strong> <span id="detail-weight"></span></p>
+      </div>
+    </div>
+  </div>
+
+</template>
+
+

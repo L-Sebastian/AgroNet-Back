@@ -1,0 +1,27 @@
+<template id="template-profile-photo">
+  <section class="profile-photo-section">
+    <h2 class="profile-photo-section__title">Selecciona tu foto de perfil</h2>
+    <div class="profile-photo-grid"></div>
+
+    <!-- Modal de confirmación -->
+    <div id="photo_modal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="close_photo_modal">
+          <i class="fa-solid fa-xmark"></i>
+        </span>
+        <div class="icon">
+          <i class="fa-solid fa-image"></i>
+        </div>
+        <p id="photo_modal_text">¿Deseas establecer esta imagen como tu foto de perfil?</p>
+        <div class="logout_popup__buttons">
+          <button class="logout_popup__btn logout_popup__btn--cancel" id="cancel_photo">
+            Cancelar
+          </button>
+          <button class="logout_popup__btn logout_popup__btn--accept" id="accept_photo">
+            Aceptar
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>

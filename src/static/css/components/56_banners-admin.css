@@ -1,0 +1,141 @@
+/* Componente utilizado en banners.html de admin-pages */
+
+/* =============================== */
+/* Bloque principal: admin-banners */
+/* =============================== */
+.admin-banners {
+  background-color: var(--gray-50);
+  border-radius: 12px;
+  padding: 2rem;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.admin-banners__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.admin-banners__title {
+  font-size: var(--fs-md);
+  color: var(--primary-900);
+  font-weight: 600;
+}
+
+.admin-banners__add-btn {
+  background-color: var(--button-add-color);
+  color: var(--white);
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.admin-banners__add-btn:hover {
+  background-color: var(--button-add-color-hover);
+  transform: scale(1.05);
+}
+
+/* =============================== */
+/* Grid de banners                 */
+/* =============================== */
+.admin-banners__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columnas */
+  grid-template-rows: repeat(2, auto);  /* 2 filas */
+  gap: 2rem;
+}
+
+
+
+/* =============================== */
+/* Tarjeta individual              */
+/* =============================== */
+.banner-card {
+  background: var(--white);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.banner-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.banner-card__image-container {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+}
+
+.banner-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.banner-card:hover .banner-card__image {
+  transform: scale(1.05);
+}
+
+.banner-card__info {
+  padding: 1rem 1.2rem 1.5rem;
+}
+
+.banner-card__name {
+  color: var(--primary-800);
+  margin-bottom: 0.5rem;
+}
+
+.banner-card__desc {
+  color: var(--gray-700);
+  margin-bottom: 1rem;
+}
+
+/* =============================== */
+/* Botones de acción               */
+/* =============================== */
+.banner-card__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6rem;
+}
+
+.banner-card__btn {
+  border: none;
+  padding: 0.4rem 0.9rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.banner-card__btn--edit {
+  background-color: var(--boton-add-color);
+  color: var(--white);
+}
+
+.banner-card__btn--edit:hover {
+  background-color: var(--boton-add-color-hover);
+}
+
+.banner-card__btn--delete {
+  background-color: var(--button-add-color);
+  color: var(--white);
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.banner-card__btn--delete:hover {
+  background-color: var(--button-add-color-hover);
+}

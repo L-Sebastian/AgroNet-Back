@@ -1,0 +1,135 @@
+<section class="order-detail">
+  <div class="order-detail__content">
+    
+    <!-- Detalle principal del pedido -->
+    <div class="order-detail__main">
+      <div class="order-detail__header">
+        <h2 class="order-detail__title">AgroNet</h2>
+        <p class="order-detail__date">01/01/2025</p>
+        <p class="order-detail__id">Pedido#0219</p>
+
+        <!-- 🔹 Botón Ver factura -->
+        <button class="order-detail__invoice-button" id="openInvoice">Ver factura</button>
+
+      </div>
+
+      <div class="order-detail__info">
+        <div class="order-detail__seller">
+          <p><strong>Agricola_1</strong></p>
+          <p>Tel: 3123456789</p>
+          <p>Correo: agricola_1@gmail.com</p>
+        </div>
+
+        <table class="order-detail__table">
+          <thead>
+            <tr>
+              <th>Código</th>
+              <th>Productos</th>
+              <th>Cantidad</th>
+              <th>Precio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1009</td>
+              <td><strong>Naranja</strong></td>
+              <td>5</td>
+              <td>25.000</td>
+            </tr>
+            <tr>
+              <td>1001</td>
+              <td><strong>Manzana Gala</strong></td>
+              <td>3</td>
+              <td>16.500</td>
+            </tr>
+            <tr>
+              <td>1090</td>
+              <td><strong>Café</strong></td>
+              <td>1</td>
+              <td>31.000</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="order-detail__total">
+          <p><strong>TOTAL</strong></p>
+          <p><strong>72,500$</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lista lateral de pedidos -->
+    <aside class="order-detail__sidebar">
+      <h3 class="order-detail__subtitle">Otros pedidos</h3>
+      <div class="order-detail__cards">
+        <div class="order-card">
+          <p class="order-card__id">Pedido#0219</p>
+          <span class="order-card__status">Estado: Enviado</span>
+          <a href="/frontend/public/views/seller-pages/order_detail.html" class="order-card__button">Ver más</a>
+        </div>
+
+        <div class="order-card">
+          <p class="order-card__id">Pedido#0218</p>
+          <span class="order-card__status">Estado: En preparación</span>
+          <a href="/frontend/public/views/seller-pages/order_detail.html" class="order-card__button">Ver más</a>
+        </div>
+
+        <div class="order-card">
+          <p class="order-card__id">Pedido#0217</p>
+          <span class="order-card__status">Estado: Entregado</span>
+          <a href="/frontend/public/views/seller-pages/order_detail.html" class="order-card__button">Ver más</a>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- =============================== -->
+<!-- Modal de factura (oculto por defecto) -->
+<!-- =============================== -->
+<div class="invoice-modal" id="invoiceModal">
+  <div class="invoice-modal__overlay"></div>
+
+  <div class="invoice-modal__content">
+    <button class="invoice-modal__close" id="closeInvoice">&times;</button>
+    <h2 class="invoice-modal__title">Factura del pedido #0219</h2>
+
+    <div class="invoice-modal__body">
+      <p><strong>Cliente:</strong> Juan Pérez</p>
+      <p><strong>Vendedor:</strong> Agricola_1</p>
+      <p><strong>Fecha:</strong> 01/01/2025</p>
+
+      <table class="invoice-modal__table">
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Naranja</td>
+            <td>5</td>
+            <td>25.000</td>
+          </tr>
+          <tr>
+            <td>Manzana Gala</td>
+            <td>3</td>
+            <td>16.500</td>
+          </tr>
+          <tr>
+            <td>Café</td>
+            <td>1</td>
+            <td>31.000</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="invoice-modal__total">
+        <strong>Total: 72.500$</strong>
+      </div>
+    </div>
+  </div>
+</div>
+

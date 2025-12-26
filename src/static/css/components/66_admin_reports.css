@@ -1,0 +1,192 @@
+/* Componente utilizado en reports.html de admin-pages */
+
+/* =============================== */
+/* Componente: admin-reports       */
+/* Metodología: BEM                */
+/* =============================== */
+
+.admin-reports {
+  padding: 20px;
+  background-color: var(--white);
+  min-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ---------- Header ---------- */
+.admin-reports__header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.admin-reports__title {
+  font-size: var(--fs-md);
+  font-weight: 600;
+  color: var(--black);
+}
+
+.admin-reports__actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.admin-reports__btn {
+  background-color: var(--button-add-color);
+  color: var(--white);
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.admin-reports__btn i {
+  margin-right: 6px;
+}
+
+.admin-reports__btn:hover {
+  background-color: var(--button-add-color-hover);
+  transform: scale(1.05);
+}
+
+.admin-reports__search {
+  padding: 8px 12px;
+  border: 1px solid var(--gray-200);
+  border-radius: 6px;
+  width: 250px;
+}
+
+/* ---------- Tabla ---------- */
+.admin-reports__table-container {
+  overflow-x: auto;
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.admin-reports__table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  min-width: 1000px;
+}
+
+.admin-reports__table th,
+.admin-reports__table td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--gray-200);
+  word-wrap: break-word;
+  font-size: var(--fs-xxs);
+  color: var(--black);
+}
+
+.admin-reports__table th {
+  background-color: var(--gray-100);
+  font-weight: 600;
+}
+
+.admin-reports__table th:last-child,
+.admin-reports__table td:last-child {
+  width: 180px;
+  text-align: center;
+}
+
+/* ---------- Botones de acciones ---------- */
+.admin-reports__actions-btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+
+.admin-reports__btn--view {
+  background-color: var(--button-view-color);
+}
+
+.admin-reports__btn--resolve {
+  background-color: var(--primary-600);
+}
+
+.admin-reports__btn--delete {
+  background-color: var(--button-delete-color);
+}
+
+.admin-reports__btn--view:hover {
+  background-color: var(--button-view-hover-color);
+}
+
+.admin-reports__btn--resolve:hover {
+  background-color: var(--primary-700);
+}
+
+.admin-reports__btn--delete:hover {
+  background-color: var(--button-delete-hover-color);
+}
+
+/* ---------- Modal ---------- */
+.admin-reports__modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.admin-reports__modal-content {
+  background-color: var(--white);
+  padding: 25px;
+  border-radius: 10px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.admin-reports__modal-title {
+  margin-bottom: 10px;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--black);
+}
+
+.admin-reports__modal-body {
+  margin-bottom: 15px;
+  font-size: 14px;
+  color: var(--black);
+}
+
+.admin-reports__btn--close {
+  background-color: var(--gray-400);
+  width: 100%;
+}
+
+.admin-reports__btn--close:hover {
+  background-color: var(--gray-500);
+}
+
+/* ---------- Responsividad ---------- */
+@media (max-width: 768px) {
+  .admin-reports__actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .admin-reports__search {
+    width: 100%;
+  }
+
+  .admin-reports__table {
+    font-size: 13px;
+  }
+
+  .admin-reports__table th,
+  .admin-reports__table td {
+    padding: 8px 10px;
+  }
+}

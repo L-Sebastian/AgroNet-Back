@@ -1,0 +1,122 @@
+<template>
+  <main class="form__container">
+    <!-- Columna izquierda -->
+    <div class="left__side">
+      <div class="form__group form__group--image">
+        <label for="description">Imagen del producto</label>
+        <div class="image__box">
+          Haz clic para subir una imagen del producto
+        </div>
+      </div>
+      <div class="form__group form__group--id_vendor">
+        <label for="id_vendor">Tipo de envío</label>
+        <input type="text" id="id_vendor" placeholder="Opcional">
+      </div>
+    </div>
+
+    <!-- Columna derecha -->
+    <div class="right__side">
+      <div class="form__group form__group--name">
+        <label for="nombre">Nombre del producto</label>
+        <input type="text" id="nombre" required>
+      </div>
+
+      <div class="form__group form__group--description">
+        <label for="description">Descripción</label>
+        <textarea id="description" required></textarea>
+      </div>
+
+      <div class="form__group form__group--category dropdown">
+        <label for="category">Categoría</label>
+        <select id="category" name="category" class="hidden-select" required>
+          <option value="" disabled selected hidden></option>
+          <option value="frutas">Frutas</option>
+          <option value="verduras">Verduras</option>
+          <option value="granos">Granos</option>
+          <option value="animal">Animal</option>
+        </select>
+        <div class="dropdown__wrapper">
+          <div class="dropdown__trigger">
+            <span>Selecciona una opción</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="dropdown__options">
+            <div class="dropdown__option" data-value="frutas">Frutas</div>
+            <div class="dropdown__option" data-value="verduras">Verduras</div>
+            <div class="dropdown__option" data-value="granos">Granos</div>
+            <div class="dropdown__option" data-value="animal">Animal</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form__group form__group--unit dropdown">
+        <label for="unit">Unidades de Peso</label>
+        <select id="unit" name="unit" class="hidden-select" required>
+          <option value="" disabled selected hidden></option>
+          <option value="kilogramo">Kilogramo</option>
+          <option value="gramo">Gramo</option>
+          <option value="tonelada">Tonelada</option>
+          <option value="libra">Libra</option>
+          <option value="onza">Onza</option>
+          <option value="arroba">Arroba</option>
+          <option value="bulto">Bulto</option>
+        </select>
+        <div class="dropdown__wrapper">
+          <div class="dropdown__trigger">
+            <span>Selecciona una opción</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="dropdown__options">
+            <div class="dropdown__option" data-value="kilogramo">Kilogramo</div>
+            <div class="dropdown__option" data-value="gramo">Gramo</div>
+            <div class="dropdown__option" data-value="tonelada">Tonelada</div>
+            <div class="dropdown__option" data-value="libra">Libra</div>
+            <div class="dropdown__option" data-value="onza">Onza</div>
+            <div class="dropdown__option" data-value="arroba">Arroba</div>
+            <div class="dropdown__option" data-value="bulto">Bulto</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form__group form__group--price">
+        <label for="price">Precio</label>
+        <input type="number" id="price" step="0.01" min="0" required>
+      </div>
+
+      <div class="form__group form__group--weight">
+        <label for="weight">Peso</label>
+        <input type="number" id="weight" step="0.01" min="0" required>
+      </div>
+
+      <div class="form__group form__group--worth">
+        <label for="worth">Valor unitario</label> <!-- Corregido 'for' -->
+        <input type="number" id="worth" step="0.01" min="0" required> <!-- Corregido 'id' -->
+      </div>
+
+      <div class="form__group form__group--stock">
+        <label for="stock">Stock</label>
+        <input type="number" id="stock" min="0" required>
+      </div>
+    </div>
+  </main>
+
+  <button class="opinions__btn-publish_product">
+    <i class="fa-solid fa-paper-plane"></i> Registrar
+  </button>
+  <!-- Modal dentro del template -->
+  <div id="success_modal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="close_success"><i class="fa-solid fa-xmark"></i></span>
+      <div class="icon ok">
+        <i class="fa-solid fa-circle-check"></i>
+      </div>
+      <p>Producto registrado con éxito.</p>
+    </div>
+  </div>
+</template>
+
+
+
+
+
+

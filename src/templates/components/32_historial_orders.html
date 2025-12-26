@@ -1,0 +1,21 @@
+<header class="header">
+    <h1 class="header__title">Historial de pedidos</h1>
+</header>
+
+
+<section class="orders">
+  <!-- Contenedor dinámico -->
+  <div id="ordersContainer" class="orders__list"></div>
+
+  <!-- Template para clonar -->
+  <template id="orderTemplate">
+    <article class="order">
+      <div class="order__info">
+        <h2 class="order__id"></h2>
+        <span class="order__status"></span>
+        <div class="order__items"></div>
+      </div>
+       <a href="/frontend/public/views/seller-pages/order_detail.html" class="order__button">Ver más</a>
+    </article>
+  </template>
+</section>

@@ -1,0 +1,72 @@
+<div class="header1">
+    <h1 class="header1__title">Generar reporte</h1>
+</div>
+
+<div class="report">
+  <h2 class="report__title">Reporte</h2>
+  <p class="report__subtitle">Generar reporte</p>
+
+  <hr class="report__divider">
+
+  <form id="report-form" class="report__form">
+    <label for="subject" class="report__label">Asunto</label>
+    <select id="subject" name="subject" class="report__select" required>
+      <option value="">Seleccione una opción</option>
+      <option value="report_seller">Reportar Vendedor</option>
+      <option value="purchase_issue">Problema con la compra</option>
+      <option value="other">Otro</option>
+    </select>
+
+    <label for="details" class="report__label">Especificación</label>
+    <input 
+      type="text" 
+      id="details" 
+      name="details" 
+      class="report__input" 
+      placeholder="Ingrese el nombre de usuario" 
+      required
+    >
+
+    <label for="message" class="report__label1">Mensaje:</label>
+    <textarea 
+      id="message" 
+      name="message" 
+      class="report__textarea" 
+      rows="6" 
+      placeholder="texto...texto...texto..." 
+      required
+    ></textarea>
+
+    <div class="report__actions">
+      <button type="submit" class="report__btn report__btn--send">
+        <i class="fa-solid fa-paper-plane"></i>
+        Enviar
+      </button>
+    </div>
+  </form>
+</div>
+
+
+<!-- POPUP CONFIRMACIÓN -->
+<div id="report_confirm_popup" class="logout_popup">
+  <div class="logout_popup__content" id="popup_content">
+    <p class="logout_popup__text">¿Deseas enviar este reporte?</p>
+    <div class="logout_popup__buttons">
+      <button id="report_cancel" class="logout_popup__btn logout_popup__btn--cancel">Cancelar</button>
+      <button id="report_accept" class="logout_popup__btn logout_popup__btn--accept">Enviar</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL DE ÉXITO -->
+<div id="report_success_modal" class="modal">
+  <div class="modal-content" id="modal_content">
+    <span id="close_success" class="close">
+      <i class="fa-solid fa-xmark"></i>
+    </span>
+    <i class="fa-solid fa-circle-check icon"></i>
+    <h2>Reporte enviado correctamente</h2>
+    <p>Gracias por tu colaboración.</p>
+  </div>
+</div>
+

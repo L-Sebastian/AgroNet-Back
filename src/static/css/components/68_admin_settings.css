@@ -1,0 +1,182 @@
+/* Componente utilizado en settings.html de admin-pages */
+
+/* =============================== */
+/* Componente: admin-settings      */
+/* Metodología: BEM                */
+/* =============================== */
+
+.admin-settings {
+  padding: 20px;
+  background-color: var(--white);
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.admin-settings__header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.admin-settings__title {
+  font-size: var(--fs-md);
+  font-weight: 600;
+  color: var(--black);
+}
+
+.admin-settings__subtitle {
+  font-size: var(--fs-sm);
+  color: var(--gray-700);
+}
+
+.admin-settings__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+/* ---------- Tarjetas ---------- */
+.admin-settings__card {
+  background-color: var(--white);
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.404);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.admin-settings__card-title {
+  font-weight: 600;
+  color: var(--button-view-color);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ---------- Formulario ---------- */
+.admin-settings__form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.admin-settings__form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.admin-settings__label {
+  color: var(--black);
+}
+
+.admin-settings__input {
+  padding: 8px 12px;
+  border: 1px solid var(--gray-200);
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.admin-settings__input:focus {
+  border-color: var(--black);
+}
+
+/* ---------- Botones ---------- */
+.admin-settings__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background-color: var(--button-view-color);
+  color: var(--white);
+  border: none;
+  padding: 10px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.admin-settings__btn:hover {
+  background-color: var(--button-view-hover-color);
+  transform: scale(1.05);
+}
+
+.admin-settings__btn--secure {
+  background-color: var(--primary-600);
+}
+
+.admin-settings__btn--secure:hover {
+  background-color: var(--primary-500);
+}
+
+/* ---------- Switch ---------- */
+.admin-settings__options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.admin-settings__option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--black);
+}
+
+/* Interruptor personalizado */
+.admin-settings__switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+}
+
+.admin-settings__switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.admin-settings__slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: var(--gray-200);
+  border-radius: 24px;
+  transition: 0.4s;
+}
+
+.admin-settings__slider::before {
+  content: "";
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: var(--white);
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+.admin-settings__switch input:checked + .admin-settings__slider {
+  background-color: var(--button-view-color);
+}
+
+.admin-settings__switch input:checked + .admin-settings__slider::before {
+  transform: translateX(20px);
+}
+
+/* ---------- Responsividad ---------- */
+@media (max-width: 768px) {
+  .admin-settings__title {
+    font-size: 1.5rem;
+  }
+
+  .admin-settings__container {
+    grid-template-columns: 1fr;
+  }
+}

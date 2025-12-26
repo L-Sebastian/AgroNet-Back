@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "nombre": "Huevos",
+    "precio": "$20 por kg",
+    "tipo": "Animal",
+    "imagen": "/frontend/public/assets/huevos.jpg"
+  },
+  {
+    "id": 2,
+    "nombre": "Frijol",
+    "precio": "$20 por kg",
+    "tipo": "Grano",
+    "imagen": "/frontend/public/assets/frijol.jpg"
+  },
+  {
+    "id": 2,
+    "nombre": "Manzana Gala",
+    "precio": "$20 por kg",
+    "tipo": "fruta",
+    "imagen": "/frontend/public/assets/manzanagala.jpg"
+  },
+  {
+    "id": 3,
+    "nombre": "Cebolla Larga",
+    "precio": "$20 por kg",
+    "tipo": "fruta",
+    "imagen": "/frontend/public/assets/cebolla_larga.jpg"
+  }
+]

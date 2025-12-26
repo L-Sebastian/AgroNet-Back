@@ -1,0 +1,39 @@
+[
+  {
+    "usuario": "@usuario1",
+    "nombre": "Carolina Torres",
+    "correo": "carolinatorres@gmail.com",
+    "telefono": "3102211486"
+  },
+  {
+    "usuario": "@usuario2",
+    "nombre": "Andrés Gómez",
+    "correo": "andresgomez@hotmail.com",
+    "telefono": "3129985470"
+  },
+  {
+    "usuario": "@usuario3",
+    "nombre": "Laura Hernández",
+    "correo": "laurahdz@gmail.com",
+    "telefono": "3201159987"
+  },
+  {
+    "usuario": "@usuario4",
+    "nombre": "Santiago Rojas",
+    "correo": "santi.rojas@gmail.com",
+    "telefono": "3017763345"
+  },
+  {
+    "usuario": "@usuario5",
+    "nombre": "Juan Alberto",
+    "correo": "Juan@gmail.com",
+    "telefono": "3017763345"
+  },
+  {
+    "usuario": "@usuario6",
+    "nombre": "María Fernanda López",
+    "correo": "mariaf.lopez@gmail.com",
+    "telefono": "3185562231"
+  }
+]
+

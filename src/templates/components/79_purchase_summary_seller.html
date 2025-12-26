@@ -1,0 +1,31 @@
+<section class="checkout-summary">
+  <h2 class="checkout-summary__title">Resumen de tu pedido</h2>
+
+  <div class="checkout-summary__vendors" id="summaryVendors"></div>
+
+  <button class="checkout-summary__confirm-btn" id="confirmOrderBtn">
+    Confirmar pedido
+  </button>
+</section>
+<!--  Popup de confirmación -->
+<div id="confirm_order_popup" class="popup">
+  <div class="popup-content">
+    <span class="close-popup"></span>
+    <p>¿Estás seguro de que deseas confirmar tu pedido?</p>
+    <div class="popup-buttons">
+      <button class="btn cancel">Cancelar</button>
+      <button class="btn accept">Aceptar</button>
+    </div>
+  </div>
+</div>
+
+<!-- 🟢 Popup de éxito -->
+<div id="success_order_popup" class="popup">
+  <div class="popup-content">
+    <span class="close-popup"><i class="fa-solid fa-xmark"></i></span>
+    <div class="icon ok">
+      <i class="fa-solid fa-circle-check"></i>
+    </div>
+    <p>¡Tu pedido ha sido enviado correctamente!</p>
+  </div>
+</div>

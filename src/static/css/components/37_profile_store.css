@@ -1,0 +1,151 @@
+/* Componente utilizado en profile_store.html de seller-pages */
+
+.store-profile {
+  width: 100%;
+  max-width: 1000px;
+  margin: 30px auto;
+  background-color: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  font-family: var(--main-font);
+  color: var(--black);
+  margin-top: 85px;
+}
+
+.store-profile__header {
+  position: relative;
+}
+
+.store-profile__banner {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  filter: brightness(0.8);
+}
+
+.store-profile__info {
+  position: absolute;
+  bottom: -50px;
+  left: 40px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.store-profile__avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 4px solid var(--primary-400);
+  object-fit: cover;
+  background-color: var(--gray-500);
+}
+
+.store-profile__details {
+  display: flex;
+  flex-direction: column;
+}
+
+.store-profile__name {
+  font-size: var(--fs-md);
+  margin: 0;
+  color: var(--white);
+  height: 5rem;
+}
+
+.store-profile__category {
+  margin: 4px 0 0;
+  color: var(--black);
+}
+
+.store-profile__body {
+  padding: 80px 40px 40px;
+}
+
+.store-profile__section {
+  margin-bottom: 40px;
+}
+
+.store-profile__title {
+  color: var(--black);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.store-profile__text {
+  background-color: var(--gray-100);
+  padding: 15px;
+  border-radius: 8px;
+  min-height: 60px;
+}
+
+.store-profile__button {
+  background-color: var(--primary-600);
+  color: var(--white);
+  border: none;
+  padding: 10px 15px;
+  font-size: var(--fs-xs);
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+  margin: 20px;
+  margin-left: 1px;
+}
+
+.store-profile__products {
+  background-color: var(--primary-600);
+  color: var(--white);
+  border: none;
+  padding: 10px 15px;
+  font-size: var(--fs-xs);
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+  margin: 20px;
+  margin-left: 1px;
+}
+
+.store-profile__button:hover {
+  background-color: var(--primary-400);
+}
+
+.store-profile__products:hover {
+  background-color: var(--primary-400);
+}
+
+.store-profile__payments-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.store-profile__payment-item {
+  background-color: var(--gray-100);
+  padding: 10px 12px;
+  margin-bottom: 6px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+@media (max-width: 768px) {
+  .store-profile__info {
+    flex-direction: column;
+    align-items: flex-start;
+    bottom: -40px;
+  }
+
+  .store-profile__avatar {
+    width: 80px;
+    height: 80px;
+  }
+
+  .store-profile__body {
+    padding: 70px 20px 30px;
+  }
+}
+

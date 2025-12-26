@@ -1,0 +1,143 @@
+/* Componente utilizado en address_book.html de seller-pages */
+
+.body-address {
+  background-color: var(--gray-50);
+}
+
+.myaddress {
+  display: flex;
+  align-items: flex-start;
+  gap: 4rem;
+}
+
+/* Contenedor principal de productos */
+.disabled-products2 {
+  flex: 1;
+  padding-right: 30px;
+  box-sizing: border-box;
+  margin-bottom: 50px;
+}
+
+/* Encabezado */
+.header2 {
+  margin-top: 110px;
+  padding: 2px 15px;
+  width: 100%;
+  /* max-width: 1000px; */
+  background: linear-gradient(to right, var(--primary-300), var(--primary-100));
+  margin-bottom: 10px;
+  overflow: hidden;
+  position: relative; 
+  left: 0;
+  right: 0;
+}
+
+.header2__title {
+  font-size: var(--fs-md);
+}
+
+/* Lista y tarjetas */
+.disabled-products__list2 {
+  display: grid; /* cambia flex por grid */
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 columnas exactas */
+  gap: 20px;
+  justify-items: stretch;
+  align-items: start;
+}
+
+.disabled-product__card2 {
+  position: relative;
+  width: 550px;
+  display: flex;
+  align-items: center;
+  background-color: var(--white);
+  border: 1px solid var(--gray-100);
+  border-radius: 6px;
+  padding: 10px;
+}
+
+/* Menú de tres puntitos en las cards */
+.card-options {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+}
+
+.options-btn {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--gray-600);
+}
+
+.options-btn:hover {
+  color: var(--gray-900);
+}
+
+/* Menú desplegable */
+.options-menu {
+  display: none;
+  position: absolute;
+  top: 28px;
+  right: 0;
+  background-color: var(--white);
+  border: 1px solid var(--gray-100);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 150px;
+  z-index: 10;
+}
+
+.option-item {
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 10px;
+  text-align: left;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--gray-800);
+}
+
+.option-item:hover {
+  background-color: var(--gray-50);
+}
+
+
+.disabled-product__info2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.disabled-product__name2 {
+  color: var(--gray-900);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* contenedor de la parte inferior */
+.disabled-product__bottom2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  gap: 45px;
+  margin-top: auto; /* empuja hacia abajo */
+}
+
+.disabled-product__price2 {
+  background-color: var(--primary-100);
+  color: var(--primary-900);
+  padding: 3px 6px;
+  border-radius: 4px;
+  width: fit-content;
+}
+
+.disabled-product__type2 {
+  color: var(--gray-900);
+  margin-bottom: 10px;
+}
+

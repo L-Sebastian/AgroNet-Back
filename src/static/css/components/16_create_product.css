@@ -1,0 +1,318 @@
+.body-create{
+  background-color: var(--white);
+}
+
+.form__container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  padding: 3rem; /* espacio interno */
+  background: var(--white); /* fondo blanco */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* sombra */
+  gap: 2.4rem; 
+  margin: 9rem auto 2rem auto; /* cambia los márgenes laterales a auto */
+  max-width: 1050px; /* ancho máximo del formulario */
+}
+
+/* Quitar borde negro al enfocar */
+.form__container input:focus,
+.form__container textarea:focus,
+.form__container select:focus {
+  outline: none; 
+  border: 1px solid var(--gray-500); 
+  box-shadow: none;
+}
+
+
+.form__group {
+  display: flex;
+  flex-direction: column; /* label arriba y input abajo */
+  align-items: flex-start; /* alineados a la izquierda */
+  gap: 0.4rem; /* espacio entre label e input */
+}
+
+
+
+.image__box {
+  border: 1px solid var(--gray-200);
+  min-height: 230px !important;
+  height: 65%;
+  max-height: 240px !important;
+  width: 100%;
+  background: var(--gray-50); 
+  display: grid; 
+  place-items: center; /* centra el texto */
+  color: var(--gray-400);
+  text-align: center; 
+  padding: 1rem; 
+  cursor: pointer; /* indica que se puede clicar */
+  max-width: 298px;
+}
+
+.image__box:hover {
+  border-color: var(--gray-800);
+  color: var(--gray-800);
+}
+
+.form__group--id_vendor {
+  padding: 1.2rem 0 0 0; /* espacio arriba */
+}
+
+.form__container > .form__group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.right__side {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* divide en 2 columnas iguales */
+  gap: 24px 24px; /*  24px entre columnas y filas */
+}
+
+.left__side {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  padding: 0;
+  margin: 0;
+}
+
+
+
+/*  Campos */
+.form__group label {
+  font-weight: var(--main-font);
+  font-size: var(--fs-xxxs);
+  color: var(--gray-900);
+}
+
+
+
+.form__group input,
+.form__group textarea {
+  padding: 0.7rem;
+  background-color: var(--gray-50);
+  border-radius: 6px;
+  width: 100%;       /*  ocupa todo el grupo */
+  box-sizing: border-box;
+}
+
+.form__group input,
+.form__group textarea,
+.dropdown__trigger {
+  width: 320px !important;   /* ancho fijo */
+  height: 56px;              /* altura fija */
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--gray-200);
+  background-color: var(--gray-50);
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.form__group textarea {
+  resize: none;
+  min-height: 150px;
+}
+
+/*  Ubicación en el grid */
+.form__group--name { 
+  grid-column: 1; 
+  grid-row: 1; 
+}
+
+.form__group--category { 
+  grid-column: 1; 
+  grid-row: 2; 
+}
+
+.form__group--price { 
+  grid-column: 1; 
+  grid-row: 3; 
+}
+
+.form__group--worth { 
+  grid-column: 1; 
+  grid-row: 4; 
+}
+
+.form__group--description { 
+  grid-column: 2; 
+  grid-row: 1 / 5;
+  height: 100%;
+}
+
+.form__group--description textarea {
+  width: 100%;
+  height: 65%;  /*  clave para que se estire */
+  resize: none;  /* opcional: evitar que lo redimensionen */
+}
+
+.form__group--unit { 
+  grid-column: 2; 
+  grid-row: 4; 
+}
+
+.form__group--weight { 
+  grid-column: 2; 
+  grid-row: 5; 
+}
+
+.form__group--stock { 
+  grid-column: 1; 
+  grid-row: 5; 
+}
+
+.form__group--id_vendor{
+  margin: 0;
+  padding: 0;
+}
+
+
+.hidden-select {
+  display: none; /* se oculta el select real */
+}
+
+.dropdown__wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 266px;
+  user-select: none;
+}
+
+.dropdown__trigger {
+  border: 1px solid var(--gray-200);
+  background: var(--gray-50);
+  border-radius: 6px;
+  padding: 0.7rem;
+  color: var(--gray-50);
+  font-style: var(--btn-font-weight);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.dropdown__trigger i {
+  /* font-size: var(--fs-xxxx); */
+  color: var(--gray-500)
+}
+
+.dropdown__options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--white);
+  border: 1px solid var(--gray-50);
+  border-radius: 8px;
+  margin-top: 0.2rem;
+  display: none;
+  flex-direction: column;
+  z-index: 10;
+  text-align: center;
+  width: 320px;  /* mismo ancho que los inputs */
+
+    /* Ajustes de altura */
+  max-height: 180px;     /*  límite de altura */
+  overflow-y: auto;      /*  scroll si hay muchas opciones */
+  scrollbar-width: thin; /*  scroll más delgado (Firefox) */
+}
+
+.dropdown__option:not(:last-child) {
+  border-bottom: 1px solid var(--gray-50);
+}
+
+.dropdown__option {
+  height: 40px;         /* altura fija */
+  line-height: 40px;    /* centra verticalmente el texto */
+  padding: 0.7rem;
+  cursor: pointer;
+}
+
+.dropdown__option:hover {
+  background: var(--gray-50);
+  color: var(--gray-900);
+}
+
+.opinions__btn-publish_product {
+  display: block;
+  margin: 2rem auto 4rem auto; /* espacio más corto arriba y abajo */
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  padding: var(--btn-padding-y) var(--btn-padding-x);
+  font-size: var(--btn-font-size);
+  font-weight: var(--btn-font-weight);
+  font-style: var(--btn-font-normal);
+  border: var(--btn-border);
+  border-radius: var(--btn-border-radius);
+  min-height: var(--btn-min-height);
+  min-width: var(--btn-min-width);
+  cursor: pointer;
+  box-shadow: var(--btn-shadow);
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+
+.opinions__btn-publish_product:hover {
+  background: var(--btn-bg-hover, var(--primary-600));
+  color: var(--btn-text-hover, var(--white));
+  box-shadow: var(--btn-shadow-hover, 0 2px 6px rgba(0, 0, 0, 0.2)); 
+}
+
+.opinions__btn-publish_product:active {
+  background: var(--btn-bg-pressed, var(--primary-700));
+  color: var(--btn-text-pressed, var(--white));
+  box-shadow: var(--btn-shadow-pressed, 0 2px 4px rgba(0, 0, 0, 0.25));
+  transform: scale(0.98); /* pequeño feedback */
+}
+
+.opinions__btn-publish_product:disabled {
+  background: var(--btn-bg-disabled, var(--primary-200));
+  color: var(--btn-text-disabled, var(--gray-500));
+  box-shadow: none;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* ===========================
+   MODAL DE ÉXITO
+=========================== */
+.modal {
+  display: none; /* Oculto por defecto */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+
+.modal-content {
+  background: var(--white);
+  padding: 50px; 
+  border-radius: 15px;
+  text-align: center;
+  max-width: 400px;
+  position: relative;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+/* Icono principal */
+.icon.ok {
+  font-size: 50px;
+  color: var(--primary-500);
+  margin-bottom: 16px; /* 1rem 16px */
+}
+
+
+/* Botón de cierre (X) */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  cursor: pointer;
+  color: var(--gray-500);
+}

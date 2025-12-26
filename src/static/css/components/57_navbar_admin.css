@@ -1,0 +1,73 @@
+/* Componente utilizado en todas las paginas de administrador */
+
+/* ============================= */
+/* Navbar Administrador (BEM)    */
+/* ============================= */
+.admin-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--navbar-background);
+  color: var(--white);
+  padding: 0.8rem 1.5rem;
+  font-family: "Poppins", sans-serif;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.admin-navbar__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.admin-navbar__logo-img {
+  width: 40px;
+  height: 40px;
+}
+
+.admin-navbar__title {
+  font-weight: 600;
+}
+
+.admin-navbar__list {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.admin-navbar__item {
+  position: relative;
+}
+
+.admin-navbar__link {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.admin-navbar__link:hover,
+.admin-navbar__link--active {
+  color: var(--white);
+  border-bottom: 2px solid var(--white);
+}
+
+.admin-navbar__profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.admin-navbar__profile-img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.admin-navbar__profile-name {
+  font-size: var(--fs-xxs);
+  color: var(--white);
+}
