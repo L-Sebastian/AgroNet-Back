@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const container = document.querySelector(".container-form-product");
 
   if (container) {
-    fetch("/frontend/public/views/components/70_form_new_product_admin.html")
+    fetch("/src/templates/components/70_form_new_product_admin.html")
       .then(res => res.text())
       .then(component => {
         container.innerHTML = component;
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
               popupSuccess.classList.remove("show");
 
               // Redirigir después de cerrar (opcional)
-              window.location.href = "/frontend/public/views/admin-pages/products.html";
+              window.location.href = "/src/templates/admin-pages/products.html";
             }
           });
         }

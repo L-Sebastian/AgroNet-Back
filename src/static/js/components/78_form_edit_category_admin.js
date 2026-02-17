@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const container = document.querySelector(".container-form-edit-category");
 
   if (container) {
-    fetch("/frontend/public/views/components/78_form_edit_category_admin.html")
+    fetch("/src/templates/components/78_form_edit_category_admin.html")
       .then(res => res.text())
       .then(component => {
         container.innerHTML = component;
@@ -50,7 +50,7 @@ function initEditCategoryPopups() {
   function closeSuccessAndRedirect() {
     successPopup.classList.remove("show");
     // 🌐 Redirige a la página deseada
-    window.location.href = "/frontend/public/views/admin-pages/categories.html";
+    window.location.href = "/src/templates/admin-pages/categories.html";
   }
 
   // ❌ Cerrar popup de éxito manualmente con la X

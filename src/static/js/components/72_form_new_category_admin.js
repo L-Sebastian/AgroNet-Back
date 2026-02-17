@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const container = document.querySelector(".container-form-category");
 
   if (container) {
-    fetch("/frontend/public/views/components/72_form_new_category_admin.html")
+    fetch("/src/templates/components/72_form_new_category_admin.html")
       .then(res => res.text())
       .then(component => {
         container.innerHTML = component;
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
           ) {
             popup.classList.remove("show");
             // Redirigir después de cerrar
-            window.location.href = "/frontend/public/views/admin-pages/categories.html";
+            window.location.href = "/src/templates/admin-pages/categories.html";
           }
         });
       });

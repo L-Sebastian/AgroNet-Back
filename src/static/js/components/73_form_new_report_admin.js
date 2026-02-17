@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const container = document.querySelector(".container-form-report");
 
   if (container) {
-    fetch("/frontend/public/views/components/73_form_new_report_admin.html")
+    fetch("/src/templates/components/73_form_new_report_admin.html")
       .then(res => res.text())
       .then(component => {
         container.innerHTML = component;
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
               popupSuccess.classList.remove("show");
 
               // Redirigir después de cerrar
-              window.location.href = "/frontend/public/views/admin-pages/reports.html";
+              window.location.href = "/src/templates/admin-pages/reports.html";
             }
           });
         }

@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const container = document.querySelector(".admin-reports");
 
   try {
-    const response = await fetch("/frontend/public/views/components/66_admin_reports.html");
+    const response = await fetch("/src/templates/components/66_admin_reports.html");
     if (!response.ok) throw new Error("No se pudo cargar el componente de reportes");
 
     const html = await response.text();

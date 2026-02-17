@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const container = document.querySelector(".admin-view");
 
   try {
-    const response = await fetch("/frontend/public/views/components/61_admin_users.html");
+    const response = await fetch("/src/templates/components/61_admin_users.html");
     if (!response.ok) throw new Error("No se pudo cargar el componente de usuarios");
 
     const html = await response.text();
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           <td>${user.fecha_nac}</td>
           <td class="admin-users__actions-btns">
             <button class="admin-users__btn admin-users__btn--view" data-index="${i}"><i class="fa-solid fa-eye"></i></button>
-            <a href="/frontend/public/views/admin-pages/form_edit_user.html" class="admin-users__btn admin-users__btn--edit"><i class="fa-solid fa-pen"></i></a>
+            <a href="/src/templates/admin-pages/form_edit_user.html" class="admin-users__btn admin-users__btn--edit"><i class="fa-solid fa-pen"></i></a>
             <button class="admin-users__btn admin-users__btn--delete" data-index="${i}"><i class="fa-solid fa-xmark"></i></button>
           </td>
         `;

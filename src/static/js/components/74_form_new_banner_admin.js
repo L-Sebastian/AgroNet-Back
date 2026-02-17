@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const container = document.querySelector(".new-banner-container");
 
   if (container) {
-    fetch("/frontend/public/views/components/74_form_new_banner_admin.html")
+    fetch("/src/templates/components/74_form_new_banner_admin.html")
       .then(res => res.text())
       .then(html => {
         container.innerHTML = html;
@@ -60,7 +60,7 @@ function initNewBannerForm() {
     ) {
       popupSuccess.classList.remove("show");
       // Redirigir después de cerrar el popup
-      window.location.href = "/frontend/public/views/admin-pages/banners.html";
+      window.location.href = "/src/templates/admin-pages/banners.html";
     }
   });
 }

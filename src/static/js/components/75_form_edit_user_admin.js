@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.querySelector(".container-form-edit-datos");
   if (container) {
-    fetch("/frontend/public/views/components/75_form_edit_user_admin.html")
+    fetch("/src/templates/components/75_form_edit_user_admin.html")
       .then(res => res.text())
       .then(component => {
         container.innerHTML = component;
@@ -45,7 +45,7 @@ function initEditUserPopups() {
   // ❌ Cerrar popup de éxito manualmente y redirigir
   successClose.addEventListener("click", () => {
     successPopup.classList.remove("show");
-    window.location.href = "/frontend/public/views/admin-pages/users.html";
+    window.location.href = "/src/templates/admin-pages/users.html";
   });
 
   // 🔄 Cerrar popups al hacer clic fuera
@@ -53,7 +53,7 @@ function initEditUserPopups() {
     if (e.target === confirmPopup) confirmPopup.classList.remove("show");
     if (e.target === successPopup) {
       successPopup.classList.remove("show");
-      window.location.href = "/frontend/public/views/admin-pages/users.html";
+      window.location.href = "/src/templates/admin-pages/users.html";
     }
   });
 
@@ -62,7 +62,7 @@ function initEditUserPopups() {
     popup.addEventListener("click", () => {
       popup.classList.remove("show");
       if (popup === successPopup) {
-        window.location.href = "/frontend/public/views/admin-pages/users.html";
+        window.location.href = "/src/templates/admin-pages/users.html";
       }
     });
   });

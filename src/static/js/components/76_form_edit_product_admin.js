@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.querySelector(".container-form-edit-product");
   if (container) {
-    fetch("/frontend/public/views/components/76_form_edit_product_admin.html")
+    fetch("/src/templates/components/76_form_edit_product_admin.html")
       .then(res => res.text())
       .then(component => {
         container.innerHTML = component;
@@ -47,7 +47,7 @@ function initEditProductPopups() {
   // ❌ Cerrar popup de éxito manualmente + redirección
   successClose.addEventListener("click", () => {
     successPopup.classList.remove("show");
-    window.location.href = "/frontend/public/views/admin-pages/products.html";
+    window.location.href = "/src/templates/admin-pages/products.html";
   });
 
   // 🔄 Cerrar si se hace clic fuera o sobre el popup
@@ -55,7 +55,7 @@ function initEditProductPopups() {
     if (e.target === confirmPopup) confirmPopup.classList.remove("show");
     if (e.target === successPopup) {
       successPopup.classList.remove("show");
-      window.location.href = "/frontend/public/views/admin-pages/products.html";
+      window.location.href = "/src/templates/admin-pages/products.html";
     }
   });
 
@@ -64,7 +64,7 @@ function initEditProductPopups() {
     popup.addEventListener("click", () => {
       popup.classList.remove("show");
       if (popup === successPopup) {
-        window.location.href = "/frontend/public/views/admin-pages/products.html";
+        window.location.href = "/src/templates/admin-pages/products.html";
       }
     });
   });
