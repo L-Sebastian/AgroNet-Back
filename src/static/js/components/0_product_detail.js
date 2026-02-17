@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("product-detail-container");
 
-  // ✅ Ruta corregida según ubicación actual de product.html
-  fetch("../components/0_product_detail.html")
+  // Ruta corregida según ubicación actual de product.html
+  fetch("/src/templates/components/0_product_detail.html")
     .then(response => {
       console.log("Estado del fetch:", response.status, "Ruta usada:", response.url);
       if (!response.ok) throw new Error("No se pudo cargar el componente");
