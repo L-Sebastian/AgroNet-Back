@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const container = document.querySelector(".container-form-order");
 
   if (container) {
-    fetch("/frontend/public/views/components/71_form_new_order_admin.html")
+    fetch("/src/templates/components/71_form_new_order_admin.html")
       .then(res => res.text())
       .then(component => {
         container.innerHTML = component;
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
               popupSuccess.classList.remove("show");
 
               // Redirigir después de cerrar (opcional)
-              window.location.href = "/frontend/public/views/admin-pages/orders.html";
+              window.location.href = "/src/templates/admin-pages/orders.html";
             }
           });
         }

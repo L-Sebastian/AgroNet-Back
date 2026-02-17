@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const container = document.querySelector(".checkout-summary-container");
 
   if (container) {
-    fetch("/frontend/public/views/components/79_purchase_summary_seller.html")
+    fetch("/src/templates/components/79_purchase_summary_seller.html")
       .then(res => res.text())
       .then(html => {
         container.innerHTML = html;
@@ -117,20 +117,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     closeSuccess.addEventListener("click", () => {
       successPopup.classList.remove("show");
-      window.location.href = "/frontend/public/views/seller-pages/historial_orders.html"; //  Redirigir al cerrar
+      window.location.href = "/src/templates/seller-pages/historial_orders.html"; //  Redirigir al cerrar
     });
 
     successPopup.addEventListener("click", e => {
       if (e.target === successPopup) {
         successPopup.classList.remove("show");
-        window.location.href = "/frontend/public/views/seller-pages/historial_orders.html";
+        window.location.href = "/src/templates/seller-pages/historial_orders.html";
       }
     });
 
     // 🔵 NUEVO: cerrar también al hacer clic dentro del cuadro del popup de éxito
     successContent.addEventListener("click", () => {
       successPopup.classList.remove("show");
-      window.location.href = "/frontend/public/views/seller-pages/historial_orders.html";
+      window.location.href = "/src/templates/seller-pages/historial_orders.html";
     });
   }
 });

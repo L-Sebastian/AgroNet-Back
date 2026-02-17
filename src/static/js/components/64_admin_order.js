@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const container = document.querySelector(".admin-orders");
 
   try {
-    const res = await fetch("/frontend/public/views/components/64_admin_order.html");
+    const res = await fetch("/src/templates/components/64_admin_order.html");
     if (!res.ok) throw new Error("Error al cargar el componente de pedidos");
     const html = await res.text();
     container.innerHTML = html;
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 <button class="admin-orders__btn admin-orders__btn--view" data-index="${i}">
                   <i class="fa-solid fa-eye"></i>
                 </button>
-                <a href="/frontend/public/views/admin-pages/form_edit_order.html" class="admin-orders__btn admin-orders__btn--edit" data-index="${i}">
+                <a href="/src/templates/admin-pages/form_edit_order.html" class="admin-orders__btn admin-orders__btn--edit" data-index="${i}">
                   <i class="fa-solid fa-pen"></i>
                 </a>
                 <button class="admin-orders__btn admin-orders__btn--delete" data-index="${i}">

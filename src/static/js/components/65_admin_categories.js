@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const container = document.querySelector(".admin-categories");
 
   try {
-    const response = await fetch("/frontend/public/views/components/65_admin_categories.html");
+    const response = await fetch("/src/templates/components/65_admin_categories.html");
     if (!response.ok) throw new Error("No se pudo cargar el componente de categorías");
 
     const html = await response.text();
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 <button class="admin-categories__btn admin-categories__btn--view" data-index="${i}">
                   <i class="fa-solid fa-eye"></i>
                 </button>
-                <a href="/frontend/public/views/admin-pages/form_edit_category.html" class="admin-categories__btn admin-categories__btn--edit" data-index="${i}">
+                <a href="/src/templates/admin-pages/form_edit_category.html" class="admin-categories__btn admin-categories__btn--edit" data-index="${i}">
                   <i class="fa-solid fa-pen"></i>
                 </a>
                 <button class="admin-categories__btn admin-categories__btn--delete" data-index="">

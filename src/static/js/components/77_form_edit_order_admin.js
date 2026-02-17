@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const container = document.querySelector(".container-form-edit-order");
 
   if (container) {
-    fetch("/frontend/public/views/components/77_form_edit_order_admin.html")
+    fetch("/src/templates/components/77_form_edit_order_admin.html")
       .then(res => res.text())
       .then(component => {
         container.innerHTML = component;
@@ -47,7 +47,7 @@ function initEditOrderPopups() {
   // 🔁 Cerrar popup de éxito y redirigir
   function closeSuccessAndRedirect() {
     successPopup.classList.remove("show");
-    window.location.href = "/frontend/public/views/admin-pages/orders.html";
+    window.location.href = "/src/templates/admin-pages/orders.html";
   }
 
   // Cerrar con la X

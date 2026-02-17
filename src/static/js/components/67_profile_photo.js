@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const container = document.querySelector(".container-profile-photo");
 
   // Cargar el HTML del componente
-  const res = await fetch("/frontend/public/views/components/67_profile_photo.html");
+  const res = await fetch("/src/templates/components/67_profile_photo.html");
   const html = await res.text();
   const div = document.createElement("div");
   div.innerHTML = html;
@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const grid = document.querySelector(".profile-photo-grid");
 
   // Cargar las fotos del JSON
-  const resJSON = await fetch("/frontend/public/data/profile_photo.json");
+  const resJSON = await fetch("/src/static/data/profile_photo.json");
   const photos = await resJSON.json();
 
   photos.forEach((photo) => {

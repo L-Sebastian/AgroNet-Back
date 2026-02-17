@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const contenedor = document.querySelector('#summary__product__container__general');
 
   if (contenedor) {
-    fetch('/frontend/public/views/components/81_summary2.0.html')      
+    fetch('/src/templates/components/81_summary2.0.html')      
     .then(response => response.text())
       .then(data => {
         contenedor.innerHTML = data;

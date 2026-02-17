@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.querySelector(".admin-view");
 
-  fetch("/frontend/public/views/components/59_admin_dashboard.html")
+  fetch("/src/templates/components/59_admin_dashboard.html")
     .then(response => {
       if (!response.ok) throw new Error("Error al cargar el dashboard");
       return response.text();

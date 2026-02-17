@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const container = document.querySelector(".container-form-datos");
 
   if (container) {
-    fetch("/frontend/public/views/components/69_form_new_user_admin.html")
+    fetch("/src/templates/components/69_form_new_user_admin.html")
       .then(res => res.text())
       .then(component => {
         container.innerHTML = component;
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
               popupSuccess.classList.remove("show");
 
               // Redirigir después de cerrar el popup
-              window.location.href = "/frontend/public/views/admin-pages/users.html";
+              window.location.href = "/src/templates/admin-pages/users.html";
             }
           });
         }

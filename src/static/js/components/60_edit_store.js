@@ -2,12 +2,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const container = document.querySelector(".store-edit-container");
 
   if (container) {
-    fetch("/frontend/public/views/components/60_edit_store.html")
+    fetch("/src/templates/components/60_edit_store.html")
       .then(response => response.text())
       .then(data => {
         container.innerHTML = data;
 
-        // 👇 Ejecutar la lógica de los modales DESPUÉS de cargar el HTML
+        //  Ejecutar la lógica de los modales DESPUÉS de cargar el HTML
         inicializarModalesStore();
       })
       .catch(error => console.error("Error al cargar el formulario de vendedor:", error));
@@ -25,7 +25,7 @@ function inicializarModalesStore() {
   const closeSuccess = document.getElementById("close_store_success");
 
   if (!form || !confirmModal || !successModal) {
-    console.error("❌ No se encontraron los modales o el formulario dentro del HTML cargado.");
+    console.error(" No se encontraron los modales o el formulario dentro del HTML cargado.");
     return;
   }
 
@@ -49,7 +49,7 @@ function inicializarModalesStore() {
   });
 
   // 🔹 Cerrar éxito → redirigir
-  const redirectURL = "/frontend/public/views/seller-pages/profile_store.html";
+  const redirectURL = "/src/templates/seller-pages/profile_store.html";
 
   const closeAndRedirect = () => {
     successModal.classList.remove("show");
@@ -59,7 +59,7 @@ function inicializarModalesStore() {
   // Cerrar con la X
   closeSuccess.addEventListener("click", closeAndRedirect);
 
-  // 🔹 Cerrar con clic fuera o dentro del popup
+  // Cerrar con clic fuera o dentro del popup
   successModal.addEventListener("click", (e) => {
     // Se cierra si el clic es en el fondo o dentro del modal (excepto si el clic fue en los elementos internos pequeños como el ícono o texto)
     if (e.target === successModal || e.target.closest(".modal-content")) {

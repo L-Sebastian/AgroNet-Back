@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const container = document.querySelector(".admin-products");
 
   try {
-    const response = await fetch("/frontend/public/views/components/62_admin_products.html");
+    const response = await fetch("/src/templates/components/62_admin_products.html");
     if (!response.ok) throw new Error("No se pudo cargar el componente de productos");
 
     const html = await response.text();
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                   <button class="admin-products__btn admin-products__btn--view" data-index="${i}">
                     <i class="fa-solid fa-eye"></i>
                   </button>
-                  <a href="/frontend/public/views/admin-pages/form_edit_product.html" class="admin-products__btn admin-products__btn--edit" data-index="${i}">
+                  <a href="/src/templates/admin-pages/form_edit_product.html" class="admin-products__btn admin-products__btn--edit" data-index="${i}">
                     <i class="fa-solid fa-pen"></i>
                   </a>
                   <button class="admin-products__btn admin-products__btn--delete" data-index="${i}">

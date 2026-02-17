@@ -10,7 +10,7 @@ class FormEdit extends HTMLElement {
 
   async loadTemplate() {
     try {
-      const res = await fetch("/frontend/public/views/components/63_edit_product.html");
+      const res = await fetch("/src/templates/components/63_edit_product.html");
       const html = await res.text();
       const template = document.createElement("div");
       template.innerHTML = html;
@@ -19,7 +19,7 @@ class FormEdit extends HTMLElement {
 
       const linkStyle = document.createElement("link");
       linkStyle.rel = "stylesheet";
-      linkStyle.href = "/frontend/public/css/components/63_edit_product.css";
+      linkStyle.href = "/src/static/css/components/63_edit_product.css";
 
       const linkFA = document.createElement("link");
       linkFA.rel = "stylesheet";
@@ -114,7 +114,7 @@ class FormEdit extends HTMLElement {
     // ==========================
     // Solo el modal de ÉXITO redirige
     // ==========================
-    const redirectURL = "/frontend/public/views/seller-pages/my_products.html"; // 
+    const redirectURL = "/src/templates/seller-pages/my_products.html"; // 
 
     closeSuccess.addEventListener("click", () => {
       successModal.classList.remove("show");

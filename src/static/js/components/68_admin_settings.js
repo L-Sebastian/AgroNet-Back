@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const container = document.querySelector(".settings-container");
 
   if (container) {
-    fetch("/frontend/public/views/components/68_admin_settings.html")
+    fetch("/src/templates/components/68_admin_settings.html")
       .then(response => response.text())
       .then(data => {
         container.innerHTML = data;
@@ -62,7 +62,7 @@ function initSettingsPopups() {
     btn.addEventListener("click", () => {
       successPopup.classList.remove("show");
       // 🔁 Redirige después de cerrar
-      window.location.href = "/frontend/public/views/admin-pages/settings.html";
+      window.location.href = "/src/templates/admin-pages/settings.html";
     });
   });
 
