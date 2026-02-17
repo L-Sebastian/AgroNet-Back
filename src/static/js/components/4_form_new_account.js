@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
       .then(data => {
         heroElement.innerHTML = data;
 
-        // 🧩 Esperar un pequeño momento para asegurar carga del HTML
+        //Esperar un pequeño momento para asegurar carga del HTML
         setTimeout(() => {
           const steps = heroElement.querySelectorAll(".form-step");
           const nextBtns = heroElement.querySelectorAll(".next");
@@ -62,6 +62,3 @@ document.addEventListener("DOMContentLoaded", function() {
       .catch(error => console.log("Error al cargar la cuenta:", error));
   }
 });
-
-
-
