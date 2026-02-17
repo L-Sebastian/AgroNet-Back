@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const heroElement = document.querySelector(".footer-container");
 
     if(heroElement) {
-        fetch("/frontend/public/views/components/1_footer.html")
+        fetch("/src/templates/components/1_footer.html")
         .then(response => response.text())
         .then(data => {
             heroElement.innerHTML = data; 
