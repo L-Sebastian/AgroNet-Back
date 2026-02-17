@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const container = document.querySelector(".store-profile-container");
 
   if (container) {
-    fetch("/frontend/public/views/components/37_profile_store.html")
+    fetch("/src/templates/components/37_profile_store.html")
       .then(response => response.text())
       .then(data => {
         container.innerHTML = data;

@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   // Cargar componente HTML
   if (containerPage) {
     try {
-      const response = await fetch("/frontend/public/views/components/42_disabled_products.html");
+      const response = await fetch("/src/templates/components/42_disabled_products.html");
       const data = await response.text();
       containerPage.insertAdjacentHTML("beforeend", data);
 
@@ -20,7 +20,7 @@ async function loadDisabledProducts() {
   const container = document.getElementById("disabled_products_container");
 
   try {
-    const res = await fetch("/frontend/public/data/disabled_products.json");
+    const res = await fetch("/src/static/data/disabled_products.json");
     const productos = await res.json();
     const template = document.getElementById("disabled_product_template");
 

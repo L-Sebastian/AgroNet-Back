@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const contenedor = document.querySelector('.order-container');
 
   if (contenedor) {
-    fetch('/frontend/public/views/components/45_order_detail.html')
+    fetch('/src/templates/components/45_order_detail.html')
       .then(response => response.text())
       .then(data => {
         contenedor.innerHTML = data;

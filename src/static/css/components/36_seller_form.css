@@ -12,7 +12,7 @@ margin-top: 80px;
 }
 
 .seller__form-body {
-  background-image: url("/frontend/public/assets/cafe-cultivos.jpg");
+  background-image: url("/src/static/assets/cafe-cultivos.jpg");
   background-size: cover;         /* ajusta la imagen al tamaño de la pantalla */
   background-repeat: no-repeat;   /* evita que se repita */
   background-position: center;    /* centra la imagen */

@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.querySelector(".seller-form-container");
   if (container) {
-    fetch("/frontend/public/views/components/36_seller_form.html")
+    fetch("/src/templates/components/36_seller_form.html")
       .then(response => response.text())
       .then(data => {
         container.innerHTML = data;
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Al hacer clic en el contenido →redirigir
         modalContent.addEventListener("click", () => {
           modal.style.display = "none";
-          window.location.href = "/frontend/public/views/seller-pages/profile_store.html";
+          window.location.href = "/src/templates/seller-pages/profile_store.html";
         });
       })
       .catch(error => console.error("Error al cargar el formulario de vendedor:", error));

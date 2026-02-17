@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.body.appendChild(container);
 
   // Cargar el HTML del popup
-  fetch("/frontend/public/views/components/39_logout_popup.html")
+  fetch("/src/templates/components/39_logout_popup.html")
     .then(response => response.text())
     .then(html => {
       container.innerHTML = html;
@@ -60,7 +60,7 @@ function mostrarModalCierre() {
     const modalContent = modal.querySelector(".modal-content");
 
     const redirect = () => {
-      window.location.href = "/frontend/public/views/pages-general/index.html";
+      window.location.href = "/src/templates/pages-general/index.html";
     };
 
     // Clic en x
