@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
   // 1. Cargar el formulario
-  fetch("/frontend/public/views/components/4_form_new__account.html")
+  fetch("/src/templates/components/4_form_new__account.html")
     .then(response => response.text())
     .then(data => {
       document.querySelector(".loginforgot-container").innerHTML = data;
 
       // 2. Cargar el modal después del formulario
-      return fetch("/frontend/public/views/components/21_popup.html");
+      return fetch("/src/templates/components/21_popup.html");
     })
     .then(response => response.text())
     .then(modalHTML => {
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Función para cargar login
 function cargarLogin() {
-  fetch("/frontend/public/views/components/8_form_register.html")
+  fetch("/src/templates/components/8_form_register.html")
     .then(res => res.text())
     .then(html => {
       document.querySelector(".loginforgot-container").innerHTML = html;
