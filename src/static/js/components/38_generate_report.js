@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const heroElement = document.querySelector(".report-profile");
 
   if (heroElement) {
-    fetch("/frontend/public/views/components/38_generate_report.html")
+    fetch("/src/templates/components/38_generate_report.html")
       .then(response => response.text())
       .then(data => {
         heroElement.innerHTML = data;
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function() {
           // Cerrar modal con la X
           btnClose.addEventListener("click", () => {
             modal.style.display = "none";
-            window.location.href = "/frontend/public/views/customer-pages/generate_report.html";
+            window.location.href = "/src/templates/customer-pages/generate_report.html";
           });
 
           // ✅ Cerrar popup al hacer clic en cualquier parte
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function() {
           // ✅ Cerrar modal al hacer clic en cualquier parte
           modal.addEventListener("click", () => {
             modal.style.display = "none";
-            window.location.href = "/frontend/public/views/customer-pages/generate_report.html";
+            window.location.href = "/src/templates/customer-pages/generate_report.html";
           });
         }, 200);
       })

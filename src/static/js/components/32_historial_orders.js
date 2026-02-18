@@ -3,7 +3,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   try {
     //  Cargar el HTML del componente
-    const htmlResponse = await fetch("/frontend/public/views/components/32_historial_orders.html");
+    // const htmlResponse = await fetch("/frontend/public/views/components/32_historial_orders.html");
+    const htmlResponse = await fetch("/src/templates/components/32_historial_orders.html");
     if (!htmlResponse.ok) throw new Error("No se pudo cargar el componente HTML");
 
     const html = await htmlResponse.text();
@@ -14,7 +15,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     const template = document.getElementById("orderTemplate");
 
     // Cargar los datos desde JSON
-    const dataResponse = await fetch("/frontend/public/data/orders.json");
+    // const dataResponse = await fetch("/frontend/public/data/orders.json");
+    const dataResponse = await fetch("/src/static/data/orders.json");
     if (!dataResponse.ok) throw new Error("No se pudo cargar el archivo JSON");
 
     const pedidos = await dataResponse.json();

@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("/frontend/public/views/components/49_profile-customer.html")
+  fetch("/src/templates/components/49_profile-customer.html")
     .then(response => response.text())
     .then(data => {
       const container = document.querySelector(".profile-container");

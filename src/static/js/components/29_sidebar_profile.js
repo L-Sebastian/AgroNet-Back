@@ -1,7 +1,8 @@
 async function cargarMensaje() {
   const contenedor = document.querySelector(".sidebar-profile");
 
-  const res = await fetch("/frontend/public/views/components/29_sidebar_profile.html");
+  // const res = await fetch("/frontend/public/views/components/29_sidebar_profile.html");
+  const res = await fetch("/src/templates/components/29_sidebar_profile.html");
   const html = await res.text();
 
   const div = document.createElement("div");

@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   // Cargar componente HTML
   if (containerPage) {
     try {
-      const response = await fetch("/frontend/public/views/components/46_address_book.html");
+      const response = await fetch("/src/templates/components/46_address_book.html");
       const data = await response.text();
       containerPage.insertAdjacentHTML("beforeend", data);
 
@@ -20,7 +20,7 @@ async function loadDisabledProducts() {
   const container = document.getElementById("disabled_products_container2");
 
   try {
-    const res = await fetch("/frontend/public/data/address_book.json");
+    const res = await fetch("/src/static/data/address_book.json");
     const productos = await res.json();
     const template = document.getElementById("disabled_product_template2");
 
@@ -58,7 +58,7 @@ async function loadDisabledProducts() {
     container.querySelectorAll(".view-profile").forEach((btn, index) => {
       btn.addEventListener("click", () => {
         const usuario = productos[index].usuario;
-        window.location.href = `/frontend/public/views/seller-pages/customer-profile.html?usuario=${encodeURIComponent(usuario)}`;
+        window.location.href = `/src/templates/seller-pages/customer-profile.html?usuario=${encodeURIComponent(usuario)}`;
       });
     });
 

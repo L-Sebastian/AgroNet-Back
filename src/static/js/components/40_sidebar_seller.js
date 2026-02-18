@@ -1,7 +1,7 @@
 async function cargarMensaje() {
   const contenedor = document.querySelector(".sidebar-seller");
 
-  const res = await fetch("/frontend/public/views/components/40_sidebar_seller.html");
+  const res = await fetch("/src/templates/components/40_sidebar_seller.html");
   const html = await res.text();
 
   const div = document.createElement("div");

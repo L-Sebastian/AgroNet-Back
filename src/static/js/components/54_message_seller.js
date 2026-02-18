@@ -3,14 +3,14 @@ async function cargarMensaje() {
 
   try {
     // 1 Cargar el formulario
-    const resForm = await fetch("/frontend/public/views/components/54_message_seller.html");
+    const resForm = await fetch("/src/templates/components/54_message_seller.html");
     const htmlForm = await resForm.text();
     const div = document.createElement("div");
     div.innerHTML = htmlForm;
     contenedor.appendChild(div);
 
     // 2 Cargar el modal (al final del body)
-    const resModal = await fetch("/frontend/public/views/components/52_popup_contact.html");
+    const resModal = await fetch("/src/templates/components/52_popup_contact.html");
     const htmlModal = await resModal.text();
     document.body.insertAdjacentHTML("beforeend", htmlModal);
 
@@ -35,7 +35,7 @@ function inicializarModal() {
   const okIcon = modal.querySelector(".ok");
 
   // Página a la que redirigirá al cerrar el modal
-  const redireccion = "/frontend/public/views/seller-pages/contact_seller.html";
+  const redireccion = "/src/templates/seller-pages/contact_seller.html";
 
   // Mostrar modal al enviar
   form.addEventListener("submit", (e) => {

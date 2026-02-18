@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   try {
     //  Cargar el HTML del componente
-    const htmlResponse = await fetch("/frontend/public/views/components/51_historial_orders_customer.html");
+    const htmlResponse = await fetch("/src/templates/components/51_historial_orders_customer.html");
     if (!htmlResponse.ok) throw new Error("No se pudo cargar el componente HTML");
 
     const html = await htmlResponse.text();
