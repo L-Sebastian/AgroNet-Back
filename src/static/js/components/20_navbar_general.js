@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const heroElement = document.querySelector(".navbar-general-container");
 
     if(heroElement) {
-        fetch("/frontend/public/views/components/20_navbar_general.html")
+        fetch("/src/templates/components/20_navbar_general.html")
         .then(response => response.text())
         .then(data => {
             heroElement.innerHTML = data; 

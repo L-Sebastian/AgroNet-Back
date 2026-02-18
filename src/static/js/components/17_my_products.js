@@ -1,12 +1,12 @@
 // ============================
-// 📦 Componente <my-products>
+//  Componente <my-products>
 // ============================
 class MyProducts extends HTMLElement {
   constructor() {
     super();
     const shadow = this.attachShadow({ mode: "open" });
 
-    fetch("/frontend/public/views/components/17_component_my_products.html")
+    fetch("/src/templates/components/17_component_my_products.html")
       .then(res => res.text())
       .then(html => {
         const template = document.createElement("div");
@@ -15,7 +15,7 @@ class MyProducts extends HTMLElement {
 
         const styleLink = document.createElement("link");
         styleLink.setAttribute("rel", "stylesheet");
-        styleLink.setAttribute("href", "/frontend/public/css/components/17_my_products.css");
+        styleLink.setAttribute("href", "/src/static/css/components/17_my_products.css");
 
         const faLink = document.createElement("link");
         faLink.setAttribute("rel", "stylesheet");
@@ -119,11 +119,11 @@ class MyProducts extends HTMLElement {
       currentMenu.classList.toggle("show");
     });
 
-    // 🔹 Editar
+    // Editar
     shadow.addEventListener("click", (e) => {
       const editItem = e.composedPath().find(el => el.classList && el.classList.contains("menu-card__item") && el.textContent.trim() === "Editar");
       if (editItem) {
-        window.location.href = "/frontend/public/views/seller-pages/edit_product.html";
+        window.location.href = "/src/templates/seller-pages/edit_product.html";
       }
     });
 
@@ -131,25 +131,25 @@ class MyProducts extends HTMLElement {
     shadow.addEventListener("click", (e) => {
       const editItem = e.composedPath().find(el => el.classList && el.classList.contains("menu-card__item") && el.textContent.trim() === "Visualizar");
       if (editItem) {
-        window.location.href = "/frontend/public/views/seller-pages/product_seller.html";
+        window.location.href = "/src/templates/seller-pages/product_seller.html";
       }
     });
 
-    // 🔹 Publicar, Mostrar popup
+    // Publicar, Mostrar popup
     shadow.addEventListener("click", (e) => {
       const publishItem = e.composedPath().find(
         el => el.classList && el.classList.contains("menu-card__item") && el.textContent.trim() === "Publicar"
       );
 
       if (publishItem) {
-        // 🔹 Cierra todos los menús antes de mostrar el popup
+        // Cierra todos los menús antes de mostrar el popup
         shadow.querySelectorAll(".menu-card__options").forEach(menu => menu.classList.remove("show"));
 
-        // 🔹 Muestra el popup
+        // Muestra el popup
         const popup = shadow.querySelector("#publish_success_popup");
         if (popup) popup.classList.add("show");
       }
-      // 🔹 Deshabilitar → Mostrar confirmación
+      // Deshabilitar → Mostrar confirmación
       shadow.addEventListener("click", (e) => {
         const disableItem = e.composedPath().find(
           el => el.classList && el.classList.contains("menu-card__item") && el.textContent.trim() === "Deshabilitar"
@@ -166,7 +166,7 @@ class MyProducts extends HTMLElement {
       });
     });
 
-    // 🔹 Cierra menús si se hace clic fuera
+    // Cierra menús si se hace clic fuera
     window.addEventListener("click", (e) => {
       const path = e.composedPath();
       const clickedInsideShadow = path.some(el => el === shadow.host || el.shadowRoot === shadow);
@@ -177,7 +177,7 @@ class MyProducts extends HTMLElement {
     });
   }
 
-  // 🟢 Cierra el popup dentro del shadowRoot (por clic general)
+  // Cierra el popup dentro del shadowRoot (por clic general)
   setupPopupClose(shadow) {
     const popup = shadow.querySelector("#publish_success_popup");
     if (!popup) return;
@@ -190,7 +190,7 @@ class MyProducts extends HTMLElement {
     });
   }
 
-  // 🟢 NUEVO: Maneja el clic específico en la X o en el contenido
+  // NUEVO: Maneja el clic específico en la X o en el contenido
   setupPopupActions(shadow) {
     const popup = shadow.querySelector("#publish_success_popup");
     const closeBtn = shadow.querySelector(".close-popup");
@@ -205,8 +205,8 @@ class MyProducts extends HTMLElement {
     });
   }
 
-  // 🟠 NUEVO: Maneja la deshabilitación con confirmación
-  // 🟠 Maneja la deshabilitación con confirmación y popup de éxito
+  // NUEVO: Maneja la deshabilitación con confirmación
+  // Maneja la deshabilitación con confirmación y popup de éxito
   setupDisablePopup(shadow) {
     const confirmPopup = shadow.querySelector("#disable_confirm_popup");
     const successPopup = shadow.querySelector("#disable_success_popup");
@@ -216,13 +216,13 @@ class MyProducts extends HTMLElement {
     const btnCancel = confirmPopup.querySelector(".btn.cancel");
     const closeBtns = confirmPopup.querySelectorAll(".close-popup");
 
-    // 🔹 Cerrar confirmación (por X o Cancelar)
+    // Cerrar confirmación (por X o Cancelar)
     closeBtns.forEach(btn =>
       btn.addEventListener("click", () => confirmPopup.classList.remove("show"))
     );
     if (btnCancel) btnCancel.addEventListener("click", () => confirmPopup.classList.remove("show"));
 
-    // 🔹 Aceptar → cerrar confirmación y mostrar éxito
+    // Aceptar → cerrar confirmación y mostrar éxito
     if (btnAccept) {
       btnAccept.addEventListener("click", () => {
         confirmPopup.classList.remove("show");
@@ -230,7 +230,7 @@ class MyProducts extends HTMLElement {
       });
     }
 
-    // 🔹 Cerrar popup de éxito (clic en la X, el fondo o el contenido)
+    // Cerrar popup de éxito (clic en la X, el fondo o el contenido)
     const successCloseBtn = successPopup.querySelector(".close-popup");
 
     // Cerrar con la X
@@ -247,7 +247,7 @@ class MyProducts extends HTMLElement {
     });
   }
 
-  // 🟢 NUEVO: Maneja el popup de detalles del producto
+  // NUEVO: Maneja el popup de detalles del producto
   setupDetailsPopup(shadow) {
     const popup = shadow.querySelector("#details_popup");
     if (!popup) return;

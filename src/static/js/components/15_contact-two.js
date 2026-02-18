@@ -5,8 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!container) return; // Si no existe el contenedor, termina la ejecución
 
   // Rutas de los archivos HTML y CSS del componente
-  const htmlPath = "/frontend/public/views/components/15_contact-two.html";
-  const cssPath = "/frontend/public/css/components/15_contact-two.css";
+  const htmlPath = "/src/templates/components/15_contact-two.html";
+  const cssPath = "/src/static/css/components/15_contact-two.css";
 
   // Inyectar CSS del componente solo si aún no está presente en el documento
   if (!document.querySelector(`link[href="${cssPath}"]`)) {

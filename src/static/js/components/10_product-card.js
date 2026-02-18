@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   try {
     //  Llamada al archivo JSON con fetch
-    const response = await fetch("/frontend/public/data/products.json");
+    const response = await fetch("/src/static/data/products.json");
     if (!response.ok) {
       throw new Error("Error al cargar los productos");
     }

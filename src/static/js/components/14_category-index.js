@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.querySelector(".category-index");
   if (container) {
-    fetch("/frontend/public/views/components/14_category-index.html")
+    fetch("/src/templates/components/14_category-index.html")
       .then(response => {
         if (!response.ok) {
           throw new Error("Error al cargar el componente: " + response.status);

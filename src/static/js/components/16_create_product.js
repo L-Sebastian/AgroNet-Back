@@ -4,7 +4,7 @@ class FormPost extends HTMLElement {
     const shadow = this.attachShadow({ mode: "open" });
 
     // Importar template del HTML externo
-    fetch("/frontend/public/views/components/16_create_product.html")
+    fetch("/src/templates/components/16_create_product.html")
       .then((res) => res.text())
       .then((html) => {
         const templateContainer = document.createElement("div");
@@ -17,7 +17,7 @@ class FormPost extends HTMLElement {
         // CSS
         const linkStyle = document.createElement("link");
         linkStyle.rel = "stylesheet";
-        linkStyle.href = "/frontend/public/css/components/16_create_product.css";
+        linkStyle.href = "/src/static/css/components/16_create_product.css";
         shadow.appendChild(linkStyle);
 
         // Font Awesome
@@ -73,13 +73,13 @@ class FormPost extends HTMLElement {
           // Cerrar con la X
           closeBtn.addEventListener("click", () => {
             modal.style.display = "none";
-            window.location.href = "/frontend/public/views/seller-pages/my_products.html"; // ← redirige
+            window.location.href = "/src/templates/seller-pages/my_products.html"; // ← redirige
           });
 
           // Cerrar al hacer clic fuera o dentro del modal
           modal.addEventListener("click", () => {
             modal.style.display = "none";
-            window.location.href = "/frontend/public/views/seller-pages/my_products.html"; // ← redirige
+            window.location.href = "/src/templates/seller-pages/my_products.html"; // ← redirige
           });
 
           // Evitar cierre si se hace clic dentro del contenido
@@ -87,7 +87,7 @@ class FormPost extends HTMLElement {
           // Nuevo: también cerrar y redirigir si se hace clic en el popup
           modalContent.addEventListener("click", () => {
             modal.style.display = "none";
-            window.location.href = "/frontend/public/views/seller-pages/my_products.html"; // cambia esta ruta si deseas
+            window.location.href = "/src/templates/seller-pages/my_products.html"; // cambia esta ruta si deseas
           });
         } else {
           console.error("No se encontró el modal o los botones dentro del Shadow DOM");
