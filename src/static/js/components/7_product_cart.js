@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const contenedor = document.getElementById('container__component');
 
   if (contenedor) {
-    fetch('/frontend/public/views/components/7_product_cart.html')
+    fetch('/src/templates/components/7_product_cart.html')
       .then(res => res.text())
       .then(html => {
         contenedor.innerHTML = html;

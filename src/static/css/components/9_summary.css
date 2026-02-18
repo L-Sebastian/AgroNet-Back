@@ -23,10 +23,10 @@
 .cart-summary {
   flex: 1;
   position: fixed;          /* ahora fijo real */
-  top: 113px;                /* 🔹 se pega debajo del navbar */
-  right: 40px;              /* 🔹 margen del borde derecho */
-  width: 320px;             /* 🔹 tamaño tipo Mercado Libre */
-  z-index: 100;             /* 🔹 encima del contenido */
+  top: 113px;                /*se pega debajo del navbar */
+  right: 40px;              /* margen del borde derecho */
+  width: 320px;             /* tamaño tipo Mercado Libre */
+  z-index: 100;             /* encima del contenido */
 }
 
 /* ====== ESTILOS DEL RESUMEN ====== */

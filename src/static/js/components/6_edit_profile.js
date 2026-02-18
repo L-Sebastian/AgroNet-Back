@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const heroElement = document.querySelector(".loginfor-container");
 
   if (heroElement) {
-    fetch("/frontend/public/views/components/6_edit_profile.html")
+    fetch("/src/templates/components/6_edit_profile.html")
       .then(response => response.text())
       .then(data => {
         heroElement.innerHTML = data;
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function() {
           // Cerrar modal con la X y redirigir
           btnCloseSuccess.addEventListener("click", () => {
             successModal.style.display = "none";
-            window.location.href = "/frontend/public/views/customer-pages/my_profile.html"; //  redirección
+            window.location.href = "/src/templates/customer-pages/my_profile.html"; //  redirección
           });
 
           //  Cerrar al hacer clic en cualquier parte del popup
@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function() {
           successModal.addEventListener("click", (e) => {
             e.stopPropagation();
             successModal.style.display = "none";
-            window.location.href = "/frontend/public/views/customer-pages/my_profile.html"; //  redirección también aquí
+            window.location.href = "/src/templates/customer-pages/my_profile.html"; //  redirección también aquí
           });
 
         }, 300);

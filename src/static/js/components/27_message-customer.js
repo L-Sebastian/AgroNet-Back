@@ -2,19 +2,19 @@ async function cargarMensaje() {
   const contenedor = document.querySelector(".contacttwo-container");
 
   try {
-    // 1️⃣ Cargar el formulario
-    const resForm = await fetch("/frontend/public/views/components/19_message.html");
+    // Cargar el formulario
+    const resForm = await fetch("/src/templates/components/19_message.html");
     const htmlForm = await resForm.text();
     const div = document.createElement("div");
     div.innerHTML = htmlForm;
     contenedor.appendChild(div);
 
-    // 2️⃣ Cargar el modal (al final del body)
-    const resModal = await fetch("/frontend/public/views/components/52_popup_contact.html");
+    // Cargar el modal (al final del body)
+    const resModal = await fetch("/src/templates/components/52_popup_contact.html");
     const htmlModal = await resModal.text();
     document.body.insertAdjacentHTML("beforeend", htmlModal);
 
-    // 3️⃣ Inicializar funcionalidad del modal
+    //  Inicializar funcionalidad del modal
     inicializarModal();
 
   } catch (error) {
@@ -35,7 +35,7 @@ function inicializarModal() {
   const okIcon = modal.querySelector(".ok");
 
   // Página a la que redirigirá al cerrar el modal
-  const redireccion = "/frontend/public/views/customer-pages/contact-customer.html";
+  const redireccion = "/src/templates/customer-pages/contact-customer.html";
 
   // Mostrar modal al enviar
   form.addEventListener("submit", (e) => {

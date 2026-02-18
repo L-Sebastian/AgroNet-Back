@@ -1,6 +1,6 @@
 // Cargar el componente "Quiénes Somos"
 function loadAboutUsComponent(containerId) {
-  fetch("/frontend/public/views/components/23_whoweare.html")
+  fetch("/src/templates/components/23_whoweare.html")
     .then(response => response.text())
     .then(data => {
       document.getElementById(containerId).innerHTML = data;

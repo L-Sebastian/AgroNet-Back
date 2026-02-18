@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const heroElement = document.querySelector(".loginforgot-container");
 
   if (heroElement) {
-    fetch("/frontend/public/views/components/4_form_new__account.html")
+    fetch("/src/templates/components/4_form_new__account.html")
       .then(response => response.text())
       .then(data => {
         heroElement.innerHTML = data;

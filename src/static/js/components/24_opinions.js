@@ -1,5 +1,5 @@
 function loadAboutUsComponent(containerId) {
-  fetch("/frontend/public/views/components/24_opinions.html")
+  fetch("/src/templates/components/24_opinions.html")
     .then(response => response.text())
     .then(data => {
       document.getElementById(containerId).innerHTML = data;

@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.querySelector(".banner-container");
 
-  fetch("/frontend/public/views/components/12_banner.html")
+  fetch("/src/templates/components/12_banner.html")
     .then(response => response.text())
     .then(data => {
       container.innerHTML = data;

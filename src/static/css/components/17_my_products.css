@@ -73,7 +73,7 @@
   list-style: none;
   padding: 0.5rem 0;
   margin: 0;
-  display: none; /* 🔹 Oculto por defecto */
+  display: none; /* Oculto por defecto */
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   min-width: 160px;
   z-index: 1000;
@@ -132,7 +132,7 @@
 
 .product-card__img {
   width: 30%;             /* ocupa todo el ancho del contenedor */
-  aspect-ratio: 16 / 10;   /* 🔸 más ancha que alta */
+  aspect-ratio: 16 / 10;   /* más ancha que alta */
   object-fit: cover;       /* recorta para que todas se vean iguales */
   border-radius: 10px;     /* esquinas suaves */
   padding: 0.5rem;
@@ -193,7 +193,7 @@
   display: none;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   min-width: 140px;
-  z-index: 9999; /* 🔹 Siempre encima */
+  z-index: 9999; /* Siempre encima */
   text-align: center;
 }
 
@@ -218,7 +218,7 @@
 
 
 
-/* 🔹 Estilos del switch */
+/* Estilos del switch */
 
 .product-card__toggle input[type="checkbox"] {
   display: none;
