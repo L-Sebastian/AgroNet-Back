@@ -38,7 +38,7 @@
   background-color: var(--button-add-color);
   color: var(--white);
   border: none;
-  padding: 8px 14px;
+  padding: 16px;
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
@@ -53,7 +53,7 @@
 }
 
 .admin-categories__search {
-  padding: 8px 12px;
+  padding: 16px;
   border: 1px solid var(--gray-200);
   border-radius: 6px;
   width: 250px;
@@ -192,73 +192,65 @@
 }
 
 
-/* ======= ESTILOS GENERALES DE LOS POPUPS ======= */
-.popup {
+/* Estructura base del popup */
+.admin-categories__popup {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: none; /* Oculto por defecto */
+  background-color: rgba(0,0,0,0.5);
+  display: none;
   justify-content: center;
   align-items: center;
   z-index: 9999;
 }
 
-.popup.show {
+/* Mostrar el popup activo */
+.admin-categories__popup.show {
   display: flex;
 }
 
-.popup-content {
+.admin-categories__modal--show {
+  display: flex;
+}
+
+/* Contenido del popup */
+.admin-categories__popup-content {
+  position: relative;
   background-color: var(--white);
   padding: 30px;
   border-radius: 12px;
   text-align: center;
   width: 360px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  max-width: 90%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   animation: popupFade 0.3s ease-in-out;
 }
 
-@keyframes popup-appear {
-  from {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-.close-popup {
+/* Botón cerrar */
+.admin-categories__popup-close {
   position: absolute;
   top: 12px;
   right: 15px;
   cursor: pointer;
   color: var(--gray-500);
   font-size: 1.3rem;
-  transition: color 0.2s;
+  border: none;
+  background-color: var(--white);
 }
 
-.close-popup:hover {
-  color: #000;
-}
 
-/* ======= POPUP DE CONFIRMACIÓN  ======= */
-
-#confirm_delete_popup p {
-  margin: 1rem 0 1.5rem;
-}
-
-#confirm_delete_popup .popup-buttons {
+/* Botones */
+.admin-categories__popup-buttons {
   display: flex;
   justify-content: center;
-  gap: 50px;
+  gap: 40px;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
 }
 
-
-#confirm_delete_popup .btn.cancel {
+.admin-categories__popup-btn--cancel {
   background-color: var(--gray-100);
   color: var(--gray-600);
 
@@ -280,8 +272,6 @@
   justify-content: center;
   gap: var(--btn-gap, 0.5rem);
 
-  cursor: pointer;
-  user-select: none;
   box-shadow: var(--btn-shadow, 0 1px 3px rgba(0, 0, 0, 0.15));
   transition:
     background var(--btn-transition-duration, 150ms) var(--btn-transition-timing, ease-in-out),
@@ -289,12 +279,12 @@
     transform var(--btn-transition-duration, 150ms) var(--btn-transition-timing, ease-in-out);
 }
 
-#confirm_delete_popup .btn.cancel:hover {
+.admin-categories__popup-btn--cancel:hover {
   background-color: var(--gray-200);
 }
 
-#confirm_delete_popup .btn.accept {
-  background:var(--button-add-color);
+.admin-categories__popup-btn--accept {
+  background: var(--button-add-color);
   color: var(--btn-text, var(--white));
 
   padding: var(--btn-padding-y, 0.5rem) var(--btn-padding-x, 1rem);
@@ -321,57 +311,82 @@
   transition:
     background var(--btn-transition-duration, 150ms) var(--btn-transition-timing, ease-in-out),
     box-shadow var(--btn-transition-duration, 150ms) var(--btn-transition-timing, ease-in-out),
-    transform var(--btn-transition-duration, 150ms) var(--btn-transition-timing, ease-in-out);
+    transform var(--btn-transition-duration, 150ms) var
 }
 
-#confirm_delete_popup .btn.accept:hover {
+.admin-categories__popup-btn--accept:hover {
   background: var(--button-add-color-hover);
-  color: var(--btn-text-hover, var(--white));
-  box-shadow: var(--btn-shadow-hover, 0 2px 6px rgba(0, 0, 0, 0.2)); 
 }
 
-#confirm_delete_popup .btn.accept:active {
-  background: var(--button-add-color-hover);
+.admin-categories__popup-btn--accept:active {
+  background: var(--btn-bg-pressed, var(--primary-700));
   color: var(--btn-text-pressed, var(--white));
   box-shadow: var(--btn-shadow-pressed, 0 2px 4px rgba(0, 0, 0, 0.25));
-  transform: scale(0.98); /* pequeño feedback */
+  transform: scale(0.98); 
 }
 
-#confirm_delete_popup .btn.accept:disabled {
-  background: var(--button-add-color-hover);
+.admin-categories__popup-btn--accept:disabled {
+  background: var(--btn-bg-disabled, var(--primary-200));
   color: var(--btn-text-disabled, var(--gray-500));
   box-shadow: none;
   cursor: not-allowed;
   opacity: 0.7;
 }
 
-
-/* ======= POPUP DE ÉXITO  ======= */
-
-
-#delete_success_popup .icon_1_2.ok {
-  color: var(--secundary-700);
+/* Popup de éxito */
+.admin-categories__popup--success .admin-categories__popup-icon {
+  color: var(--button-add-color);
   font-size: 50px;
-  margin-bottom: 16px;
+  margin-bottom: 1rem;
 }
 
-#delete_success_popup p {
-  color: var(--gray-900);
-  margin-top: 0.5rem;
-}
+/* =============================== */
+/* RESPONSIVE                      */
+/* =============================== */
 
-/* Efecto suave al abrir */
-#delete_success_popup.show .popup-content {
-  animation: popup-success 0.35s ease;
-}
 
-@keyframes popup-success {
-  from {
-    transform: translateY(-15px);
-    opacity: 0;
+@media (min-width: 768px) and (max-width: 1024px) {
+  .admin-categories__actions {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: nowrap;
   }
-  to {
-    transform: translateY(0);
-    opacity: 1;
+
+  .admin-categories__actions > * {
+    min-width: 0;
+  }
+
+  .admin-categories__btn {
+    flex: 0 0 auto;
+    width: auto;
+    white-space: nowrap;
+  }
+
+  .admin-categories__search {
+    flex: 0 0 260px;
+    width: auto;
+    max-width: 45%;
+    box-sizing: border-box;
   }
 }
+
+
+@media (max-width: 767px) {
+  .admin-categories__actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    flex-wrap: nowrap;
+  }
+
+  .admin-categories__btn,
+  .admin-categories__search {
+    width: auto;
+    max-width: 60%;
+    flex: 0 0 auto;
+    box-sizing: border-box;
+  }
+}
+

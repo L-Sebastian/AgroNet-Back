@@ -1,5 +1,5 @@
 async function cargarMensaje() {
-  const contenedor = document.querySelector(".sidebar-seller");
+  const contenedor = document.querySelector(".sidebar-container");
 
   const res = await fetch("/src/templates/components/40_sidebar_seller.html");
   const html = await res.text();
@@ -10,7 +10,10 @@ async function cargarMensaje() {
 
   //  Espera a que el sidebar esté cargado y aplica el comportamiento de "activo"
   activarSidebarLinks(div);
+  activarSidebarDesplegable(div); 
+
 }
+
 
 // Función que agrega el comportamiento de selección activa
 function activarSidebarLinks(rootElement) {
@@ -23,6 +26,19 @@ function activarSidebarLinks(rootElement) {
       // Agrega "active" solo al enlace clicado
       link.classList.add("active");
     });
+  });
+}
+
+// función: menú desplegable
+function activarSidebarDesplegable(rootElement) {
+  const subtitle = rootElement.querySelector(".sidebar__list");
+  const menu = rootElement.querySelector(".sidebar__menu");
+
+  if (!subtitle || !menu) return;
+
+  subtitle.addEventListener("click", () => {
+    menu.classList.toggle("sidebar__menu--visible");
+    subtitle.classList.toggle("sidebar__subtitle--active");
   });
 }
 

@@ -80,5 +80,5 @@ function mostrarModalCierre() {
         redirect();
       });
     }
-  }, 50); // pequeño retraso para asegurar que el DOM interno esté listo
+  }, 50); 
 }

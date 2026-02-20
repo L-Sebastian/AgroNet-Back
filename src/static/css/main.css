@@ -9,12 +9,12 @@
 @import url('components/0_product_detail.css');
 @import url('components/1_footer.css');
 /*@import url('components/2_form.css'); - DELETED */
-@import url('components/3_drop-down_list.css');
-@import url('components/4_form_new_account.css');
+@import url('components/3_catalog-header.css');
+@import url('components/4_register-form.css');
 @import url('components/5_navbar_seller.css');
 /*@import url('components/6_edit_profile.css'); - DELETED*/
 @import url('components/7_product_cart.css');
-@import url('components/8_form_register.css');
+@import url('components/8_login-form.css');
 @import url('components/9_summary.css');
 @import url('components/10_product-card.css');
 @import url('components/11_forgot_password.css');
@@ -27,37 +27,41 @@
 @import url('components/18_personal_details.css');
 @import url('components/19_message.css');
 @import url('components/20_navbar_general.css');
-@import url('components/21_popup.css');
+/*@import url('components/21_popup.css'); **** DELETED */
 @import url('components/22_form-bank-transfer.css');
 @import url('components/23_whoweare.css');
 @import url('components/24_opinions.css');
 @import url('components/25_cards_product.css');
 @import url('components/26_detail_similar.css');
 @import url('components/29_sidebar_profile.css');
-@import url('components/30_start_sales.css');
+@import url('components/30_seller-activation.css');
+@import url('components/30.5_header-section.css');
 @import url('components/31_my_profile.css');
 @import url('components/32_historial_orders.css');
-@import url('components/33_profile_seller.css');
+@import url('components/33_seller-profile.css');
 /*@import url('components/34_cards_profile_seller.css'); - DELETED*/
 /*@import url('components/35_product_detail_customer.css'); - DELETED*/
 @import url('components/36_seller_form.css');
 @import url('components/37_profile_store.css');
 @import url('components/38_generate_report.css');
-@import url('components/39_logout_popup.css');
+@import url('components/38.5_header1-generate_report.css');
+/* @import url('components/39_logout_popup.css'); */
 @import url('components/41_cart_general.css');
 @import url('components/42_disabled_products.css');
 @import url('components/43_navbar_seller2.0.css');
 @import url('components/45_order_detail.css');
 @import url('components/46_address_book.css');
 @import url('components/47_notifications-sidebar.css');
-@import url('components/48_notifications-sidebar-customer.css');
+/*@import url('components/48_notifications-sidebar-customer.css');*/
 @import url('components/49_profile-customer.css');
 @import url('components/50_order_detail_customer.css');
-@import url('components/51_historial_orders_customer.css');
+/*@import url('components/51_historial_orders_customer.css');*/
 @import url('components/52_popup_contact.css');
+@import url('components/82_token_forgot_password.css');
+@import url('components/83_confirm_forgot_password.css');
 /*@import url('components/53_product_detail_seller.css'); - DELETED*/
 
-/* Admin Components */
+/* Admin Components  - FUERA DE USO*/
 @import url('components/56_banners-admin.css');
 @import url('components/57_navbar_admin.css');
 @import url('components/58_footer_admin.css');

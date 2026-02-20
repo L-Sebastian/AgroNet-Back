@@ -1,53 +1,27 @@
+
 document.addEventListener("DOMContentLoaded", () => {
 
-  // 🛒 DATOS SIMULADOS DEL CARRITO
   const cartData = [
-    {
-      vendor: "AgroJuan",
-      phone: "3001234567",
-      payment: "Nequi: 3001234567",
-      products: [
-        { name: "Tomates", qty: 2, price: 8000 },
-        { name: "Papa criolla", qty: 1, price: 5000 }
-      ]
-    },
-    {
-      vendor: "CampoDulce",
-      phone: "3217654321",
-      payment: "Bancolombia: 12345",
-      products: [
-        { name: "Miel pura", qty: 1, price: 18000 }
-      ]
-    },
-    {
-      vendor: "FruverCampo",
-      phone: "3123647824",
-      payment: "Daviplata: 12345",
-      products: [
-        { name: "Tomate de arbol", qty: 3, price: 15000 }
-      ]
-    }
+    { vendor: "AgroJuan", phone: "3001234567", payment: "Nequi: 3001234567", products: [ { name: "Tomates", qty: 2, price: 8000 }, { name: "Papa criolla", qty: 1, price: 5000 } ] },
+    { vendor: "CampoDulce", phone: "3217654321", payment: "Bancolombia: 12345", products: [ { name: "Miel pura", qty: 1, price: 18000 } ] },
+    { vendor: "FruverCampo", phone: "3123647824", payment: "Daviplata: 12345", products: [ { name: "Tomate de arbol", qty: 3, price: 15000 } ] }
   ];
 
-  // 🎯 CARGAR COMPONENTE HTML
-  const container = document.querySelector(".checkout-summary-customer-container");
+  const container = document.querySelector(".checkout-summary-customer");
 
   if (container) {
     fetch("/src/templates/components/80_purchase_summary.html")
       .then(res => res.text())
       .then(html => {
         container.innerHTML = html;
-
-        // ✅ Renderizar datos y configurar eventos después de cargar el HTML
         renderSummary(cartData);
         initPopups();
       });
   }
 
-  // 🧩 FUNCIÓN PARA RENDERIZAR EL RESUMEN
   function renderSummary(data) {
-    const vendorsContainer = document.getElementById("summaryVendors");
-    const confirmBtn = document.getElementById("confirmOrderBtn");
+    const vendorsContainer = document.querySelector(".checkout-summary__vendors--js");
+    const confirmBtn = document.querySelector(".checkout-summary__confirm-btn--js");
 
     if (!vendorsContainer || !confirmBtn) return;
 
@@ -71,66 +45,56 @@ document.addEventListener("DOMContentLoaded", () => {
       vendorsContainer.appendChild(vendorCard);
     });
 
-    // ✅ Abrir popup de confirmación al hacer clic en "Confirmar pedido"
     confirmBtn.addEventListener("click", () => {
-      document.getElementById("confirm_order_popup").classList.add("show");
+      document.querySelector(".checkout-summary__popup--confirm").classList.add("checkout-summary__popup--show");
     });
   }
 
-  // 🧠 --- FUNCIÓN PARA INICIALIZAR POPUPS ---
   function initPopups() {
-    const confirmPopup = document.getElementById("confirm_order_popup");
-    const successPopup = document.getElementById("success_order_popup");
+    const confirmPopup = document.querySelector(".checkout-summary__popup--confirm");
+    const successPopup = document.querySelector(".checkout-summary__popup--success");
 
     if (!confirmPopup || !successPopup) return;
 
-    const closeConfirm = confirmPopup.querySelector(".close-popup");
-    const cancelBtn = confirmPopup.querySelector(".btn.cancel");
-    const acceptBtn = confirmPopup.querySelector(".btn.accept");
-    const confirmContent = confirmPopup.querySelector(".popup-content");
-    const successContent = successPopup.querySelector(".popup-content");
+    const closeConfirm = confirmPopup.querySelector(".checkout-summary__popup-close");
+    const cancelBtn = confirmPopup.querySelector(".checkout-summary__btn--cancel");
+    const acceptBtn = confirmPopup.querySelector(".checkout-summary__btn--accept");
+    const confirmContent = confirmPopup.querySelector(".checkout-summary__popup-content");
+    const successContent = successPopup.querySelector(".checkout-summary__popup-content");
+    const closeSuccess = successPopup.querySelector(".checkout-summary__popup-close");
 
-    // 🟠 Cerrar confirmación (X, cancelar o clic fuera)
     [closeConfirm, cancelBtn].forEach(btn => {
       btn.addEventListener("click", () => {
-        confirmPopup.classList.remove("show");
+        confirmPopup.classList.remove("checkout-summary__popup--show");
       });
     });
 
     confirmPopup.addEventListener("click", e => {
-      if (e.target === confirmPopup) confirmPopup.classList.remove("show");
+      if (e.target === confirmPopup) confirmPopup.classList.remove("checkout-summary__popup--show");
     });
 
-    // 🔵 NUEVO: cerrar al hacer clic dentro del cuadro del popup
-    confirmContent.addEventListener("click", () => {
-      confirmPopup.classList.remove("show");
-    });
+    confirmContent.addEventListener("click", e => e.stopPropagation());
 
-    // 🟢 Aceptar pedido → mostrar popup de éxito
     acceptBtn.addEventListener("click", () => {
-      confirmPopup.classList.remove("show");
-      successPopup.classList.add("show");
+      confirmPopup.classList.remove("checkout-summary__popup--show");
+      successPopup.classList.add("checkout-summary__popup--show");
     });
-
-    // --- POPUP ÉXITO ---
-    const closeSuccess = successPopup.querySelector(".close-popup");
 
     closeSuccess.addEventListener("click", () => {
-      successPopup.classList.remove("show");
-      window.location.href = "/src/templates/customer-pages/historial_orders.html"; //  Redirigir al cerrar
+      successPopup.classList.remove("checkout-summary__popup--show");
+      window.location.href = "/src/templates/seller-pages/historial_orders.html";
     });
 
     successPopup.addEventListener("click", e => {
       if (e.target === successPopup) {
-        successPopup.classList.remove("show");
-        window.location.href = "/src/templates/customer-pages/historial_orders.html";
+        successPopup.classList.remove("checkout-summary__popup--show");
+        window.location.href = "/src/templates/seller-pages/historial_orders.html";
       }
     });
 
-    // 🔵 NUEVO: cerrar también al hacer clic dentro del cuadro del popup de éxito
-    successContent.addEventListener("click", () => {
-      successPopup.classList.remove("show");
-      window.location.href = "/src/templates/customer-pages/historial_orders.html";
-    });
+    successContent.addEventListener("click", e => e.stopPropagation());
   }
+
 });
+
+

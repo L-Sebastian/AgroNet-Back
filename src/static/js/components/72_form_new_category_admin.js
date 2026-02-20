@@ -7,8 +7,9 @@ document.addEventListener("DOMContentLoaded", () => {
       .then(component => {
         container.innerHTML = component;
 
-        const form = document.querySelector("#formNuevaCategoria");
-        const popup = document.getElementById("success_category_popup");
+        // Seleccionamos el formulario y el popup usando clases BEM
+        const form = container.querySelector(".form-datos__form");
+        const popup = container.querySelector(".popup--success-category");
 
         form.addEventListener("submit", (e) => {
           e.preventDefault();
@@ -17,10 +18,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Cerrar popup y redirigir
         popup.addEventListener("click", (e) => {
+          // Cerrar si clic en fondo o en botón de cerrar
           if (
             e.target.classList.contains("popup") || 
-            e.target.closest(".close-popup") || 
-            e.target.closest(".popup-content") // clic dentro del contenido también
+            e.target.closest(".popup__close")
           ) {
             popup.classList.remove("show");
             // Redirigir después de cerrar

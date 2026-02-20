@@ -71,3 +71,64 @@
   font-size: var(--fs-xxs);
   color: var(--white);
 }
+
+/* ============================= */
+/* RESPONSIVIDAD NAVBAR ADMIN   */
+/* ============================= */
+
+.admin-navbar__toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* ------- Modo responsive ------- */
+@media (max-width: 768px) {
+  .admin-navbar {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0.8rem 1rem;
+  }
+
+  .admin-navbar__toggle {
+    display: block;
+  }
+
+  .admin-navbar__list {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    height: 100%;
+    width: 250px;
+    background-color: var(--navbar-background);
+    flex-direction: column;
+    align-items: start;
+    padding: 2rem 1.5rem;
+    gap: 1.5rem;
+    transition: left 0.3s ease;
+    z-index: 1000;
+  }
+
+  .admin-navbar__list--active {
+    left: 0;
+  }
+
+  .admin-navbar__item {
+    width: 100%;
+  }
+
+  .admin-navbar__link {
+    width: 100%;
+    display: block;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+  }
+
+  .admin-navbar__profile {
+    display: none;
+  }
+}
+

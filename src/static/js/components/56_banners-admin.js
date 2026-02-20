@@ -1,8 +1,9 @@
+
 document.addEventListener("DOMContentLoaded", async () => {
   const container = document.querySelector(".admin-view");
 
   try {
-    const htmlResponse = await fetch("/frontend/public/views/components/56_banners-admin.html");
+    const htmlResponse = await fetch("/src/templates/components/56_banners-admin.html");
     if (!htmlResponse.ok) throw new Error("No se pudo cargar el componente HTML");
 
     const html = await htmlResponse.text();
@@ -11,66 +12,60 @@ document.addEventListener("DOMContentLoaded", async () => {
     const grid = document.querySelector(".admin-banners__grid");
 
     // Cargar banners desde JSON simulado
-    const dataResponse = await fetch("/frontend/public/data/admin_banners.json");
+    const dataResponse = await fetch("/src/static/data/admin_banners.json");
     if (!dataResponse.ok) throw new Error("No se pudo cargar los banners");
 
     const banners = await dataResponse.json();
 
-    grid.innerHTML = ""; // Limpiar antes de agregar
+    grid.innerHTML = "";
     banners.forEach(banner => {
       const card = document.createElement("article");
-      card.classList.add("banner-card");
+      card.classList.add("admin-banners__card");
       card.innerHTML = `
-        <div class="banner-card__image-container">
-          <img src="${banner.image}" alt="${banner.name}" class="banner-card__image" />
+        <div class="admin-banners__image-container">
+          <img src="${banner.image}" alt="${banner.name}" class="admin-banners__image" />
         </div>
-        <div class="banner-card__info">
-          <h3 class="banner-card__name">${banner.name}</h3>
-          <p class="banner-card__desc">${banner.description}</p>
-          <div class="banner-card__actions">
-            <button class="banner-card__btn banner-card__btn--edit">Editar</button>
-            <button class="banner-card__btn banner-card__btn--delete">Eliminar</button>
+        <div class="admin-banners__info">
+          <h3 class="admin-banners__name">${banner.name}</h3>
+          <p class="admin-banners__description">${banner.description}</p>
+          <div class="admin-banners__actions">
+            <button class="admin-banners__btn admin-banners__btn--edit">Editar</button>
+            <button class="admin-banners__btn admin-banners__btn--delete">Eliminar</button>
           </div>
         </div>
       `;
       grid.appendChild(card);
     });
 
-    // ================================
-    // 🔹 Ventanas emergentes (popups)
-    // ================================
-    const popupConfirm = document.querySelector("#confirm_delete_popup");
-    const popupSuccess = document.querySelector("#delete_success_popup");
+    // Popups
+    const popupConfirm = document.querySelector(".admin-banners__popup--confirm");
+    const popupSuccess = document.querySelector(".admin-banners__popup--success");
 
-    // 🔹 Evento al hacer clic en "Eliminar"
     grid.addEventListener("click", (e) => {
-      if (e.target.classList.contains("banner-card__btn--delete")) {
+      if (e.target.classList.contains("admin-banners__btn--delete")) {
         popupConfirm.classList.add("show");
       }
     });
 
-    // 🔹 Acciones dentro del popup de confirmación
     popupConfirm.addEventListener("click", (e) => {
       if (
-        e.target.closest(".close-popup") || // ahora detecta clic en el ícono o su contenedor
-        e.target.classList.contains("popup") ||
-        e.target.classList.contains("cancel")
+        e.target.closest(".admin-banners__popup-close") ||
+        e.target.classList.contains("admin-banners__popup") ||
+        e.target.classList.contains("admin-banners__btn--cancel")
       ) {
         popupConfirm.classList.remove("show");
       }
 
-      if (e.target.classList.contains("accept")) {
+      if (e.target.classList.contains("admin-banners__btn--accept")) {
         popupConfirm.classList.remove("show");
         popupSuccess.classList.add("show");
       }
     });
 
-    // 🔹 Cierre del popup de éxito
     popupSuccess.addEventListener("click", (e) => {
       if (
-        e.target.classList.contains("close-popup") || // X
-        e.target === popupSuccess ||                  // fondo oscuro
-        e.target.closest(".popup-content")            // cualquier parte dentro del popup
+        e.target.classList.contains("admin-banners__popup-close") ||
+        e.target.classList.contains("admin-banners__popup")
       ) {
         popupSuccess.classList.remove("show");
       }
@@ -80,3 +75,4 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.error("Error al cargar los banners:", error);
   }
 });
+

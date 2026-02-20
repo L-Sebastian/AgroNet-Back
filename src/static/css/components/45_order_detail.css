@@ -4,6 +4,30 @@
 /* ORDER DETAIL PAGE (BEM STYLE)   */
 /* =============================== */
 
+.order-detail__back {
+  margin-top: 60px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 2.4rem;
+  color: var(--black);
+  background: var(--gray-100);
+  padding: 1rem 1.2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  transition: background 0.3s ease, transform 0.2s ease;
+  z-index: 1000;
+}
+
+.order-detail__back:hover {
+  background: var(--gray-200);
+  transform: scale(1.05);
+}
+
 .order-detail {
   display: flex;
   justify-content: center;
@@ -12,6 +36,10 @@
   padding: 2rem;
   box-sizing: border-box;
   margin-top: 80px;
+}
+
+.order-detail__date{
+  margin-top: 4rem;
 }
 
 .order-detail__content {
@@ -164,6 +192,13 @@
   .order-detail__sidebar {
     width: 100%;
   }
+  .order-detail__main{
+    margin-top: 8rem;
+  }
+
+  .order-detail__back{
+    margin-top: 16rem;
+  }
 }
 
 /* =============================== */
@@ -252,6 +287,7 @@
   cursor: pointer;
   color: var(--black);
   transition: color 0.2s;
+  font-size: 2rem;
 }
 
 .invoice-modal__close:hover {

@@ -17,6 +17,11 @@ body {
   font-size: var(--fs-xs);
 }
 
+.footer.body{
+  margin-top: 24rem;
+}
+
+
 /* Estilos de los componentes de metodo de pago */
 .double-container {
   display: flex;
@@ -232,7 +237,7 @@ body {
 }
 
 .body-contact {
-    background-image: url("/src/static/assets/cafe-cultivos.jpg");
+    background-image: url("/frontend/public/assets/cafe-cultivos.jpg");
     background-size: cover;
     background-position: top center;
     background-repeat: no-repeat;
@@ -245,17 +250,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .body-contact .contact-container,
-.body-new_account .contact-container {
+.body-register_an_account .contact-container {
   padding-bottom: 200px; /* espacio para el footer fijo en móviles */
 }
 
 .body-contact .contacttwo-container,
-.body-new_account .contacttwo-container {
+.body-register_an_account .contacttwo-container {
   padding-bottom: 200px; /* espacio para el footer fijo en móviles */
 }
 
 
-.body-new_account .footer{
+.body-register-an_account .footer{
     left: 0;
     bottom: 0;
     width: 100%;

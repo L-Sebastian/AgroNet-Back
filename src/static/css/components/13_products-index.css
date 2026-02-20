@@ -7,15 +7,31 @@ y index_seller.html (seller-pages) */
 
 /* Products Index Component */
 
-/* Sección principal del listado de productos */
-.products-index-section {
+/* Contenedor de tarjetas scroll horizontal */
+.products-index {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 24px;             /* 1.5rem */
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 12px;  /* 0.75rem */
+  scroll-behavior: smooth;
   max-width: 1600px;     /* 90rem */
   margin: 32px auto;     /* 2rem */
   padding: 0 16px;       /* 1rem */
 }
 
+/* ESTE ES EL CONTENEDOR JS NO ES NECESARIO USAR BEM */
+.products-index-seller-container {
+  overflow: hidden;
+
+}
+.products-index__section{
+  overflow: hidden;
+}
+
 /* Cabecera del bloque de productos */
-.products-index-header {
+.products-index__header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -41,15 +57,7 @@ y index_seller.html (seller-pages) */
   text-decoration: underline;
 }
 
-/* Contenedor de tarjetas scroll horizontal */
-.products-index {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 24px;             /* 1.5rem */
-  overflow-x: auto;
-  padding-bottom: 12px;  /* 0.75rem */
-  scroll-behavior: smooth;
-}
+
 
 /* Tarjeta individual (base: móvil pequeño) */
 .products-index__card {

@@ -7,10 +7,9 @@ document.addEventListener('DOMContentLoaded', function () {
       .then(data => {
         contenedor.innerHTML = data;
 
-        // 🔹 Inicializar modal después de cargar el componente
-        const openBtn = document.getElementById("openInvoice");
-        const closeBtn = document.getElementById("closeInvoice");
-        const modal = document.getElementById("invoiceModal");
+        const openBtn = document.querySelector(".openInvoice");
+        const closeBtn = document.querySelector(".closeInvoice");
+        const modal = document.querySelector(".invoiceModal");
 
         if (openBtn && closeBtn && modal) {
           openBtn.addEventListener("click", () => {

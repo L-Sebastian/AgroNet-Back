@@ -1,6 +1,3 @@
-// ============================
-//  Componente <my-products>
-// ============================
 class MyProducts extends HTMLElement {
   constructor() {
     super();
@@ -28,54 +25,56 @@ class MyProducts extends HTMLElement {
         this.renderProducts(shadow);
         this.setupDropdown(shadow);
         this.setupMenuCard(shadow);
-        this.setupPopupClose(shadow); //  nuevo método para manejar el cierre del popup
-        this.setupPopupActions(shadow); //  NUEVO: manejo completo de eventos de cierre
-        this.setupDisablePopup(shadow); 
-        this.setupDetailsPopup(shadow); 
+        this.setupPopups(shadow);
+        this.setupDetailsPopup(shadow);
       });
   }
 
+  /* =============== RENDERIZAR PRODUCTOS =============== */
   renderProducts(shadow) {
     const products = [
-      { name: "Manzana Gala", price: "$20 por kg", type: "fruta", stock: "24kg", image: "/frontend/public/assets/manzanagala.jpg" },
-      { name: "Banano", price: "$20 por kg", type: "fruta", stock: "24kg", image: "/frontend/public/assets/huevos.jpg" },
-      { name: "Banano", price: "$20 por kg", type: "fruta", stock: "24kg", image: "/frontend/public/assets/cebolla_larga.jpg" },
-      { name: "Banano", price: "$20 por kg", type: "fruta", stock: "24kg", image: "/frontend/public/assets/lechuga.jpg"},
-      { name: "Banano", price: "$20 por kg", type: "fruta", stock: "24kg", image: "/frontend/public/assets/papa.jpg" },
-      { name: "Banano", price: "$20 por kg", type: "fruta", stock: "24kg", image: "/frontend/public/assets/platano.webp" },
-      { name: "Banano", price: "$20 por kg", type: "fruta", stock: "24kg", image: "/frontend/public/assets/cafe.jpg" },
-      { name: "Naranja", price: "$1.390 por und", type: "fruta", stock: "24kg", image: "/frontend/public/assets/banano.webp" }
+      { name: "Manzana Gala", price: "$20 por kg", type: "fruta", stock: "24kg", image: "/src/static/assets/manzanagala.jpg" },
+      { name: "Banano", price: "$20 por kg", type: "fruta", stock: "24kg", image: "/src/static/assets/huevos.jpg" },
+      { name: "Banano", price: "$20 por kg", type: "fruta", stock: "24kg", image: "/src/static/assets/cebolla_larga.jpg" },
+      { name: "Banano", price: "$20 por kg", type: "fruta", stock: "24kg", image: "/src/static/assets/lechuga.jpg"},
+      { name: "Banano", price: "$20 por kg", type: "fruta", stock: "24kg", image: "/src/static/assets/papa.jpg" },
+      { name: "Banano", price: "$20 por kg", type: "fruta", stock: "24kg", image: "/src/static/assets/platano.webp" },
+      { name: "Banano", price: "$20 por kg", type: "fruta", stock: "24kg", image: "/src/static/assets/cafe.jpg" },
+      { name: "Naranja", price: "$1.390 por und", type: "fruta", stock: "24kg", image: "/src/static/assets/banano.webp" }
     ];
 
-    const container = shadow.querySelector(".products__grid");
+    const container = shadow.querySelector(".my-products__grid");
 
     products.forEach((p, index) => {
       const card = document.createElement("article");
-      card.classList.add("product-card");
+      card.classList.add("my-products__card");
+
       const checkboxId = `checkboxInput-${index}`;
 
       card.innerHTML = `
-        <div class="menu-card">
-          <button class="menu-card__toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
-          <ul class="menu-card__options">
-            <li class="menu-card__item">Publicar</li>
-            <li class="menu-card__item">Editar</li>
-            <li class="menu-card__item">Visualizar</li>
-            <li class="menu-card__item">Ver detalles</li>
-            <li class="menu-card__item">Deshabilitar</li>
+        <div class="my-products__menu-card">
+          <button class="my-products__menu-card-toggle">
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </button>
+          <ul class="my-products__menu-card-options">
+            <li class="my-products__menu-card-item" data-action="publish">Publicar</li>
+            <li class="my-products__menu-card-item" data-action="edit">Editar</li>
+            <li class="my-products__menu-card-item" data-action="view">Visualizar</li>
+            <li class="my-products__menu-card-item" data-action="details">Ver detalles</li>
+            <li class="my-products__menu-card-item" data-action="disable">Deshabilitar</li>
           </ul>
         </div>
 
-        <img class="product-card__img" src="${p.image}" alt="${p.name}">
-        <div class="product-card__info">
-          <h3 class="product-card__name">Nombre del Producto: ${p.name}</h3>
-          <p class="product-card__price">Precio: ${p.price}</p>
-          <p class="product-card__type">Tipo de producto: <span>${p.type}</span></p>
-          <p class="product-card__stock">Stock: <span>${p.stock}</span></p>
+        <img class="my-products__card-img" src="${p.image}" alt="${p.name}">
+        <div class="my-products__card-info">
+          <h3 class="my-products__card-name">Nombre del Producto: ${p.name}</h3>
+          <p class="my-products__card-price">Precio: ${p.price}</p>
+          <p class="my-products__card-type">Tipo de producto: <span>${p.type}</span></p>
+          <p class="my-products__card-stock">Stock: <span>${p.stock}</span></p>
 
-          <div class="product-card__toggle">
+          <div class="my-products__card-toggle">
             <input type="checkbox" id="${checkboxId}">
-            <label for="${checkboxId}" class="toggleSwitch"></label>
+            <label for="${checkboxId}" class="my-products__card-toggleSwitch"></label>
           </div>
         </div>
       `;
@@ -84,225 +83,143 @@ class MyProducts extends HTMLElement {
     });
   }
 
+  /* =============== DROPDOWN =============== */
   setupDropdown(shadow) {
-    const toggle = shadow.querySelector(".dropdown__toggle");
-    const menu = shadow.querySelector(".dropdown__menu");
+    const toggle = shadow.querySelector(".my-products__dropdown-toggle");
+    const menu = shadow.querySelector(".my-products__dropdown-menu");
 
-    toggle.addEventListener("click", () => {
-      menu.classList.toggle("show");
-    });
+    toggle.addEventListener("click", () => menu.classList.toggle("show"));
 
-    shadow.addEventListener("click", (e) => {
-      if (!shadow.contains(e.target)) {
-        menu.classList.remove("show");
-      }
-    });
-
-    menu.querySelectorAll(".dropdown__item").forEach(item => {
-      item.addEventListener("click", () => {
-        console.log("Filtro seleccionado:", item.dataset.filter);
-        menu.classList.remove("show");
-      });
+    shadow.addEventListener("click", e => {
+      const inside = e.composedPath().includes(toggle);
+      if (!inside) menu.classList.remove("show");
     });
   }
 
+  /* =============== MENÚ DE CADA CARD =============== */
   setupMenuCard(shadow) {
-    shadow.addEventListener("click", (e) => {
-      const toggle = e.composedPath().find(el => el.classList && el.classList.contains("menu-card__toggle"));
-      const allMenus = shadow.querySelectorAll(".menu-card__options");
-      if (!toggle) return;
-      e.stopPropagation();
-      const currentMenu = toggle.nextElementSibling;
-      allMenus.forEach(m => {
-        if (m !== currentMenu) m.classList.remove("show");
-      });
-      currentMenu.classList.toggle("show");
-    });
+    shadow.addEventListener("click", e => {
+      const toggleBtn = e.composedPath().find(el => 
+        el?.classList?.contains("my-products__menu-card-toggle")
+      );
 
-    // Editar
-    shadow.addEventListener("click", (e) => {
-      const editItem = e.composedPath().find(el => el.classList && el.classList.contains("menu-card__item") && el.textContent.trim() === "Editar");
-      if (editItem) {
+      const menus = shadow.querySelectorAll(".my-products__menu-card-options");
+
+      if (toggleBtn) {
+        const menu = toggleBtn.nextElementSibling;
+        menus.forEach(m => m !== menu && m.classList.remove("show"));
+        menu.classList.toggle("show");
+      }
+
+      const actionItem = e.composedPath().find(el =>
+        el?.classList?.contains("my-products__menu-card-item")
+      );
+
+      if (!actionItem) return;
+
+      const action = actionItem.dataset.action;
+      const card = actionItem.closest(".my-products__card");
+
+      menus.forEach(m => m.classList.remove("show"));
+
+      if (action === "edit") {
         window.location.href = "/src/templates/seller-pages/edit_product.html";
       }
-    });
 
-    //  Visualizar
-    shadow.addEventListener("click", (e) => {
-      const editItem = e.composedPath().find(el => el.classList && el.classList.contains("menu-card__item") && el.textContent.trim() === "Visualizar");
-      if (editItem) {
+      if (action === "view") {
         window.location.href = "/src/templates/seller-pages/product_seller.html";
       }
-    });
 
-    // Publicar, Mostrar popup
-    shadow.addEventListener("click", (e) => {
-      const publishItem = e.composedPath().find(
-        el => el.classList && el.classList.contains("menu-card__item") && el.textContent.trim() === "Publicar"
-      );
-
-      if (publishItem) {
-        // Cierra todos los menús antes de mostrar el popup
-        shadow.querySelectorAll(".menu-card__options").forEach(menu => menu.classList.remove("show"));
-
-        // Muestra el popup
-        const popup = shadow.querySelector("#publish_success_popup");
-        if (popup) popup.classList.add("show");
+      if (action === "publish") {
+        this.showPopup(shadow, ".my-products__popup--publish-success");
       }
-      // Deshabilitar → Mostrar confirmación
-      shadow.addEventListener("click", (e) => {
-        const disableItem = e.composedPath().find(
-          el => el.classList && el.classList.contains("menu-card__item") && el.textContent.trim() === "Deshabilitar"
-        );
 
-        if (disableItem) {
-          // Cierra los menús
-          shadow.querySelectorAll(".menu-card__options").forEach(menu => menu.classList.remove("show"));
+      if (action === "disable") {
+        this.showPopup(shadow, ".my-products__popup--confirm-disable");
+      }
 
-          // Muestra popup de confirmación
-          const confirmPopup = shadow.querySelector("#disable_confirm_popup");
-          if (confirmPopup) confirmPopup.classList.add("show");
+      if (action === "details") {
+        this.openDetailsPopup(shadow, card);
+      }
+    });
+  }
+
+  /* ============================================================
+                     POPUPS GENERALES
+  ============================================================ */
+  setupPopups(shadow) {
+    shadow.querySelectorAll(".my-products__popup").forEach(popup => {
+      popup.addEventListener("click", e => {
+        if (e.target.classList.contains("my-products__popup")) {
+          popup.classList.remove("show");
         }
       });
-    });
 
-    // Cierra menús si se hace clic fuera
-    window.addEventListener("click", (e) => {
-      const path = e.composedPath();
-      const clickedInsideShadow = path.some(el => el === shadow.host || el.shadowRoot === shadow);
-      const clickedMenu = path.some(el => el.classList && (el.classList.contains("menu-card__toggle") || el.classList.contains("menu-card__options")));
-      if (!clickedInsideShadow || !clickedMenu) {
-        shadow.querySelectorAll(".menu-card__options").forEach(menu => menu.classList.remove("show"));
+      const close = popup.querySelector(".my-products__popup-close");
+      if (close) {
+        close.addEventListener("click", e => {
+          e.stopPropagation();
+          popup.classList.remove("show");
+        });
       }
     });
-  }
 
-  // Cierra el popup dentro del shadowRoot (por clic general)
-  setupPopupClose(shadow) {
-    const popup = shadow.querySelector("#publish_success_popup");
-    if (!popup) return;
+    /* Confirmación de deshabilitar */
+    const confirmPopup = shadow.querySelector(".my-products__popup--confirm-disable");
+    if (confirmPopup) {
+      const cancel = confirmPopup.querySelector(".my-products__popup-btn--cancel");
+      const accept = confirmPopup.querySelector(".my-products__popup-btn--accept");
 
-    popup.addEventListener("click", (e) => {
-      const isClose = e.target.classList.contains("close-popup") || e.target.classList.contains("popup");
-      if (isClose) {
-        popup.classList.remove("show");
-      }
-    });
-  }
+      cancel.addEventListener("click", () => confirmPopup.classList.remove("show"));
 
-  // NUEVO: Maneja el clic específico en la X o en el contenido
-  setupPopupActions(shadow) {
-    const popup = shadow.querySelector("#publish_success_popup");
-    const closeBtn = shadow.querySelector(".close-popup");
-    if (!popup || !closeBtn) return;
-
-    // Cerrar al hacer clic en la X
-    closeBtn.addEventListener("click", () => popup.classList.remove("show"));
-
-    // Cerrar al hacer clic en cualquier parte del popup (fondo)
-    popup.addEventListener("click", () => {
-      popup.classList.remove("show");
-    });
-  }
-
-  // NUEVO: Maneja la deshabilitación con confirmación
-  // Maneja la deshabilitación con confirmación y popup de éxito
-  setupDisablePopup(shadow) {
-    const confirmPopup = shadow.querySelector("#disable_confirm_popup");
-    const successPopup = shadow.querySelector("#disable_success_popup");
-    if (!confirmPopup || !successPopup) return;
-
-    const btnAccept = confirmPopup.querySelector(".btn.accept");
-    const btnCancel = confirmPopup.querySelector(".btn.cancel");
-    const closeBtns = confirmPopup.querySelectorAll(".close-popup");
-
-    // Cerrar confirmación (por X o Cancelar)
-    closeBtns.forEach(btn =>
-      btn.addEventListener("click", () => confirmPopup.classList.remove("show"))
-    );
-    if (btnCancel) btnCancel.addEventListener("click", () => confirmPopup.classList.remove("show"));
-
-    // Aceptar → cerrar confirmación y mostrar éxito
-    if (btnAccept) {
-      btnAccept.addEventListener("click", () => {
+      accept.addEventListener("click", () => {
         confirmPopup.classList.remove("show");
-        successPopup.classList.add("show");
+        this.showPopup(shadow, ".my-products__popup--disable-success");
       });
     }
-
-    // Cerrar popup de éxito (clic en la X, el fondo o el contenido)
-    const successCloseBtn = successPopup.querySelector(".close-popup");
-
-    // Cerrar con la X
-    if (successCloseBtn) {
-      successCloseBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        successPopup.classList.remove("show");
-      });
-    }
-
-    // Cerrar al hacer clic en cualquier parte del popup (fondo o contenido)
-    successPopup.addEventListener("click", () => {
-      successPopup.classList.remove("show");
-    });
   }
 
-  // NUEVO: Maneja el popup de detalles del producto
+  showPopup(shadow, selector) {
+    const popup = shadow.querySelector(selector);
+    if (popup) popup.classList.add("show");
+  }
+
+  /* ============================================================
+                    POPUP DE DETALLES
+  ============================================================ */
   setupDetailsPopup(shadow) {
-    const popup = shadow.querySelector("#details_popup");
-    if (!popup) return;
+    const popup = shadow.querySelector(".my-products__popup--details");
 
-    // Detectar clic en "Ver detalles"
-    shadow.addEventListener("click", (e) => {
-      const detailsItem = e.composedPath().find(
-        el => el.classList && el.classList.contains("menu-card__item") && el.textContent.trim() === "Ver detalles"
-      );
+    const close = popup.querySelector(".my-products__popup-close");
+    close.addEventListener("click", () => popup.classList.remove("show"));
 
-      if (detailsItem) {
-        // Cierra todos los menús
-        shadow.querySelectorAll(".menu-card__options").forEach(menu => menu.classList.remove("show"));
-
-        // Buscar la tarjeta del producto clickeada
-        const card = detailsItem.closest(".product-card");
-        if (!card) return;
-
-        // Obtener la información del producto
-        const name = card.querySelector(".product-card__name")?.textContent.replace("Nombre del Producto: ", "") || "";
-        const type = card.querySelector(".product-card__type span")?.textContent || "";
-        const price = card.querySelector(".product-card__price")?.textContent.replace("Precio: ", "") || "";
-        const stock = card.querySelector(".product-card__stock span")?.textContent || "";
-
-        // Asignar valores al popup
-        shadow.querySelector("#detail-name").textContent = name;
-        shadow.querySelector("#detail-type").textContent = type;
-        shadow.querySelector("#detail-price").textContent = price;
-        shadow.querySelector("#detail-stock").textContent = stock;
-
-        // Valores extra (puedes cambiarlos si tienes más datos)
-        shadow.querySelector("#detail-unit").textContent = "$10.000";
-        shadow.querySelector("#detail-description").textContent = "Producto fresco de alta calidad.";
-        shadow.querySelector("#detail-unit-weight").textContent = "Kilogramos";
-        shadow.querySelector("#detail-weight").textContent = "24 kg";
-
-        // Mostrar popup
-        popup.classList.add("show");
+    popup.addEventListener("click", e => {
+      if (e.target.classList.contains("my-products__popup--details")) {
+        popup.classList.remove("show");
       }
     });
-
-    // Cerrar al hacer clic en la X, el fondo o cualquier parte
-    const closeBtn = popup.querySelector(".close-popup");
-    if (closeBtn) {
-      closeBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        popup.classList.remove("show");
-      });
-    }
-
-    popup.addEventListener("click", () => {
-      popup.classList.remove("show");
-    });
   }
 
+  openDetailsPopup(shadow, card) {
+    const name = card.querySelector(".my-products__card-name")?.textContent.replace("Nombre del Producto: ", "");
+    const type = card.querySelector(".my-products__card-type span")?.textContent;
+    const price = card.querySelector(".my-products__card-price")?.textContent.replace("Precio: ", "");
+    const stock = card.querySelector(".my-products__card-stock span")?.textContent;
+
+    const popup = shadow.querySelector(".my-products__popup--details");
+
+    popup.querySelector(".my-products__details-name").textContent = name;
+    popup.querySelector(".my-products__details-type").textContent = type;
+    popup.querySelector(".my-products__details-price").textContent = price;
+    popup.querySelector(".my-products__details-stock").textContent = stock;
+
+    popup.querySelector(".my-products__details-unit").textContent = "$10.000";
+    popup.querySelector(".my-products__details-description").textContent = "Producto fresco de alta calidad.";
+    popup.querySelector(".my-products__details-unit-weight").textContent = "Kilogramos";
+    popup.querySelector(".my-products__details-weight").textContent = "24 kg";
+
+    popup.classList.add("show");
+  }
 }
 
 customElements.define("my-products", MyProducts);

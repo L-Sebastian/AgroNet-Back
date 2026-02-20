@@ -15,6 +15,12 @@
   margin-top: 170px;
 }
 
+.mensaje-form__form{
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
 .mensaje-form__title {
   text-align: center;
   margin-bottom: 20px;
@@ -30,10 +36,11 @@
 .mensaje-form__group > .mensaje-form__label {
   margin-bottom: 5px;
   color: var(--gray-900);
-  width: 100%;         /* mismo ancho que los inputs */
-  display: block;     /* para que respete el ancho */
-  margin: 0 auto 5px; /* lo centra igual que los inputs */
-  text-align: left;   /* texto alineado a la izquierda */
+  width: 100%;        
+  display: block;     
+  margin: 0 auto 5px; 
+  text-align: left;
+  font-size: var(--fs-xxxs);   
 }
 
 .mensaje-form__textarea {
@@ -81,16 +88,18 @@
 }
 
 .mensaje-form__radio-label {
-  font-size: var(--fs-sm);
-  font-weight: 600;
+  font-size: var(--fs-xxxs);
+  font-weight: var(--font-bold);
   margin-bottom: 6px;
   display: block;
 }
 
 .mensaje-form__button-group {
   display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
   justify-content: space-between;
-  margin-top: 15px;
+  align-self: center;
 }
 
 .mensaje-form__btn {
@@ -98,7 +107,6 @@
   color: var(--btn-text, var(--white));
 
   padding: var(--btn-padding-y, 8px) var(--btn-padding-x, 16px); /* 0.5rem → 8px, 1rem → 16px */
-  margin: var(--btn-margin, 8px auto); /* 0.5rem → 8px */
 
   font-size: var(--btn-font-size, 14px); /* 0.875rem → 14px */
   font-weight: var(--btn-font-weight, 500);
@@ -151,5 +159,23 @@
   opacity: 0.7;
 }
 
+/* Breakpoints */
+/* alias sm: 640px se usa normalmente para celulares grandes*/
+@media (max-width: 640px){
+  .mensaje-form{
+    width: 91vw;
+  }
+  .mensaje-form__button-group{
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    margin: 0 auto;
+    width: 180px;
+  }
+}
 
+/* alias md: 768px se usa normalmente para tablets*/
+/* alias lg: 1024px se usa normalmente para tablets grandes y laptops*/
+/* alias xl: 1280px se usa normalmente para laptops grandes y desktops*/
+/* alias 2xl: 1536px se usa normalmente para desktops grandes*/
 

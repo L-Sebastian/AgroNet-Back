@@ -7,7 +7,7 @@ y index_seller.html (seller-pages) */
   height: 450px;
   overflow: hidden; /* evita que el blur salga de los bordes */
 
-  background-image: url("/static/assets/imagen-banner.webp");
+  background-image: url("/src/static/assets/imagen-banner.webp");
   background-size: cover;         /* Que cubra todo */
   background-position: center top;/* Centrado arriba */
   background-repeat: no-repeat;
@@ -23,15 +23,13 @@ y index_seller.html (seller-pages) */
 }
 
 /* Contenido encima */
-.banner-content {
+.banner__content {
   position: relative;
   z-index: 2;
   height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  text-align: center;
   color: var(--black); /* ajusta según contraste */
   padding: 0 1rem;
 }

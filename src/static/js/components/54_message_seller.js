@@ -35,7 +35,7 @@ function inicializarModal() {
   const okIcon = modal.querySelector(".ok");
 
   // Página a la que redirigirá al cerrar el modal
-  const redireccion = "/src/templates/seller-pages/contact_seller.html";
+  const redireccion = "/frontend/public/views/seller-pages/contact_seller.html";
 
   // Mostrar modal al enviar
   form.addEventListener("submit", (e) => {

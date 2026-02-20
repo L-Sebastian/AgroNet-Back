@@ -1,5 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.querySelector(".admin-view");
+  if (!container) {
+    console.error("No existe un contenedor .admin-view en este documento.");
+    return;
+  }
 
   fetch("/src/templates/components/59_admin_dashboard.html")
     .then(response => {
@@ -7,29 +11,29 @@ document.addEventListener("DOMContentLoaded", () => {
       return response.text();
     })
     .then(html => {
-      // Insertamos el HTML del componente
       container.innerHTML = html;
 
-      // Esperamos a que el HTML se inserte y luego seleccionamos el canvas
-      const ctx = document.getElementById("salesChart");
-      if (!ctx) {
-        console.error("No se encontró el canvas para la gráfica");
+      
+      const canvas = container.querySelector(".admin-dashboard__chart-canvas");
+      if (!canvas) {
+        console.error("No se encontró el canvas .admin-dashboard__chart-canvas");
         return;
       }
 
-      // Creamos la gráfica
-      const chart = new Chart(ctx, {
-        type: "bar", // Puedes usar "line", "pie", etc.
+      new Chart(canvas, {
+        type: "bar",
         data: {
           labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio"],
-          datasets: [{
-            label: "Registros en la pagina",
-            data: [120, 190, 300, 250, 280, 350],
-            backgroundColor: "rgba(75, 192, 192, 0.6)",
-            borderColor: "rgba(75, 192, 192, 1)",
-            borderWidth: 1,
-            borderRadius: 8
-          }]
+          datasets: [
+            {
+              label: "Registros en la pagina",
+              data: [120, 190, 300, 250, 280, 350],
+              backgroundColor: "rgba(75, 192, 192, 0.6)",
+              borderColor: "rgba(75, 192, 192, 1)",
+              borderWidth: 1,
+              borderRadius: 8
+            }
+          ]
         },
         options: {
           responsive: true,

@@ -26,7 +26,7 @@ a{
 }
 
 /* CONTENEDOR PRINCIPAL */
-.login__main {
+.login {
     flex: 1;                      /* ocupa todo el espacio libre */
     display: flex;
     align-items: center;
@@ -34,8 +34,6 @@ a{
     position: relative;
     z-index: 1;
     padding-block: 2rem;          /* aire arriba y abajo */
-    margin-bottom: 140px; /* espacio para el footer */
-
 }
 
 /* CUADRO DE LOGIN */

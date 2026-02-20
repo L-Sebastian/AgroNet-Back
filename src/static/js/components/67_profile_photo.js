@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const template = div.querySelector("#template-profile-photo");
   container.appendChild(template.content.cloneNode(true));
 
-  const grid = document.querySelector(".profile-photo-grid");
+  const grid = document.querySelector(".profile-photo__grid");
 
   // Cargar las fotos del JSON
   const resJSON = await fetch("/src/static/data/profile_photo.json");
@@ -17,14 +17,14 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   photos.forEach((photo) => {
     const card = document.createElement("div");
-    card.classList.add("profile-photo-card");
+    card.classList.add("profile-photo__card");
 
     card.innerHTML = `
-      <img src="${photo.url}" alt="${photo.name}" class="profile-photo-card__img" />
-      <div class="profile-photo-card__body">
-        <h3 class="profile-photo-card__title">${photo.name}</h3>
-        <div class="profile-photo-card__buttons">
-          <button class="btn-select" data-id="${photo.id}">Seleccionar</button>
+      <img src="${photo.url}" alt="${photo.name}" class="profile-photo__card-img" />
+      <div class="profile-photo__card-body">
+        <h3 class="profile-photo__card-title">${photo.name}</h3>
+        <div class="profile-photo__card-buttons">
+          <button class="profile-photo__btn profile-photo__btn--grid" data-id="${photo.id}">Seleccionar</button>
         </div>
       </div>
     `;
@@ -33,16 +33,16 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
 
   // Referencias al modal
-  const modal = document.getElementById("photo_modal");
-  const closeModal = document.getElementById("close_photo_modal");
-  const cancelBtn = document.getElementById("cancel_photo");
-  const acceptBtn = document.getElementById("accept_photo");
-  const modalText = document.getElementById("photo_modal_text");
+  const modal = document.getElementById("profile-photo__modal");
+const closeModal = document.getElementById("profile-photo__close");
+const cancelBtn = document.getElementById("profile-photo__cancel");
+const acceptBtn = document.getElementById("profile-photo__accept");
+const modalText = document.getElementById("profile-photo__text");
   let selectedPhoto = null;
 
   // Escuchar clicks en “Seleccionar”
   grid.addEventListener("click", (e) => {
-    if (e.target.classList.contains("btn-select")) {
+    if (e.target.classList.contains("profile-photo__btn")) {
       const id = e.target.dataset.id;
       selectedPhoto = photos.find((p) => p.id == id);
 
@@ -61,14 +61,14 @@ document.addEventListener("DOMContentLoaded", async () => {
   acceptBtn.addEventListener("click", () => {
     if (selectedPhoto) {
       // Marcar la seleccionada visualmente
-      document.querySelectorAll(".btn-select").forEach((btn) => {
+      document.querySelectorAll(".profile-photo__btn--grid").forEach((btn) => {
         btn.textContent = "Seleccionar";
-        btn.classList.remove("btn-selected");
+        btn.classList.remove("profile-photo__btn--selected");
       });
 
-      const selectedBtn = document.querySelector(`[data-id="${selectedPhoto.id}"]`);
+      const selectedBtn = document.querySelector(`.profile-photo__btn--grid[data-id="${selectedPhoto.id}"]`);
       selectedBtn.textContent = "Seleccionado";
-      selectedBtn.classList.add("btn-selected");
+      selectedBtn.classList.add("profile-photo__btn--selected");
     }
 
     close();

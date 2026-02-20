@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const contenedor = document.querySelector('#summary__product__container__general');
+  const contenedor = document.querySelector('.summary__product__container__general');
 
   if (contenedor) {
     fetch('/src/templates/components/81_summary2.0.html')      

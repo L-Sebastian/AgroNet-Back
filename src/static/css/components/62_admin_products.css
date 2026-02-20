@@ -1,135 +1,139 @@
-/* Componente utilizado en products.html de admin-pages */
-
 /* =============================== */
-/* Componente: admin-products      */
-/* Metodología: BEM                */
+/* Products Admin - Basado en la base común */
 /* =============================== */
 
-.admin-products {
-  padding: 20px;
-  background-color: var(--white);
+.products-admin {
+  max-width: 1200px;
+  width: 100%;
+  padding: 24px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin: 2px;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 /* ---------- Header ---------- */
-.admin-products__header {
+.products-admin__header {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.admin-products__title {
+.products-admin__title {
   font-size: var(--fs-md);
   font-weight: 600;
   color: var(--black);
 }
 
-.admin-products__actions {
+.products-admin__actions {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 10px;
 }
 
-.admin-products__btn {
+.products-admin__btn {
   background-color: var(--button-add-color);
   color: var(--white);
   border: none;
-  padding: 8px 14px;
+  padding: 16px;
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
+  white-space: nowrap;
 }
 
-.admin-products__btn:hover {
+.products-admin__btn:hover {
   background-color: var(--button-add-color-hover);
   transform: scale(1.05);
 }
 
-.admin-products__search {
-  padding: 8px 12px;
+.products-admin__search {
+  padding: 16px;
+  font-size: 12px;
   border: 1px solid var(--gray-200);
   border-radius: 6px;
   width: 250px;
+  transition: all 0.3s ease;
 }
 
-/* ---------- Tabla ---------- */
-.admin-products__table-container {
+/* ---------- Table ---------- */
+.products-admin__table-container {
   overflow-x: auto;
   background-color: var(--white);
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
-.admin-products__table {
+.products-admin__table {
   width: 100%;
   border-collapse: collapse;
-  table-layout: fixed;
   min-width: 1000px;
 }
 
-.admin-products__table th,
-.admin-products__table td {
+.products-admin__table th,
+.products-admin__table td {
   padding: 10px 12px;
-  text-align: left;
   border-bottom: 1px solid var(--gray-200);
-  word-wrap: break-word;
   font-size: var(--fs-xxs);
   color: var(--black);
+  text-align: left;
 }
 
-.admin-products__table th {
+.products-admin__table th {
   background-color: var(--gray-100);
   font-weight: 600;
 }
 
-.admin-products__table th:last-child,
-.admin-products__table td:last-child {
+.products-admin__table th:last-child,
+.products-admin__table td:last-child {
   width: 200px;
   text-align: center;
 }
 
-/* ---------- Botones de acciones ---------- */
-.admin-products__actions-btns {
+/* ---------- Action Buttons ---------- */
+.products-admin__table-actions {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 6px;
 }
 
-.admin-products__btn i {
-  margin-right: 6px; /* separa el ícono del texto */
+.products-admin__btn i {
+  margin-right: 6px;
 }
 
-.admin-products__btn--view {
+.products-admin__btn--view {
+  padding-left: 22px;
   background-color: var(--button-view-color);
 }
 
-.admin-products__btn--edit {
+.products-admin__btn--edit {
+  padding-left: 22px;
   background-color: var(--primary-600);
 }
 
-.admin-products__btn--delete {
+.products-admin__btn--delete {
+  padding-left: 22px;
   background-color: var(--button-delete-color);
 }
 
-.admin-products__btn--view:hover {
+.products-admin__btn--view:hover {
   background-color: var(--button-view-hover-color);
 }
 
-.admin-products__btn--edit:hover {
+.products-admin__btn--edit:hover {
   background-color: var(--primary-700);
 }
 
-.admin-products__btn--delete:hover {
+.products-admin__btn--delete:hover {
   background-color: var(--button-delete-hover-color);
 }
 
 /* ---------- Modal ---------- */
-.admin-products__modal {
+.products-admin__modal {
   display: none;
   position: fixed;
   inset: 0;
@@ -139,7 +143,7 @@
   z-index: 1000;
 }
 
-.admin-products__modal-content {
+.products-admin__modal-content {
   background-color: var(--white);
   padding: 25px;
   border-radius: 10px;
@@ -148,45 +152,215 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.admin-products__modal-title {
+.products-admin__modal-title {
   margin-bottom: 10px;
   font-size: var(--fs-sm);
   font-weight: 600;
   color: var(--black);
 }
 
-.admin-products__modal-body {
+.products-admin__modal-body {
   margin-bottom: 15px;
   color: var(--black);
 }
 
-.admin-products__btn--close {
-  background-color: var(--gray-400);
-  width: 100%;
+.products-admin__btn--close {
+  background-color: var(--button-add-color);
+  color: var(--white);
+  border: none;
+  padding: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 
-.admin-products__btn--close:hover {
+.products-admin__btn--close:hover {
   background-color: var(--gray-500);
 }
 
-/* ---------- Responsividad ---------- */
-@media (max-width: 768px) {
-  .admin-products__actions {
+/* ---------- Popup ---------- */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.popup.show {
+  display: flex;
+}
+
+.popup__content {
+  position: relative;
+  background-color: var(--white);
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  width: 360px;
+  max-width: 90%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  animation: popupFade 0.3s ease-in-out;
+}
+
+.popup__close {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  cursor: pointer;
+  color: var(--gray-500);
+  font-size: 1.3rem;
+}
+
+.popup__buttons {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.popup__btn--cancel {
+  background-color: var(--gray-100);
+  color: var(--gray-600);
+
+  padding: 8px 16px;
+  margin: var(--btn-margin, 0.5rem auto);
+
+  font-size: var(--btn-font-size, 0.875rem);
+  font-weight: var(--btn-font-weight, 500);
+  letter-spacing: var(--btn-letter-spacing, 0.02857em);
+
+  border: var(--btn-border, none);
+  border-radius: var(--btn-border-radius, 0.5rem);
+
+  min-height: var(--btn-min-height, 36px);
+  min-width: var(--btn-min-width, 56px);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--btn-gap, 0.5rem);
+
+  box-shadow: var(--btn-shadow, 0 1px 3px rgba(0, 0, 0, 0.15));
+  transition:
+    background var(--btn-transition-duration, 150ms) var(--btn-transition-timing, ease-in-out),
+    box-shadow var(--btn-transition-duration, 150ms) var(--btn-transition-timing, ease-in-out),
+    transform var(--btn-transition-duration, 150ms) var(--btn-transition-timing, ease-in-out);
+}
+
+.popup__btn--cancel:hover {
+  background-color: var(--gray-200);
+}
+
+.popup__btn--accept {
+  background: var(--button-add-color);
+  color: var(--btn-text, var(--white));
+
+  padding: var(--btn-padding-y, 0.5rem) var(--btn-padding-x, 1rem);
+  margin: var(--btn-margin, 0.5rem auto);
+
+  font-size: var(--btn-font-size, 0.875rem);
+  font-weight: var(--btn-font-weight, 500);
+  letter-spacing: var(--btn-letter-spacing, 0.02857em);
+
+  border: var(--btn-border, none);
+  border-radius: var(--btn-border-radius, 0.5rem);
+
+  min-height: var(--btn-min-height, 36px);
+  min-width: var(--btn-min-width, 56px);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--btn-gap, 0.5rem);
+
+  cursor: pointer;
+  user-select: none;
+  box-shadow: var(--btn-shadow, 0 1px 3px rgba(0, 0, 0, 0.15));
+  transition:
+    background var(--btn-transition-duration, 150ms) var(--btn-transition-timing, ease-in-out),
+    box-shadow var(--btn-transition-duration, 150ms) var(--btn-transition-timing, ease-in-out),
+    transform var(--btn-transition-duration, 150ms) var(--btn-transition-timing, ease-in-out);
+}
+
+.popup__btn--cancel,
+.popup__btn--accept {
+  margin: 0; 
+  flex: 0 0 auto; 
+}
+
+.popup__btn--accept:hover {
+  background: var(--button-add-color-hover);
+}
+
+.popup__icon--ok {
+  color: var(--secundary-700);
+  font-size: 50px;
+  margin-bottom: 16px;
+}
+
+/* ---------- Responsive ---------- */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .products-admin {
+    padding: 24px;
+  }
+
+  .products-admin__actions {
+    flex-direction: row;         
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: nowrap;            
+  }
+
+  
+  .products-admin__actions > * {
+    min-width: 0;                 
+  }
+
+  
+  .products-admin__btn {
+    flex: 0 0 auto;               
+    width: auto;
+    white-space: nowrap;         
+  }
+
+  
+  .products-admin__search {
+    flex: 0 0 260px;              
+    width: auto;                  
+    max-width: 45%;               
+    box-sizing: border-box;
+  }
+}
+
+
+@media (max-width: 767px) {
+  .products-admin {
+    padding: 24px;
+  }
+
+  .products-admin__actions {
     flex-direction: column;
-    align-items: stretch;
-    gap: 10px;
+    align-items: stretch;        
+    gap: 12px;
+    flex-wrap: nowrap;           
   }
 
-  .admin-products__search {
-    width: 100%;
-  }
-
-  .admin-products__table {
-    font-size: 13px;
-  }
-
-  .admin-products__table th,
-  .admin-products__table td {
-    padding: 8px 10px;
+  .products-admin__btn,
+  .products-admin__search {
+    width: auto;                 
+    max-width: 60%;
+    flex: 0 0 auto;
+    box-sizing: border-box;
   }
 }
