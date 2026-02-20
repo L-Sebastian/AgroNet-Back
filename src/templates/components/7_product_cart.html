@@ -1,142 +1,137 @@
-<h2 class="cart__title">Carrito de compras</h2>
-<main class="cart__container">
+<h2 class="product-cart__title">Carrito de compras</h2>
+<!-- caja 1 -->
+<div class="product-cart">
+  <button type="button" class="product-cart__delete" aria-label="Eliminar">✕</button>
 
-  <!-- caja 1 -->
-  <div class="product__cart">
-    <button type="button" class="product__cart-delete" aria-label="Eliminar">✕</button>
+  <img src="/src/static/assets/manzan.jpg" alt="Producto" class="product-cart__img">
 
-    <img src="/src/static/assets/manzan.jpg" alt="Producto" class="product__cart-img">
-
-    <div class="product__cart-details">
-      <p class="producto__carrito__detalles__nombre">Manzana Gala</p>
-    </div>
-
-    <div class="product__cart-boxes">
-
-      <div class="product__cart-quantity">
-        <label for="cantidad-1">Cantidad</label>
-        <div class="product__cart-counter">
-          <button class="product__cart-counter__btn">-</button>
-          <input type="text" id="cantidad-1" value="5" readonly class="product_cart-counter__input">
-          <button class="product__cart-counter__btn">+</button>
-        </div>
-      </div>
-
-      <div class="product__cart-price">
-        <label for="precio-1">Precio Unidad</label>
-        <input type="text" id="precio-1" value="5.000" readonly class="product__cart-price__input">
-      </div>
-
-      <div class="product__cart-total">
-        <label for="total-1">Total</label>
-        <input type="text" id="total-1" value="25.000" readonly class="product__cart-total__input">
-      </div>
-    </div>
+  <div class="product-cart__details">
+    <p class="producto-cart__details-name">Manzana Gala</p>
   </div>
 
-  <!-- caja 2 -->
-  <div class="product__cart">
-    <button type="button" class="product__cart-delete" aria-label="Eliminar">✕</button>
+  <div class="product-cart__boxes">
 
-    <img src="/src/static/assets/naranja.jpg" alt="Producto" class="product__cart-img">
-
-    <div class="product__cart-details">
-      <p class="producto__carrito__detalles__nombre">Naranja</p>
+    <div class="product-cart__quantity">
+      <label for="cantidad-1">Cantidad</label>
+      <div class="product-cart__counter">
+        <button class="product-cart__counter-button">-</button>
+        <input type="text" value="5" readonly class="product-cart__counter-input">
+        <button class="product-cart__counter-button">+</button>
+      </div>
     </div>
 
-    <div class="product__cart-boxes">
+    <div class="product-cart__price">
+      <label for="precio-1">Precio Unidad</label>
+      <input type="text" value="5.000" readonly class="product-cart__price-input">
+    </div>
 
-      <div class="product__cart-quantity">
-        <label for="cantidad-2">Cantidad</label>
-        <div class="product__cart-counter">
-          <button class="product__cart-counter__btn">-</button>
-          <input type="text" id="cantidad-2" value="3" readonly class="product__cart-counter__input">
-          <button class="product__cart-counter__btn">+</button>
-        </div>
+    <div class="product-cart__total">
+      <label for="total-1">Total</label>
+      <input type="text" value="25.000" readonly class="product-cart__total-input">
+    </div>
+  </div>
+</div>
+<!-- caja 2 -->
+<div class="product-cart">
+<button type="button" class="product-cart__delete" aria-label="Eliminar">✕</button>
+
+  <img src="/src/static/assets/naranja.jpg" alt="Producto" class="product-cart__img">
+
+<div class="product-cart__details">
+<p class="producto-cart__details-name">Naranja</p>
+  </div>
+
+  <div class="product-cart__boxes">
+
+    <div class="product-cart__quantity">
+      <label for="cantidad-2">Cantidad</label>
+      <div class="product-cart__counter">
+        <button class="product-cart__counter-button">-</button>
+        <input type="text" value="3" readonly class="product-cart__counter-input">
+        <button class="product-cart__counter-button">+</button>
       </div>
+    </div>
 
-      <div class="product__cart-price">
-        <label for="precio-2">Precio Unidad</label>
-        <input type="text" id="precio-2" value="5.500" readonly class="product__cart-price__input">
-      </div>
+    <div class="product-cart__price">
+      <label for="precio-2">Precio Unidad</label>
+      <input type="text" value="5.500" readonly class="product-cart__price-input">
+    </div>
 
-      <div class="product__cart-total">
-        <label for="total-2">Total</label>
-        <input type="text" id="total-2" value="16.500" readonly class="product__cart-total__input">
-      </div>
-
+    <div class="product-cart__total">
+      <label for="total-2">Total</label>
+      <input type="text" value="16.500" readonly class="product-cart__total-input">
     </div>
 
   </div>
 
-  <!-- caja 3 -->
-  <div class="product__cart">
-    <button type="button" class="product__cart-delete" aria-label="Eliminar">✕</button>
+</div>
 
-    <img src="/src/static/assets/cafe.jpg" alt="Producto" class="product__cart-img">
+<!-- caja 3 -->
+<div class="product-cart">
+  <button type="button" class="product-cart__delete" aria-label="Eliminar">✕</button>
 
-    <div class="product__cart-details">
-      <p class="producto__carrito__detalles__nombre">Cafe 400gr</p>
+  <img src="/src/static/assets/cafe.jpg" alt="Producto" class="product-cart__img">
+
+  <div class="product-cart__details">
+    <p class="producto-cart__details-name">Cafe 400gr</p>
+  </div>
+
+  <div class="product-cart__boxes">
+
+    <div class="product-cart__quantity">
+      <label for="cantidad-3">Gramos</label>
+      <div class="product-cart__counter">
+        <button class="product-cart__counter-button">-</button>
+        <input type="text" value="1" readonly class="product-cart__counter-input">
+        <button class="product-cart__counter-button">+</button>
+      </div>
     </div>
 
-    <div class="product__cart-boxes">
+    <div class="product-cart__price">
+      <label for="precio-3">Precio Unidad</label>
+      <input type="text" value="31.000" readonly class="product-cart__price-input">
+    </div>
 
-      <div class="product__cart-quantity">
-        <label for="cantidad-3">Gramos</label>
-        <div class="product__cart-counter">
-          <button class="product__cart-counter__btn">-</button>
-          <input type="text" id="cantidad-3" value="1" readonly class="product__cart-counter__input">
-          <button class="product__cart-counter__btn">+</button>
-        </div>
-      </div>
-
-      <div class="product__cart-price">
-        <label for="precio-3">Precio Unidad</label>
-        <input type="text" id="precio-3" value="31.000" readonly class="product__cart-price__input">
-      </div>
-
-      <div class="product__cart-total">
-        <label for="total-3">Total</label>
-        <input type="text" id="total-3" value="31.000" readonly class="product__cart-total__input">
-      </div>
-
+    <div class="product-cart__total">
+      <label for="total-3">Total</label>
+      <input type="text" value="31.000" readonly class="product-cart__total-input">
     </div>
 
   </div>
 
-  <!-- caja 4 -->
-  <div class="product__cart">
-    <button type="button" class="product__cart-delete" aria-label="Eliminar">✕</button>
+</div>
 
-    <img src="/src/static/assets/lechuga.jpg" alt="Producto" class="product__cart-img">
+<!-- caja 4 -->
+<div class="product-cart">
+  <button type="button" class="product-cart__delete" aria-label="Eliminar">✕</button>
 
-    <div class="product__cart-details">
-      <p class="producto__carrito__detalles__nombre">Lechuga</p>
+  <img src="/src/static/assets/lechuga.jpg" alt="Producto" class="product-cart__img">
+
+  <div class="product-cart__details">
+      <p class="producto-cart__details-name">Lechuga</p>
+  </div>
+
+  <div class="product-cart__boxes">
+
+    <div class="product-cart__quantity">
+      <label for="cantidad-3">Gramos</label>
+      <div class="product-cart__counter">
+        <button class="product-cart__counter-button">-</button>
+        <input type="text" value="1" readonly class="product-cart__counter-input">
+        <button class="product-cart__counter-button">+</button>
+      </div>
     </div>
 
-    <div class="product__cart-boxes">
+    <div class="product-cart__price">
+      <label for="precio-3">Precio Unidad</label>
+      <input type="text" value="21.000" readonly class="product-cart__price-input">
+    </div>
 
-      <div class="product__cart-quantity">
-        <label for="cantidad-3">Gramos</label>
-        <div class="product__cart-counter">
-          <button class="product__cart-counter__btn">-</button>
-          <input type="text" id="cantidad-3" value="1" readonly class="product__cart-counter__input">
-          <button class="product__cart-counter__btn">+</button>
-        </div>
-      </div>
-
-      <div class="product__cart-price">
-        <label for="precio-3">Precio Unidad</label>
-        <input type="text" id="precio-3" value="21.000" readonly class="product__cart-price__input">
-      </div>
-
-      <div class="product__cart-total">
-        <label for="total-3">Total</label>
-        <input type="text" id="total-3" value="21.000" readonly class="product__cart-total__input">
-      </div>
-
+    <div class="product-cart__total">
+      <label for="total-3">Total</label>
+      <input type="text" value="21.000" readonly class="product-cart__total-input">
     </div>
 
   </div>
 
-</main>
+</div>

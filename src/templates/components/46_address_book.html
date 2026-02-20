@@ -1,85 +1,71 @@
-<!-- Sidebar (menú lateral) -->
-<aside class="sidebar-seller"></aside>
+<!--Encabezado de sección (Componente 30.5)-->
+<header class="header-section">
+    <h2 class="header-section__title">Libreta de contactos</h2>
+</header>
 
-<!-- Contenedor derecho (título + productos) -->
-<section class="disabled-products2">
-  <div class="header2">
-    <h2 class="header2__title">Libreta de contactos</h2>
-  </div>
+<!-- Contenedor donde se insertarán las cards -->
+<div class="address-book__list"></div>
 
-  <!-- Este es el contenedor donde se insertarán las cards -->
-  <div class="disabled-products__list2" id="disabled_products_container2">
-    <!-- Aquí se agregarán los productos dinámicamente -->
-  </div>
-</section>
+<!-- Template de tarjeta -->
+<template class="address-book__template">
+  <div class="address-book__card">
 
-<!--Template separado del contenedor -->
-<template id="disabled_product_template2">
-  <div class="disabled-product__card2">
-    <!-- Botón de opciones (tres puntitos) -->
-    <div class="card-options">
-      <button class="options-btn">⋮</button>
-      <div class="options-menu">
-        <button class="option-item view-profile">Visualizar perfil</button>
-        <button class="option-item delete-contact">Eliminar</button>
+    <div class="address-book__options">
+      <button class="address-book__options-btn">⋮</button>
+
+      <div class="address-book__options-menu">
+        <button class="address-book__option address-book__option--profile">Visualizar perfil</button>
+        <button class="address-book__option address-book__option--delete">Eliminar</button>
       </div>
     </div>
-    <div class="disabled-product__info2">
-      <p class="disabled-product__name2"></p>
-      <!-- Nuevo contenedor para que price y type estén juntos -->
-      <div class="disabled-product__bottom2">
-        <p class="disabled-product__price2"></p>
-        <p class="disabled-product__mail2"></p>
-        <p class="disabled-product__type2"></p>
+
+    <div class="address-book__info">
+      <p class="address-book__name"></p>
+
+      <div class="address-book__bottom">
+        <p class="address-book__label address-book__label--username"></p>
+        <p class="address-book__label address-book__label--mail"></p>
+        <p class="address-book__label address-book__label--phone"></p>
       </div>
     </div>
   </div>
 </template>
 
-<!-- Popup de confirmación para eliminar -->
-<div id="delete_popup" class="logout_popup">
-  <div class="logout_popup__content">
-    <p class="logout_popup__text">
-      ¿Estás seguro de que quieres eliminar este contacto?
-    </p>
-    <div class="logout_popup__buttons">
-      <button id="delete_cancel" class="logout_popup__btn logout_popup__btn--cancel">
-        <span class="logout_popup__arrow"></span> Cancelar
-      </button>
-      <button id="delete_accept" class="logout_popup__btn logout_popup__btn--accept">
-        Aceptar
-      </button>
-    </div>
-  </div>
-</div>
+<!-- Popup único de confirmación -->
+<div class="address-book__popup">
+  <div class="address-book__popup-content">
 
-<!-- Popup de confirmación para eliminar -->
-<div id="delete_popup" class="logout_popup">
-  <div class="logout_popup__content">
-    <p class="logout_popup__text">
+    <p class="address-book__popup-text">
       ¿Estás seguro de que quieres eliminar este contacto?
     </p>
-    <div class="logout_popup__buttons">
-      <button id="delete_cancel" class="logout_popup__btn logout_popup__btn--cancel">
-        <span class="logout_popup__arrow"></span> Cancelar
+
+    <div class="address-book__popup-buttons">
+      <button class="address-book__popup-btn address-book__popup-btn--cancel">
+        Cancelar
       </button>
-      <button id="delete_accept" class="logout_popup__btn logout_popup__btn--accept">
+
+      <button class="address-book__popup-btn address-book__popup-btn--accept">
         Aceptar
       </button>
     </div>
+
   </div>
 </div>
 
 <!-- Modal de éxito -->
-<div id="delete_success_modal" class="modal">
-  <div class="modal-content">
-    <span class="close"><i class="fa-solid fa-xmark"></i></span>
-    <div class="icon ok">
+<div class="address-book__modal">
+  <div class="address-book__modal-content">
+
+    <span class="address-book__modal-close">
+      <i class="fa-solid fa-xmark"></i>
+    </span>
+
+    <div class="address-book__modal-icon">
       <i class="fa-solid fa-circle-check"></i>
     </div>
-    <p>El contacto se ha eliminado con éxito.</p>
+
+    <p class="address-book__modal-text">
+      El contacto se ha eliminado con éxito.
+    </p>
   </div>
 </div>
-
-
-

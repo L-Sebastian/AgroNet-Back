@@ -1,36 +1,36 @@
 <section class="form-datos">
   <h2 class="form-datos__title">Nuevo usuario</h2>
 
-  <form class="form-datos__form" id="formDatosPersonales">
+  <form class="form-datos__form">
 
     <div class="form-datos__group">
       <label class="form-datos__label" for="nombre">Nombre</label>
-      <input class="form-datos__input" type="text" id="nombre" name="nombre" required>
+      <input class="form-datos__input" type="text" name="nombre" required>
     </div>
 
     <div class="form-datos__group">
       <label class="form-datos__label" for="apellido">Apellido</label>
-      <input class="form-datos__input" type="text" id="apellido" name="apellido" required>
+      <input class="form-datos__input" type="text" name="apellido" required>
     </div>
 
     <div class="form-datos__group">
       <label class="form-datos__label" for="usuario">Usuario</label>
-      <input class="form-datos__input" type="text" id="usuario" name="usuario" required>
+      <input class="form-datos__input" type="text" name="usuario" required>
     </div>
 
     <div class="form-datos__group">
       <label class="form-datos__label" for="telefono">Teléfono</label>
-      <input class="form-datos__input" type="tel" id="telefono" name="telefono" required>
+      <input class="form-datos__input" type="tel" name="telefono" required>
     </div>
 
     <div class="form-datos__group">
       <label class="form-datos__label" for="correo">Correo electrónico</label>
-      <input class="form-datos__input" type="email" id="correo" name="correo" required>
+      <input class="form-datos__input" type="email" name="correo" required>
     </div>
 
     <div class="form-datos__group">
       <label class="form-datos__label" for="tipo_documento">Tipo de Documento</label>
-      <select class="form-datos__input" id="tipo_documento" name="tipo_documento" required>
+      <select class="form-datos__input" name="tipo_documento" required>
         <option value="">Seleccionar</option>
         <option value="CC">Cédula</option>
         <option value="TI">Tarjeta de Identidad</option>
@@ -40,27 +40,27 @@
 
     <div class="form-datos__group">
       <label class="form-datos__label" for="documento">Número de Documento</label>
-      <input class="form-datos__input" type="number" id="documento" name="documento" required>
+      <input class="form-datos__input" type="number" name="documento" required>
     </div>
 
     <div class="form-datos__group">
       <label class="form-datos__label" for="direccion">Dirección</label>
-      <input class="form-datos__input" type="text" id="direccion" name="direccion" required>
+      <input class="form-datos__input" type="text" name="direccion" required>
     </div>
 
     <div class="form-datos__group">
       <label class="form-datos__label" for="departamento">Departamento</label>
-      <input class="form-datos__input" type="text" id="departamento" name="departamento" required>
+      <input class="form-datos__input" type="text" name="departamento" required>
     </div>
 
     <div class="form-datos__group">
       <label class="form-datos__label" for="municipio">Municipio</label>
-      <input class="form-datos__input" type="text" id="municipio" name="municipio" required>
+      <input class="form-datos__input" type="text" name="municipio" required>
     </div>
 
     <div class="form-datos__group">
       <label class="form-datos__label" for="tipo_usuario">Tipo de usuario</label>
-      <select class="form-datos__input" id="tipo_usuario" name="tipo_usuario" required>
+      <select class="form-datos__input" name="tipo_usuario" required>
         <option value="">Seleccionar</option>
         <option value="CC">Administrador</option>
         <option value="TI">Vendedor</option>
@@ -70,7 +70,7 @@
 
     <div class="form-datos__group">
       <label class="form-datos__label" for="fecha_nacimiento">Fecha de nacimiento</label>
-      <input class="form-datos__input" type="date" id="fecha_nacimiento" name="fecha_nacimiento" required>
+      <input class="form-datos__input" type="date" name="fecha_nacimiento" required>
     </div>
 
     <div class="form-datos__buttons">
@@ -80,13 +80,14 @@
   </form>
 </section>
 
-<!-- 🟢 Popup de éxito -->
-<div id="user_success_popup" class="popup">
-  <div class="popup-content">
-    <span class="close-popup"><i class="fa-solid fa-xmark"></i></span>
-    <div class="icon_1_2 ok">
+<div class="popup popup--success">
+  <div class="popup__content">
+    <span class="popup__close">
+      <i class="fa-solid fa-xmark"></i>
+    </span>
+    <div class="popup__icon popup__icon--ok">
       <i class="fa-solid fa-circle-check"></i>
     </div>
-    <p>El usuario se ha registrado con éxito.</p>
+    <p class="popup__message">El usuario se ha registrado con éxito.</p>
   </div>
 </div>

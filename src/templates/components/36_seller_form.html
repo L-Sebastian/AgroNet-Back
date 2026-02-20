@@ -1,19 +1,20 @@
 <section class="seller-form">
+  
   <h2 class="seller-form__title">Regístrate como vendedor</h2>
   <p class="seller-form__description">
     Completa los siguientes datos para comenzar a vender en nuestra plataforma.
   </p>
 
   <!-- Formulario -->
-  <form class="seller-form__form" id="sellerForm">
+  <form class="seller-form__form">
     <div class="seller-form__group">
       <label for="nombre_tienda" class="seller-form__label">Nombre de la tienda</label>
-      <input type="text" id="nombre_tienda" name="nombre_tienda" class="seller-form__input" placeholder="Ej. AgroTienda El Campo" required>
+      <input type="text" name="nombre_tienda" class="seller-form__input" placeholder="Ej. AgroTienda El Campo" required>
     </div>
 
     <div class="seller-form__group">
       <label for="categoria" class="seller-form__label">Categoría principal</label>
-      <select id="categoria" name="categoria" class="seller-form__input" required>
+      <select name="categoria" class="seller-form__input" required>
         <option value="">Selecciona una categoría</option>
         <option value="Animal">Animal</option>
         <option value="Granos">Granos</option>
@@ -24,7 +25,7 @@
 
     <div class="seller-form__group">
       <label for="descripcion" class="seller-form__label">Descripción de la tienda</label>
-      <textarea id="descripcion" name="descripcion" class="seller-form__input seller-form__textarea" rows="4" placeholder="Describe brevemente tu negocio"></textarea>
+      <textarea name="descripcion" class="seller-form__input seller-form__textarea" rows="4" placeholder="Describe brevemente tu negocio"></textarea>
     </div>
 
     <div class="seller-form__group">
@@ -37,7 +38,7 @@
     </div>
 
     <div class="seller-form__group">
-      <textarea id="otro" name="otro" class="seller-form__input seller-form__textarea" rows="2" placeholder="Otro..."></textarea>
+      <textarea name="otro" class="seller-form__input seller-form__textarea" rows="2" placeholder="Otro..."></textarea>
     </div>
 
     <div class="seller-form__actions">
@@ -46,12 +47,20 @@
   </form>
 </section>
 
-<div id="modal" class="modal">
-  <div class="modal-content">
-    <span class="close"><i class="fa-solid fa-xmark"></i></span>
-    <div class="icon ok">
+<!-- Modal de éxito -->
+<div class="seller-form__modal">
+  <div class="seller-form__modal-content">
+    <button class="seller-form__modal-close">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <div class="seller-form__modal-icon">
       <i class="fa-solid fa-circle-check"></i>
     </div>
-    <p>La tienda se ha registrado correctamente.</p>
+
+    <p class="seller-form__modal-message">
+      La tienda se ha registrado correctamente.
+    </p>
   </div>
 </div>
+

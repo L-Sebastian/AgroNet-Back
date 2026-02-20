@@ -1,22 +1,20 @@
-<section class="seller-edit">
-  <h2 class="seller-edit__title">Edita tu tienda</h2>
-  <p class="seller-edit__description">
-    Completa los siguientes datos para editar tu tienda como quieras.
+<section class="seller-form-e">
+  
+  <h2 class="seller-form-e__title">Edita tu tienda</h2>
+  <p class="seller-form-e__description">
+    Completa los siguientes datos para editar tu tienda en nuestra plataforma.
   </p>
 
-  <!-- Aquí le agregamos el "action" y "method" -->
-  <form class="seller-edit__form" id="sellerEdit"
-        action="/src/templates/seller-pages/profile_store.html"
-        method="get">
-        
-    <div class="seller-edit__group">
-      <label for="nombre_tienda" class="seller-edit__label">Nombre de la tienda</label>
-      <input type="text" id="nombre_tienda" name="nombre_tienda" class="seller-edit__input" placeholder="AgroTienda El Campo" required>
+  <!-- Formulario -->
+  <form class="seller-form-e__form" action="/src/templates/seller-pages/profile_store.html" method="get">
+    <div class="seller-form-e__group">
+      <label for="nombre_tienda" class="seller-form-e__label">Nombre de la tienda</label>
+      <input type="text" name="nombre_tienda" class="seller-form-e__input" placeholder="Ej. AgroTienda El Campo" required>
     </div>
 
-    <div class="seller-edit__group">
-      <label for="categoria" class="seller-edit__label">Categoría principal</label>
-      <select id="categoria" name="categoria" class="seller-edit__input" required>
+    <div class="seller-form-e__group">
+      <label for="categoria" class="seller-form-e__label">Categoría principal</label>
+      <select name="categoria" class="seller-form-e__input" required>
         <option value="">Selecciona una categoría</option>
         <option value="Animal">Animal</option>
         <option value="Granos">Granos</option>
@@ -25,53 +23,49 @@
       </select>
     </div>
 
-    <div class="seller-edit__group">
-      <label for="descripcion" class="seller-edit__label">Descripción de la tienda</label>
-      <textarea id="descripcion" name="descripcion" class="seller-edit__input seller-edit__textarea" rows="4" placeholder="Describe brevemente tu negocio"></textarea>
+    <div class="seller-form-e__group">
+      <label for="descripcion" class="seller-form-e__label">Descripción de la tienda</label>
+      <textarea name="descripcion" class="seller-form-e__input seller-form-e__textarea" rows="4" placeholder="Describe brevemente tu negocio"></textarea>
     </div>
 
-    <div class="seller-edit__group">
-      <label class="seller-edit__label">Métodos de Pago</label>
-      <div class="seller-edit__checkbox-group">
+    <div class="seller-form-e__group">
+      <label class="seller-form-e__label">Métodos de Pago</label>
+      <div class="seller-form-e__checkbox-group">
         <label><input type="checkbox" name="metodo_pago[]" value="Nequi"> Nequi</label>
         <label><input type="checkbox" name="metodo_pago[]" value="Bancolombia"> Bancolombia</label>
-        <label><input type="checkbox" name="metodo_pago[]" value="Contra entrega"> Tarjeta Credito</label>
+        <label><input type="checkbox" name="metodo_pago[]" value="Tarjeta Credito"> Tarjeta Crédito</label>
       </div>
     </div>
 
-    <div class="seller-edit__group">
-      <textarea id="descripcion" name="descripcion" class="seller-edit__input seller-edit__textarea" rows="4" placeholder="Otro..."></textarea>
+    <div class="seller-form-e__group">
+      <textarea name="otro" class="seller-form-e__input seller-form-e__textarea" rows="2" placeholder="Otro..."></textarea>
     </div>
 
-    <div class="seller-edit__actions">
-      <!--  El botón de envío -->
-      <button type="submit" class="seller-edit__button">Guardar y continuar</button>
+    <div class="seller-form-e__actions">
+      <button type="submit" class="seller-form__button">Guardar y continuar</button>
     </div>
   </form>
 </section>
 
-<!-- Modal de Confirmación -->
-<div id="store_confirm_popup" class="modal">
-  <div class="modal-content">
-    <span class="close" id="close_store_confirm"></span>
-    <div class="icon">
-    </div>
+<div class="seller-form-e__modal seller-form-e__modal--confirm">
+  <div class="seller-form-e__modal-content">
+    <span class="seller-form-e__modal-close seller-form-e__modal-close--confirm"></span>
     <p>¿Deseas guardar los cambios realizados en tu tienda?</p>
-    <div class="modal__buttons">
-      <button class="modal__btn modal__btn--cancel" id="cancel_store">Cancelar</button>
-      <button class="modal__btn modal__btn--accept" id="accept_store">Guardar</button>
+    <div class="seller-form__modal-buttons">
+      <button class="seller-form-e__modal-btn seller-form-e__modal-btn--cancel">Cancelar</button>
+      <button class="seller-form-e__modal-btn seller-form-e__modal-btn--accept">Guardar</button>
     </div>
   </div>
 </div>
 
-<!-- Modal de Éxito -->
-<div id="store_success_modal" class="modal">
-  <div class="modal-content">
-    <span class="close" id="close_store_success"><i class="fa-solid fa-xmark"></i></span>
-    <div class="icon ok">
+<div class="seller-form-e__modal modal--success">
+  <div class="seller-form-e__modal-content">
+    <span class="seller-form-e__modal-close seller-form-e__modal-close--success">
+      <i class="fa-solid fa-xmark"></i>
+    </span>
+    <div class="seller-form-e__modal-icon seller-form-e__modal-icon--ok">
       <i class="fa-solid fa-circle-check"></i>
     </div>
     <p>Los datos de tu tienda se han actualizado correctamente.</p>
   </div>
 </div>
-

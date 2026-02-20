@@ -1,16 +1,16 @@
 <section class="form-datos">
   <h2 class="form-datos__title">Nuevo producto</h2>
 
-  <form class="form-datos__form" id="formDatosPersonales">
+  <form class="form-datos__form">
 
     <div class="form-datos__group">
       <label class="form-datos__label" for="nombre">Nombre</label>
-      <input class="form-datos__input" type="text" id="nombre" name="nombre" required>
+      <input class="form-datos__input" type="text" name="nombre" required>
     </div>
 
     <div class="form-datos__group">
       <label class="form-datos__label" for="categoria">Categoria</label>
-      <select class="form-datos__input" type="text" id="categoria" name="categoria" required>
+      <select class="form-datos__input" type="text" name="categoria" required>
         <option value="">Seleccionar</option>
         <option value="Frutas">Frutas</option>
         <option value="Verduras">Verduras</option>
@@ -21,22 +21,22 @@
 
     <div class="form-datos__group">
       <label class="form-datos__label" for="precio">Precio</label>
-      <input class="form-datos__input" type="number" id="precio" name="precio" required>
+      <input class="form-datos__input" type="number" name="precio" required>
     </div>
 
     <div class="form-datos__group">
       <label class="form-datos__label" for="valor_unitario">Valor Unitario</label>
-      <input class="form-datos__input" type="number" id="valor_unitario" name="valor_unitario" required>
+      <input class="form-datos__input" type="number" name="valor_unitario" required>
     </div>
 
     <div class="form-datos__group">
       <label class="form-datos__label" for="stock">Stock</label>
-      <input class="form-datos__input" type="number" id="stock" name="stock" required>
+      <input class="form-datos__input" type="number" name="stock" required>
     </div>
 
     <div class="form-datos__group">
       <label class="form-datos__label" for="unidad_peso">Unidad de peso</label>
-      <select class="form-datos__input" id="unidad_peso" name="unidad_peso" required>
+      <select class="form-datos__input" name="unidad_peso" required>
         <option value="">Seleccionar</option>
         <option value="Kg">Kilogramo</option>
         <option value="G">Gramo</option>
@@ -50,17 +50,17 @@
 
     <div class="form-datos__group">
       <label class="form-datos__label" for="descripcion">Descripción</label>
-      <textarea class="form-datos__input" id="descripcion" name="descripcion" required></textarea>
+      <textarea class="form-datos__input" name="descripcion" required></textarea>
     </div>
 
     <div class="form-datos__group">
       <label class="form-datos__label" for="peso">Peso</label>
-      <input class="form-datos__input" type="number" id="peso" name="peso" required>
+      <input class="form-datos__input" type="number" name="peso" required>
     </div>
 
     <div class="form-datos__group">
       <label class="form-datos__label" for="tipo_envio">Tipo de envío</label>
-      <select class="form-datos__input" type="text" id="tipo_envio" name="tipo_envio" required>
+      <select class="form-datos__input" type="text" name="tipo_envio" required>
         <option value="">Seleccionar</option>
         <option value="Normal">Normal</option>
         <option value="Refrigerado">Refrigerado</option>
@@ -76,13 +76,14 @@
   </form>
 </section>
 
-<!-- 🟢 Popup de éxito -->
-<div id="product_success_popup" class="popup">
-  <div class="popup-content">
-    <span class="close-popup"><i class="fa-solid fa-xmark"></i></span>
-    <div class="icon_1_2 ok">
+<div class="popup popup--success">
+  <div class="popup__content">
+    <span class="popup__close">
+      <i class="fa-solid fa-xmark"></i>
+    </span>
+    <div class="popup__icon popup__icon--ok">
       <i class="fa-solid fa-circle-check"></i>
     </div>
-    <p>El producto se ha registrado con éxito.</p>
+    <p class="popup__message">El producto se ha registrado con éxito.</p>
   </div>
 </div>

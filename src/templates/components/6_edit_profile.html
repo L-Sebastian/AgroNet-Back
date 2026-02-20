@@ -1,157 +1,165 @@
 <!-- Flecha para volver -->
-<a href="my_profile.html" class="register__back">
-  <svg xmlns="http://www.w3.org/2000/svg" 
-        width="24" height="24" 
-        fill="none" stroke="currentColor" 
-        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
-        class="icon icon-arrow-left">
-    <polyline points="15 18 9 12 15 6"></polyline>
-  </svg>
-</a>
+<form class="register-form">
 
-<section class="register">
-  <h2 class="register__title">Editar cuenta</h2>
-  <hr class="register__divider">
+  <a href="my_profile.html" class="register-form__back">
+    <i class="fa-solid fa-arrow-left register-form__back-icon"></i>
+  </a>
 
-  <form id="formRegistro" class="register__form">
 
-    <!-- Paso 1: Datos personales -->
-    <div class="form-step active">
-      <p class="register__legend">Datos personales</p>
-      <div class="register__row">
-        <div class="register__field">
-          <label class="register__hint">Nombre</label>
-          <input class="register__input" type="text" placeholder="Ingresa tu nombre" required>
-        </div>
-        <div class="register__field">
-          <label class="register__hint">Apellido</label>
-          <input class="register__input" type="text" placeholder="Ingresa tu apellido" required>
-        </div>
-        <div class="register__field">
-          <label class="register__hint">Nombre de usuario</label>
-          <input class="register__input" type="text" placeholder="Introduce tu nombre de usuario" required>
-        </div>
+  <h2 class="register-form__title">Editar cuenta</h2>
+  <hr class="register-form__divider">
+
+  <!-- Paso 1: Datos personales -->
+  <div class="register-form__step register-form__step--active"> <!-- Agregado clase active para formulario paso a paso -->
+    <p class="register-form__legend">Datos personales</p>
+    <div class="register-form__row">
+      <div class="register-form__field">
+        <label class="register-form__hint">Nombre</label>
+        <input class="register-form__input" type="text" placeholder="Ingresa tu nombre" required>
       </div>
-
-      <div class="register__row">
-        <div class="register__field">
-          <label class="register__hint">Número de teléfono</label>
-          <input class="register__input" type="text" placeholder="Ingrese un número de teléfono" required>
-        </div>
-        <div class="register__field">
-          <label class="register__hint">Correo electrónico</label>
-          <input class="register__input" type="email" placeholder="Ingrese un correo electrónico" required>
-        </div>
-        <div class="register__field">
-          <label class="register__hint">Tipo de Documento</label>
-          <select class="register__select"><option>C.C</option></select>
-        </div>
-        <div class="register__field">
-          <label class="register__hint">Numero de Documento</label>
-          <input class="register__input" type="text" placeholder="Ingrese su numero de documento" required>
-        </div>
+      <div class="register-form__field">
+        <label class="register-form__hint">Apellido</label>
+        <input class="register-form__input" type="text" placeholder="Ingresa tu apellido" required>
       </div>
-
-      <div class="register__actions">
-        <button type="button" class="register__button next">Siguiente</button>
+      <div class="register-form__field">
+        <label class="register-form__hint">Nombre de usuario</label>
+        <input class="register-form__input" type="text" placeholder="Introduce tu nombre de usuario" required>
       </div>
     </div>
 
-    <!-- Paso 2: Nacimiento -->
-    <div class="form-step">
-      <h3 class="register__legend">Fecha de Nacimiento</h3>
-      <div class="register__row">
-        <div class="register__field">
-          <label class="register__hint">Dia de Nacimiento</label>
-          <select class="register__select"><option>1</option></select>
-        </div>
-        <div class="register__field">
-          <label class="register__hint">Mes de Nacimiento</label>
-          <select class="register__select"><option>2</option></select>
-        </div>
-        <div class="register__field">
-          <label class="register__hint">Año de Nacimiento</label>
-          <select class="register__select"><option>2000</option></select>
-        </div>
+    <div class="register-form__row">
+      <div class="register-form__field">
+        <label class="register-form__hint">Número de teléfono</label>
+        <input class="register-form__input" type="text" placeholder="Ingrese un número de teléfono" required>
       </div>
-
-      <div class="register__actions">
-        <button type="button" class="register__button prev-btn prev">Atrás</button>
-        <button type="button" class="register__button next">Siguiente</button>
+      <div class="register-form__field">
+        <label class="register-form__hint">Correo electrónico</label>
+        <input class="register-form__input" type="email" placeholder="Ingrese un correo electrónico" required>
+      </div>
+      <div class="register-form__field">
+        <label class="register-form__hint">Tipo de Documento</label>
+        <select class="register-form__select"><option>C.C</option></select>
+      </div>
+      <div class="register-form__field">
+        <label class="register-form__hint">Numero de Documento</label>
+        <input class="register-form__input" type="text" placeholder="Ingrese su numero de documento" required>
       </div>
     </div>
 
-    <!-- Paso 2: Dirección -->
-    <div class="form-step">
-      <h3 class="register__legend">Dirección</h3>
-      <div class="register__row">
-        <div class="register__field">
-          <label class="register__hint">Dirección</label>
-          <input class="register__input" type="text" placeholder="Dirección" required>
-        </div>
-        <div class="register__field">
-          <label class="register__hint">Departamento</label>
-          <select class="register__select"><option>Risaralda</option></select>
-        </div>
-        <div class="register__field">
-          <label class="register__hint">Municipio</label>
-          <select class="register__select"><option>Pereira</option></select>
-        </div>
-      </div>
+    <div class="register-form__actions">
+      <button type="button" class="register-form__button register-form__button--next">Siguiente</button>
+    </div>
+  </div>
 
-      <div class="register__actions">
-        <button type="button" class="register__button prev-btn prev">Atrás</button>
-        <button type="button" class="register__button next">Siguiente</button>
+  <!-- Paso 2: Nacimiento -->
+  <div class="register-form__step">
+    <h3 class="register-form__legend">Fecha de Nacimiento</h3>
+    <div class="register-form__row">
+      <div class="register-form__field">
+        <label class="register-form__hint">Dia de Nacimiento</label>
+        <select class="register-form__select"><option>1</option></select>
+      </div>
+      <div class="register-form__field">
+        <label class="register-form__hint">Mes de Nacimiento</label>
+        <select class="register-form__select"><option>2</option></select>
+      </div>
+      <div class="register-form__field">
+        <label class="register-form__hint">Año de Nacimiento</label>
+        <select class="register-form__select"><option>2000</option></select>
       </div>
     </div>
 
-    <!-- Paso 3: Contraseña -->
-    <div class="form-step">
-      <h3 class="register__legend">Establecer contraseña</h3>
-      <div class="register__row">
-        <div class="register__field">
-          <label class="register__hint">Contraseña</label>
-          <input class="register__input" type="password" placeholder="Ingrese una contraseña" required>
-        </div>
-        <div class="register__field">
-          <label class="register__hint">Repita la contraseña</label>
-          <input class="register__input" type="password" placeholder="Repita la contraseña" required>
-        </div>
-      </div>
+    <div class="register-form__actions">
+      <button type="button" class="register-form__button register-form__button--prev">Atrás</button>
+      <button type="button" class="register-form__button register-form__button--next">Siguiente</button>
+    </div>
+  </div>
 
-      <div class="register__actions">
-        <button type="button" class="register__button prev-btn prev">Atrás</button>
-        <button class="register__button" type="submit">Actualizar</button>
+  <!-- Paso 2: Dirección -->
+  <div class="register-form__step">
+    <h3 class="register-form__legend">Dirección</h3>
+    <div class="register-form__row">
+      <div class="register-form__field">
+        <label class="register-form__hint">Dirección</label>
+        <input class="register-form__input" type="text" placeholder="Dirección" required>
+      </div>
+      <div class="register-form__field">
+        <label class="register-form__hint">Departamento</label>
+        <select class="register-form__select"><option>Risaralda</option></select>
+      </div>
+      <div class="register-form__field">
+        <label class="register-form__hint">Municipio</label>
+        <select class="register-form__select"><option>Pereira</option></select>
       </div>
     </div>
-  </form>
-</section>
 
-<!-- Popup de confirmación -->
-<div id="update_confirm_popup" class="logout_popup">
-  <div class="logout_popup__content">
-    <p class="logout_popup__text">
+    <div class="register-form__actions">
+      <button type="button" class="register-form__button register-form__button--prev">Atrás</button>
+      <button type="button" class="register-form__button register-form__button--next">Siguiente</button>
+    </div>
+  </div>
+
+  <!-- Paso 3: Contraseña -->
+  <div class="register-form__step">
+    <h3 class="register-form__legend">Establecer contraseña</h3>
+    <div class="register-form__row">
+      <div class="register-form__field">
+        <label class="register-form__hint">Contraseña</label>
+        <input class="register-form__input" type="password" placeholder="Ingrese una contraseña" required>
+      </div>
+      <div class="register-form__field">
+        <label class="register-form__hint">Repita la contraseña</label>
+        <input class="register-form__input" type="password" placeholder="Repita la contraseña" required>
+      </div>
+    </div>
+
+    <div class="register-form__actions">
+      <button type="button" class="register-form__button register-form__button--prev">Atrás</button>
+      <button class="register-form__button register-form__button--submit" type="submit">Actualizar</button>
+    </div>
+  </div>
+</form>
+
+<!-- ========================= -->
+<!-- Popup BEM: confirmación   -->
+<!-- ========================= -->
+<div class="register-form__confirm-popup">
+  <div class="register-form__confirm-popup-content">
+
+    <p class="register-form__confirm-popup-text">
       ¿Estás seguro de que deseas actualizar la información?
     </p>
-    <div class="logout_popup__buttons">
-      <button id="update_cancel" class="logout_popup__btn logout_popup__btn--cancel">
-         Cancelar
+
+    <div class="register-form__confirm-popup-buttons">
+      <button class="register-form__confirm-popup-btn register-form__confirm-popup-btn--cancel">
+        Cancelar
       </button>
-      <button id="update_accept" class="logout_popup__btn logout_popup__btn--accept">
+      <button class="register-form__confirm-popup-btn register-form__confirm-popup-btn--accept">
         Aceptar
       </button>
     </div>
+
   </div>
 </div>
 
-<!-- Modal de éxito -->
-<div id="update_success_modal" class="modal">
-  <div class="modal-content">
-    <span class="close" id="close_success"><i class="fa-solid fa-xmark"></i></span>
-    <div class="icon ok">
+
+<!-- ========================= -->
+<!-- Modal BEM: éxito          -->
+<!-- ========================= -->
+<div class="register-form__success-modal">
+  <div class="register-form__success-modal-content">
+
+    <button class="register-form__success-modal-close" type="button">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <div class="register-form__success-modal-icon">
       <i class="fa-solid fa-circle-check"></i>
     </div>
-    <p>La información se ha actualizado con éxito.</p>
+
+    <p class="register-form__success-modal-message">
+      La información se ha actualizado con éxito.
+    </p>
+
   </div>
 </div>
-

@@ -1,20 +1,25 @@
-<header class="header-orders">
-    <h1 class="header-orders__title">Historial de pedidos</h1>
+<header class="header-section">
+    <h2 class="header-section__title">Historial de pedidos</h2>
 </header>
 
-<section class="customer-orders">
-  <!-- Contenedor dinámico -->
-  <div id="customerOrdersContainer" class="customer-orders__list"></div>
 
-  <!-- Template para clonar -->
-  <template id="customerOrderTemplate">
-    <article class="customer-orders__item">
-      <div class="customer-orders__info">
-        <h2 class="customer-orders__id"></h2>
-        <span class="customer-orders__status"></span>
-        <div class="customer-orders__items"></div>
+<section class="orders">
+  
+
+  <div class="orders__container orders__list"></div>
+
+  <template class="orders__template">
+    <article class="orders__article">
+      <!-- Botón X -->
+      <button class="orders__article-close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="orders__article-info">
+        <h3 class="orders__article-id"></h3>
+        <span class="orders__article-status"></span>
       </div>
-      <a href="/src/templates/customer-pages/order-detail-customer.html" class="customer-orders__button">Ver más</a>
+      <a href="/src/templates/customer-pages/order-detail-customer.html" class="orders__article-button">Ver más</a>
     </article>
   </template>
+
 </section>

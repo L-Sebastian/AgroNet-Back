@@ -1,53 +1,53 @@
+
 <template>
-  <main class="forms__edit">
-    <div class="left__side-two">
-      <div class="image__edit">
+  <main class="edit-product">
+    <div class="edit-product__left-side">
+      <div class="edit-product__image">
         <img src="/src/static/assets/cafe.jpg" alt="Imagen del producto">
       </div>
-      <div class="form__group forms__edit--id_vendor">
-        <label for="id_vendor">Tipo de envío</label>
-        <input type="text" id="id_vendor" placeholder="Opcional">
+      <div class="edit-product__field edit-product__field--vendor">
+        <label for="vendor">Tipo de envío</label>
+        <input type="text" placeholder="Opcional">
       </div>
     </div>
 
-    <div class="right__side-two">
-      <div class="form__group forms__edit--name">
+    <div class="edit-product__right-side">
+      <div class="edit-product__field edit-product__field--name">
         <label for="nombre">Nombre del producto</label>
-        <input type="text" id="nombre">
+        <input type="text">
       </div>
 
-      <div class="form__group forms__edit--description">
+      <div class="edit-product__field edit-product__field--description">
         <label for="description">Descripción</label>
-        <textarea id="description"></textarea>
+        <textarea></textarea>
       </div>
 
-      <div class="form__group forms__edit--category dropdown">
+      <div class="edit-product__field edit-product__field--category edit-product__dropdown">
         <label for="category">Categoría</label>
-        <select id="category" name="category" class="hidden-select-edit" required>
+        <select name="category" class="edit-product__select-hidden" required>
           <option value="" disabled selected hidden></option>
           <option value="frutas">Frutas</option>
           <option value="verduras">Verduras</option>
           <option value="granos">Granos</option>
           <option value="animal">Animal</option>
         </select>
-        <div class="dropdown-edit">
-          <div class="dropdown-edit__trigger">
+        <div class="edit-product__dropdown-wrapper">
+          <div class="edit-product__dropdown-trigger">
             <span>Selecciona una opción</span>
             <i class="fa-solid fa-chevron-down"></i>
           </div>
-          <div class="dropdown-edit__options">
-            <span class="dropdown-edit__option" data-value="frutas">Frutas</span>
-            <span class="dropdown-edit__option" data-value="verduras">Verduras</span>
-            <span class="dropdown-edit__option" data-value="granos">Granos</span>
-            <span class="dropdown-edit__option" data-value="animal">Animal</span>
+          <div class="edit-product__dropdown-options">
+            <span class="edit-product__dropdown-option" data-value="frutas">Frutas</span>
+            <span class="edit-product__dropdown-option" data-value="verduras">Verduras</span>
+            <span class="edit-product__dropdown-option" data-value="granos">Granos</span>
+            <span class="edit-product__dropdown-option" data-value="animal">Animal</span>
           </div>
         </div>
       </div>
 
-      <!-- Unidades corregidas -->
-      <div class="form__group forms__edit--unit dropdown">
+      <div class="edit-product__field edit-product__field--unit edit-product__dropdown">
         <label for="unit">Unidades de Peso</label>
-        <select id="unit" name="unit" class="hidden-select-edit" required>
+        <select name="unit" class="edit-product__select-hidden" required>
           <option value="" disabled selected hidden></option>
           <option value="kilogramo">Kilogramo</option>
           <option value="gramo">Gramo</option>
@@ -57,68 +57,67 @@
           <option value="arroba">Arroba</option>
           <option value="bulto">Bulto</option>
         </select>
-        <div class="dropdown-edit">
-          <div class="dropdown-edit__trigger">
+        <div class="edit-product__dropdown-wrapper">
+          <div class="edit-product__dropdown-trigger">
             <span>Selecciona una opción</span>
             <i class="fa-solid fa-chevron-down"></i>
           </div>
-          <div class="dropdown-edit__options">
-            <span class="dropdown-edit__option" data-value="kilogramo">Kilogramo</span>
-            <span class="dropdown-edit__option" data-value="gramo">Gramo</span>
-            <span class="dropdown-edit__option" data-value="tonelada">Tonelada</span>
-            <span class="dropdown-edit__option" data-value="libra">Libra</span>
-            <span class="dropdown-edit__option" data-value="onza">Onza</span>
-            <span class="dropdown-edit__option" data-value="arroba">Arroba</span>
-            <span class="dropdown-edit__option" data-value="bulto">Bulto</span>
+          <div class="edit-product__dropdown-options">
+            <span class="edit-product__dropdown-option" data-value="kilogramo">Kilogramo</span>
+            <span class="edit-product__dropdown-option" data-value="gramo">Gramo</span>
+            <span class="edit-product__dropdown-option" data-value="tonelada">Tonelada</span>
+            <span class="edit-product__dropdown-option" data-value="libra">Libra</span>
+            <span class="edit-product__dropdown-option" data-value="onza">Onza</span>
+            <span class="edit-product__dropdown-option" data-value="arroba">Arroba</span>
+            <span class="edit-product__dropdown-option" data-value="bulto">Bulto</span>
           </div>
         </div>
       </div>
 
-      <div class="form__group forms__edit--price">
+      <div class="edit-product__field edit-product__field--price">
         <label for="price">Precio</label>
-        <input type="number" id="price">
+        <input type="number">
       </div>
 
-      <div class="form__group forms__edit--weight">
+      <div class="edit-product__field edit-product__field--weight">
         <label for="weight">Peso</label>
-        <input type="number" id="weight">
+        <input type="number">
       </div>
 
-      <div class="form__group forms__edit--worth">
+      <div class="edit-product__field edit-product__field--worth">
         <label for="precio">Valor unitario</label>
-        <input type="number" id="precio">
+        <input type="number">
       </div>
 
-      <div class="form__group forms__edit--stock">
+      <div class="edit-product__field edit-product__field--stock">
         <label for="stock">Stock</label>
-        <input type="number" id="stock">
+        <input type="number">
       </div>
     </div>
   </main>
 
-  <button class="opinions__btn-edit_product">
+  <button class="edit-product__btn-edit">
     <i class="fa-solid fa-pen"></i> Editar
   </button>
 
-  <!-- Popup de confirmación -->
-  <div id="edit_confirm_popup" class="modal">
-    <div class="modal-content confirm">
+  <div id="edit-product__confirm-modal" class="edit-product__modal">
+    <div class="edit-product__modal-content confirm">
       <p>¿Estás segura de que deseas editar este producto?</p>
-      <div class="modal__buttons">
-        <button id="cancel_edit" class="modal__btn modal__btn--cancel">
+      <div class="edit-product__modal-buttons">
+        <button id="cancel_edit" class="edit-product__modal-btn edit-product__modal-btn--cancel">
            Cancelar
         </button>
-        <button id="accept_edit" class="modal__btn modal__btn--accept"></i> Aceptar
+        <button id="accept_edit" class="edit-product__modal-btn edit-product__modal-btn--accept">
+          Aceptar
         </button>
       </div>
     </div>
   </div>
 
-  <!-- Popup de éxito -->
-  <div id="edit_success_modal" class="modal">
-    <div class="modal-content">
-      <span class="close" id="close_edit_success"><i class="fa-solid fa-xmark"></i></span>
-      <div class="icon ok">
+  <div id="edit-product__success-modal" class="edit-product__modal">
+    <div class="edit-product__modal-content">
+      <span class="edit-product__modal-close" id="close_edit_success"><i class="fa-solid fa-xmark"></i></span>
+      <div class="edit-product__modal-icon">
         <i class="fa-solid fa-circle-check"></i>
       </div>
       <p>El producto se ha editado con éxito.</p>
@@ -126,4 +125,3 @@
   </div>
 
 </template>
-
