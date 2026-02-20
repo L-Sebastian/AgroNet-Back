@@ -7,7 +7,7 @@ y index_seller.html (seller-pages) */
   height: 450px;
   overflow: hidden; /* evita que el blur salga de los bordes */
 
-  background-image: url("/src/static/assets/imagen-banner.webp");
+  background-image: url("/static/assets/imagen-banner.webp");
   background-size: cover;         /* Que cubra todo */
   background-position: center top;/* Centrado arriba */
   background-repeat: no-repeat;

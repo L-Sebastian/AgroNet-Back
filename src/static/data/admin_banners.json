@@ -2,41 +2,41 @@
   {
     "name": "Campaña Primavera",
     "description": "Descuentos en productos agrícolas durante toda la temporada.",
-    "image": "/frontend/public/assets/banner_1.jpg"
+    "image": "/src/static/assets/banner_1.jpg"
   },
   {
     "name": "Feria del Campo",
     "description": "Apoya a los agricultores locales con tus compras directas.",
-    "image": "/frontend/public/assets/banner_2.jpg"
+    "image": "/src/static/assets/banner_2.jpg"
   },
   {
     "name": "Semana de la cebolla",
     "description": "Promociones especiales en productos de cebolla artesanal.",
-    "image": "/frontend/public/assets/banner_3.jpg"
+    "image": "/src/static/assets/banner_3.jpg"
   },
   {
     "name": "Semana del cafe",
     "description": "Promociones especiales en productos de café artesanal.",
-    "image": "/frontend/public/assets/cafe-cultivos.jpg"
+    "image": "/src/static/assets/cafe-cultivos.jpg"
   },
   {
     "name": "Festival del agricultor",
     "description": "Festival en apoyo a los agricultores de Risaralda y otros sectores.",
-    "image": "/frontend/public/assets/banner_4.webp"
+    "image": "/src/static/assets/banner_4.webp"
   },
   {
     "name": "Festival banano",
     "description": "Disfruta de descuentos en los mejores bananos de Risaralda.",
-    "image": "/frontend/public/assets/banano.webp"
+    "image": "/src/static/assets/banano.webp"
   },
   {
     "name": "Dia del frijol",
     "description": "Disfruta de descuentos en los mejores frijoles de Risaralda.",
-    "image": "/frontend/public/assets/frijol.jpg"
+    "image": "/src/static/assets/frijol.jpg"
   },
   {
     "name": "Granos y mas granos",
     "description": "Evento en celebracion a la exportacion de los mejores granos de la region.",
-    "image": "/frontend/public/assets/granos.jpg"
+    "image": "/src/static/assets/granos.jpg"
   }
 ]
