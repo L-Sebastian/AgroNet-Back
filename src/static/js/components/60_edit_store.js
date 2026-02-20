@@ -6,64 +6,58 @@ document.addEventListener("DOMContentLoaded", () => {
       .then(response => response.text())
       .then(data => {
         container.innerHTML = data;
-
-        //  Ejecutar la lógica de los modales DESPUÉS de cargar el HTML
-        inicializarModalesStore();
+        initializeStoreModals();
       })
-      .catch(error => console.error("Error al cargar el formulario de vendedor:", error));
+      .catch(error => console.error("Error loading store form:", error));
   }
 });
 
-function inicializarModalesStore() {
-  const form = document.getElementById("sellerEdit");
-  const confirmModal = document.getElementById("store_confirm_popup");
-  const successModal = document.getElementById("store_success_modal");
+function initializeStoreModals() {
+  const form = document.querySelector(".seller-form-e__form");
+  const confirmModal = document.querySelector(".seller-form-e__modal--confirm");
+  const successModal = document.querySelector(".modal--success");
 
-  const cancelBtn = document.getElementById("cancel_store");
-  const acceptBtn = document.getElementById("accept_store");
-  const closeConfirm = document.getElementById("close_store_confirm");
-  const closeSuccess = document.getElementById("close_store_success");
+  const cancelBtn = confirmModal.querySelector(".seller-form-e__modal-btn--cancel");
+  const acceptBtn = confirmModal.querySelector(".seller-form-e__modal-btn--accept");
+  const closeConfirm = confirmModal.querySelector(".seller-form-e__modal-close--confirm");
+  const closeSuccess = successModal.querySelector(".seller-form-e__modal-close--success");
 
   if (!form || !confirmModal || !successModal) {
-    console.error(" No se encontraron los modales o el formulario dentro del HTML cargado.");
+    console.error("Missing modals or form in loaded HTML.");
     return;
   }
 
-  // 🔹 Mostrar confirmación al enviar
+  // MOSTRAR MODAL DE CONFIRMACIÓN
   form.addEventListener("submit", (e) => {
-    e.preventDefault();
+    e.preventDefault(); 
     confirmModal.classList.add("show");
   });
 
-  // 🔹 Cerrar confirmación
+  // Cerrar confirmación
+
   cancelBtn.addEventListener("click", () => confirmModal.classList.remove("show"));
   closeConfirm.addEventListener("click", () => confirmModal.classList.remove("show"));
   confirmModal.addEventListener("click", (e) => {
     if (e.target === confirmModal) confirmModal.classList.remove("show");
   });
 
-  // 🔹 Aceptar → cerrar confirmación y mostrar éxito
+  // Aceptar → Mostrar modal de éxito
   acceptBtn.addEventListener("click", () => {
     confirmModal.classList.remove("show");
     successModal.classList.add("show");
   });
 
-  // 🔹 Cerrar éxito → redirigir
-  const redirectURL = "/src/templates/seller-pages/profile_store.html";
+  // Redirección final
+  const redirectURL = "/src/templates/views/seller-pages/profile_store.html";
 
   const closeAndRedirect = () => {
     successModal.classList.remove("show");
     window.location.href = redirectURL;
   };
 
-  // Cerrar con la X
   closeSuccess.addEventListener("click", closeAndRedirect);
 
-  // Cerrar con clic fuera o dentro del popup
   successModal.addEventListener("click", (e) => {
-    // Se cierra si el clic es en el fondo o dentro del modal (excepto si el clic fue en los elementos internos pequeños como el ícono o texto)
-    if (e.target === successModal || e.target.closest(".modal-content")) {
-      closeAndRedirect();
-    }
+    if (e.target === successModal) closeAndRedirect();
   });
 }

@@ -1,11 +1,6 @@
 /* Componente utilizado en edit_product.html de seller-pages */
 
-.body-edit-product {
-  background-color: var(--white);
-}
-
-/* Estructura general del formulario */
-.forms__edit {
+.edit-product {
   display: grid;
   grid-template-columns: 1fr 2fr;
   padding: 3rem;
@@ -16,79 +11,71 @@
   max-width: 1050px;
 }
 
-.forms__edit input:focus,
-.forms__edit textarea:focus,
-.forms__edit select:focus {
+.edit-product input:focus,
+.edit-product textarea:focus,
+.edit-product select:focus {
   outline: none; 
   border: 1px solid var(--gray-500); 
   box-shadow: none;
 }
 
-/* El área izquierda */
-.left__side-two {
+.edit-product__left-side {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-/* Imagen */
-.image__edit {
+.edit-product__image {
   border: 1px solid var(--gray-200);
   height: 270px;
   background: var(--gray-50);
-  position: relative;       /*  necesario para posicionar la imagen */
+  position: relative;       
   width: 96%;
-  overflow: hidden;         /*  evita que la imagen se salga */
-  padding: 0;               /*  elimina el espacio interno */
+  overflow: hidden;         
+  padding: 0;               
 }
 
-
-.image__edit:hover {
+.edit-product__image:hover {
   border-color: var(--gray-800);
   color: var(--gray-800);
 }
 
-.image__edit img {
-  position: absolute;       /*  ocupa todo el contenedor */
+.edit-product__image img {
+  position: absolute;       
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;        /*  ajusta sin deformar */
+  object-fit: cover;        
 }
 
-
-/* Campos del formulario */
-.form__group {
+.edit-product__field {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 0.4rem;
 }
 
-.forms__edit--id_vendor {
+.edit-product__field--vendor {
   padding: 1.2rem 0 0 0;
 }
 
-/* Columna derecha */
-.right__side-two {
+.edit-product__right-side {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px 24px;
 }
 
-/* Etiquetas */
-.form__group label {
+.edit-product__field label {
   font-weight: var(--main-font);
   color: var(--gray-900);
 }
 
-/* Inputs y textareas */
-.form__group input,
-.form__group textarea,
-.dropdown-edit__trigger {
-  width: 320px !important;   /* ancho fijo */
-  height: 56px;              /* altura fija */
+.edit-product__field input,
+.edit-product__field textarea,
+.edit-product__dropdown-trigger {
+  width: 320px !important;   
+  height: 56px;              
   padding: 0.7rem 1rem;
   border: 1px solid var(--gray-200);
   background-color: var(--gray-50);
@@ -96,36 +83,34 @@
   box-sizing: border-box;
 }
 
-/* Textarea especial */
-.form__group textarea {
+.edit-product__field textarea {
   resize: none;
   min-height: 150px;
 }
 
-/* Campos específicos en el grid */
-.forms__edit--name { grid-column: 1; grid-row: 1; }
-.forms__edit--category { grid-column: 1; grid-row: 2; }
-.forms__edit--price { grid-column: 1; grid-row: 3; }
-.forms__edit--worth { grid-column: 1; grid-row: 4; }
-.forms__edit--description { grid-column: 2; grid-row: 1 / 5; height: 100%; }
-.forms__edit--description textarea { width: 100%; height: 65%; resize: none; }
-.forms__edit--unit { grid-column: 2; grid-row: 4; }
-.forms__edit--weight { grid-column: 2; grid-row: 5; }
-.forms__edit--stock { grid-column: 1; grid-row: 5; }
+/* Posicionamiento en grid */
+.edit-product__field--name { grid-column: 1; grid-row: 1; }
+.edit-product__field--category { grid-column: 1; grid-row: 2; }
+.edit-product__field--price { grid-column: 1; grid-row: 3; }
+.edit-product__field--worth { grid-column: 1; grid-row: 4; }
+.edit-product__field--description { grid-column: 2; grid-row: 1 / 5; height: 100%; }
+.edit-product__field--description textarea { width: 100%; height: 65%; resize: none; }
+.edit-product__field--unit { grid-column: 2; grid-row: 4; }
+.edit-product__field--weight { grid-column: 2; grid-row: 5; }
+.edit-product__field--stock { grid-column: 1; grid-row: 5; }
 
-/* Dropdown personalizado */
-.hidden-select-edit {
+.edit-product__select-hidden {
   display: none;
 }
 
-.dropdown-edit {
+.edit-product__dropdown-wrapper {
   position: relative;
   width: 100%;
   max-width: 266px;
   user-select: none;
 }
 
-.dropdown-edit__trigger {
+.edit-product__dropdown-trigger {
   border: 1px solid var(--gray-200);
   background: var(--gray-50);
   border-radius: 6px;
@@ -138,11 +123,11 @@
   cursor: pointer;
 }
 
-.dropdown-edit__trigger i {
+.edit-product__dropdown-trigger i {
   color: var(--gray-500);
 }
 
-.dropdown-edit__options {
+.edit-product__dropdown-options {
   position: absolute;
   top: 100%;
   left: 0;
@@ -160,24 +145,23 @@
   overflow-y: auto;
 }
 
-.dropdown-edit__option:not(:last-child) {
+.edit-product__dropdown-option:not(:last-child) {
   border-bottom: 1px solid var(--gray-50);
 }
 
-.dropdown-edit__option {
+.edit-product__dropdown-option {
   height: 40px;
   line-height: 40px;
   padding: 0.7rem;
   cursor: pointer;
 }
 
-.dropdown-edit__option:hover {
+.edit-product__dropdown-option:hover {
   background: var(--gray-50);
   color: var(--gray-900);
 }
 
-/* Botón registrar */
-.opinions__btn-edit_product {
+.edit-product__btn-edit {
   display: block;
   margin: 2rem auto 4rem auto;
   background: var(--btn-bg);
@@ -195,20 +179,20 @@
   transition: background 0.2s ease, box-shadow 0.2s ease;
 }
 
-.opinions__btn-edit_product:hover {
+.edit-product__btn-edit:hover {
   background: var(--btn-bg-hover, var(--primary-600));
   color: var(--btn-text-hover, var(--white));
   box-shadow: var(--btn-shadow-hover, 0 2px 6px rgba(0, 0, 0, 0.2)); 
 }
 
-.opinions__btn-edit_product:active {
+.edit-product__btn-edit:active {
   background: var(--btn-bg-pressed, var(--primary-700));
   color: var(--btn-text-pressed, var(--white));
   box-shadow: var(--btn-shadow-pressed, 0 2px 4px rgba(0, 0, 0, 0.25));
-  transform: scale(0.98); /* pequeño feedback */
+  transform: scale(0.98); 
 }
 
-.opinions__btn-edit_product:disabled {
+.edit-product__btn-edit:disabled {
   background: var(--btn-bg-disabled, var(--primary-200));
   color: var(--btn-text-disabled, var(--gray-500));
   box-shadow: none;
@@ -216,91 +200,22 @@
   opacity: 0.7;
 }
 
-/* 🔹 Responsividad */
-@media (max-width: 1024px) {
-  .forms__edit {
-    grid-template-columns: 1fr;
-    padding: 2rem;
-    margin-top: 4rem;
-  }
-
-  .right__side-two {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  .form__group input,
-  .form__group textarea,
-  .dropdown-edit {
-    max-width: 100%;
-  }
-
-  .image__edit {
-    width: 100%;
-    max-width: 90%;
-    height: 200px;
-    margin: 0 auto;
-  }
-
-  .form__group--description textarea {
-    height: 180px;
-  }
-
-  .opinions__btn-publish_product {
-    width: auto;
-    max-width: 200px;
-    margin: 2rem auto;
-    padding: 0.6rem 1rem;
-  }
-}
-
-@media (max-width: 600px) {
-  .forms__edit {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding: 2rem;
-    margin: 2rem 1.5rem;
-  }
-
-  .form__group {
-    width: 100%;
-  }
-
-  .form__group input,
-  .form__group textarea,
-  .dropdown-edit__trigger {
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-  .image__edit {
-    width: 80%;
-    max-width: 300px;
-    margin: 2rem auto;
-    height: 150px;
-  }
-}
-
-/* ==============================
-   🔹 MODAL BASE (para confirmación y éxito)
-============================== */
-
-.modal {
+/* Modal */
+.edit-product__modal {
   position: fixed;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  display: none; /* Oculto por defecto */
+  display: none; 
   justify-content: center;
   align-items: center;
   z-index: 9999;
 }
 
-.modal.show {
-  display: flex; /* Mostrar cuando tenga la clase "show" */
+.edit-product__modal.show {
+  display: flex; 
 }
 
-.modal-content {
+.edit-product__modal-content {
   background-color: var(--white);
   padding: 30px;
   border-radius: 12px;
@@ -311,22 +226,18 @@
   position: relative;
 }
 
-/* Animación de aparición */
 @keyframes popupFade {
   from { opacity: 0; transform: scale(0.9); }
   to { opacity: 1; transform: scale(1); }
 }
 
-/* ===== Icono dentro del modal ===== */
-.modal-content .icon {
+.edit-product__modal-icon {
   font-size: 50px;
   color: var(--primary-500);
   margin-bottom: 16px;
 }
 
-
-/* ===== Botón de cerrar (X) ===== */
-.modal-content .close {
+.edit-product__modal-close {
   position: absolute;
   top: 15px;
   right: 20px;
@@ -336,16 +247,13 @@
   transition: color 0.3s ease;
 }
 
-
-/* ===== Contenedor de botones ===== */
-.modal__buttons {
+.edit-product__modal-buttons {
   display: flex;
   justify-content: space-between;
   gap: 50px;
 }
 
-/* ===== Botones del modal ===== */
-.modal__btn {
+.edit-product__modal-btn {
   flex: 1;
   border: none;
   border-radius: 8px;
@@ -357,12 +265,11 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
 }
 
-.modal__btn:active {
+.edit-product__modal-btn:active {
   transform: scale(0.97);
 }
 
-/* Botón Cancelar */
-.modal__btn--cancel {
+.edit-product__modal-btn--cancel {
   background-color: var(--gray-100);
   color: var(--gray-600);
 
@@ -384,8 +291,6 @@
   justify-content: center;
   gap: var(--btn-gap, 0.5rem);
 
-  cursor: pointer;
-  user-select: none;
   box-shadow: var(--btn-shadow, 0 1px 3px rgba(0, 0, 0, 0.15));
   transition:
     background var(--btn-transition-duration, 150ms) var(--btn-transition-timing, ease-in-out),
@@ -393,12 +298,7 @@
     transform var(--btn-transition-duration, 150ms) var(--btn-transition-timing, ease-in-out);
 }
 
-.modal__btn--cancel:hover {
-  background-color: var(--gray-200);
-}
-
-/* Botón Aceptar */
-.modal__btn--accept {
+.edit-product__modal-btn--accept {
   background: var(--btn-bg, var(--primary-500));
   color: var(--btn-text, var(--white));
 
@@ -428,30 +328,3 @@
     box-shadow var(--btn-transition-duration, 150ms) var(--btn-transition-timing, ease-in-out),
     transform var(--btn-transition-duration, 150ms) var(--btn-transition-timing, ease-in-out);
 }
-
-.modal__btn--accept:hover {
-  background: var(--btn-bg-hover, var(--primary-600));
-  color: var(--btn-text-hover, var(--white));
-  box-shadow: var(--btn-shadow-hover, 0 2px 6px rgba(0, 0, 0, 0.2)); 
-}
-
-.modal__btn--accept:active {
-  background: var(--btn-bg-pressed, var(--primary-700));
-  color: var(--btn-text-pressed, var(--white));
-  box-shadow: var(--btn-shadow-pressed, 0 2px 4px rgba(0, 0, 0, 0.25));
-  transform: scale(0.98); /* pequeño feedback */
-}
-
-.modal__btn--accept:disabled {
-  background: var(--btn-bg-disabled, var(--primary-200));
-  color: var(--btn-text-disabled, var(--gray-500));
-  box-shadow: none;
-  cursor: not-allowed;
-  opacity: 0.7;
-}
-
-/* ===== Modal de éxito ===== */
-.modal.success .icon {
-  color: var(--primary-500);
-}
-

@@ -1,8 +1,5 @@
 /* Componente utilizado en cart-general.html de pages-general  */
 
-/* =============================== */
-/* Bloque: empty-cart              */
-/* =============================== */
 
 .empty-cart {
   display: flex;
@@ -21,11 +18,16 @@
   align-items: center;
   gap: 1.5rem;
   margin-right: 350px;
+  margin: 0 auto;
+}
+
+.empty-cart-container{
+  margin-bottom: 20rem;
 }
 
 .empty-cart__title {
   color: var(--primary-500);
-  font-size: var(--fs-lg);
+  font-size: var(--fs-md);
   font-weight: bold;
   margin: 0;
 }
@@ -34,9 +36,8 @@
   background-color: var(--primary-600);
   color: var(--white);
   border: none;
-  padding: 12px 24px;
+  padding: 1.6rem;
   border-radius: 0.8rem;
-  font-size: var(--fs-sm);
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -50,17 +51,14 @@
 /* Responsivo                     */
 /* =============================== */
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   .empty-cart {
-    height: 50vh;
+    height: 50vw;
+    margin-top: 20rem;
   }
 
-  .empty-cart__title {
-    font-size: var(--fs-md);
+  .empty-cart-container{
+    margin-bottom: 40rem;
   }
 
-  .empty-cart__button {
-    font-size: var(--fs-xs);
-    padding: 10px 20px;
-  }
 }

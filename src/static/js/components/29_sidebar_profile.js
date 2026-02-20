@@ -1,30 +1,81 @@
-async function cargarMensaje() {
-  const contenedor = document.querySelector(".sidebar-profile");
+async function cargarSidebar() {
+  const contenedor = document.querySelector(".sidebar-container");
 
-  // const res = await fetch("/frontend/public/views/components/29_sidebar_profile.html");
-  const res = await fetch("/src/templates/components/29_sidebar_profile.html");
-  const html = await res.text();
+  if (!contenedor) return;
 
-  const div = document.createElement("div");
-  div.innerHTML = html;
-  contenedor.appendChild(div);
+  try {
+    const res = await fetch("/src/templates/components/29_sidebar_profile.html");
+    if (!res.ok) throw new Error("Error al cargar el sidebar");
 
-  //  Espera a que el sidebar esté cargado y aplica el comportamiento de "activo"
-  activarSidebarLinks(div);
+    const html = await res.text();
+
+    // Insertar el sidebar
+    const tempDiv = document.createElement("div");
+    tempDiv.innerHTML = html.trim();
+    contenedor.appendChild(tempDiv);
+
+    // Activar comportamientos
+    activarSidebarLinks(tempDiv);
+    activarSidebarDesplegable(tempDiv);
+    activarLogoutPopup(tempDiv); 
+  } catch (error) {
+    console.error("Error al cargar el sidebar:", error);
+  }
 }
 
-// Función que agrega el comportamiento de selección activa
 function activarSidebarLinks(rootElement) {
   const menuLinks = rootElement.querySelectorAll(".sidebar__menu a");
 
   menuLinks.forEach(link => {
     link.addEventListener("click", () => {
-      // Quita "active" de todos los enlaces
       menuLinks.forEach(l => l.classList.remove("active"));
-      // Agrega "active" solo al enlace clicado
       link.classList.add("active");
     });
   });
 }
 
-cargarMensaje();
+function activarSidebarDesplegable(rootElement) {
+  const subtitle = rootElement.querySelector(".sidebar__list");
+  const menu = rootElement.querySelector(".sidebar__menu");
+
+  if (!subtitle || !menu) return;
+
+  subtitle.addEventListener("click", () => {
+    menu.classList.toggle("sidebar__menu--visible");
+    subtitle.classList.toggle("sidebar__subtitle--active");
+  });
+}
+
+function activarLogoutPopup(rootElement) {
+  const logoutBtn = rootElement.querySelector(".sidebar__option-logoutBtn");
+
+  const popupConfirm = document.querySelector(".sidebar__popup--confirm");
+  const popupSuccess = document.querySelector(".sidebar__popup--success");
+
+  if (!logoutBtn || !popupConfirm || !popupSuccess) return;
+
+  const btnCancel = popupConfirm.querySelector(".sidebar__popup__btn--cancel");
+  const btnAccept = popupConfirm.querySelector(".sidebar__popup__btn--accept");
+
+  logoutBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    popupConfirm.classList.add("sidebar__popup--active");
+  });
+
+  btnCancel.addEventListener("click", () => {
+    popupConfirm.classList.remove("sidebar__popup--active");
+  });
+
+  btnAccept.addEventListener("click", () => {
+    popupConfirm.classList.remove("sidebar__popup--active");
+    popupSuccess.classList.add("sidebar__popup--active");
+
+    setTimeout(() => {
+      popupSuccess.classList.remove("sidebar__popup--active");
+      window.location.href = "/src/templates/pages-general/index.html";
+    }, 2000);
+  });
+}
+
+
+cargarSidebar();

@@ -19,6 +19,7 @@
   gap: 2rem;
   max-width: 1200px;
   width: 100%;
+  margin-bottom: 16rem;
 }
 
 /* ========== PANEL IZQUIERDO ========== */
@@ -27,7 +28,7 @@
   background: var(--white);
   border-radius: 12px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.493);
-  padding: 2rem;
+  padding: 1.6rem;
 }
 
 .order-detail__header {
@@ -59,7 +60,8 @@
 .order-detail__total {
   display: flex;
   justify-content: space-between;
-  margin-top: 1rem;
+  margin-right: 8rem;
+  margin-left: 0.8rem;
 }
 
 /* ========== PANEL DERECHO (LISTA DE PEDIDOS) ========== */
@@ -74,23 +76,25 @@
 .order-detail__subtitle {
   color: var(--black);
   margin-bottom: .5rem;
+  font-size: var(--fs-sm);
 }
 
 .order-detail__cards {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 2.4rem;
 }
 
 /* Tarjetas individuales */
 .order-card {
   background-color: var(--white);
   border-radius: 10px;
-  padding: 1rem;
+  padding: 1.6rem;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.493);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 2.4rem;
 }
 
 /* =============================== */
@@ -105,13 +109,19 @@
   position: absolute;
   top: 0;
   right: 0;
-  background-color: var(--primary-600); /* Verde principal */
+  background-color: var(--primary-500); /* Verde principal */
   color: var(--white);
-  padding: 8px 14px;
+  padding: 1.6rem;
   border-radius: 8px;
-  font-weight: 500;
   text-decoration: none;
   transition: background-color 0.3s ease, transform 0.2s ease;
+  font-size: var(--fs-xs);
+}
+
+.order-detail__invoice-title{
+  font-size: var(--fs-md);
+  font-weight: var(--font-bold);
+  margin: 0;
 }
 
 .order-detail__invoice-button:hover {
@@ -133,22 +143,20 @@
   background-color: var(--primary-200);
   color: var(--black);
   border-radius: 10px;
-  padding: 4px 10px;
-  font-size: 1.1rem;
-  margin-top: 0.5rem;
+  font-size: var(--fs-xs);
+  padding: 1.6rem;
+
 }
 
 .order-card__button {
-  align-self: flex-end;
-  background-color: var(--primary-600);
+  position: absolute;
+  background-color: var(--primary-500); /* Verde principal */
   color: var(--white);
-  border: none;
+  padding: 1.6rem;
   border-radius: 8px;
-  padding: 0.5rem 1rem;
-  margin-top: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 0.3s;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-size: var(--fs-xs);
 }
 
 .order-card__button:hover {
@@ -156,138 +164,96 @@
 }
 
 /* RESPONSIVE */
-@media (max-width: 900px) {
+@media (max-width: 640px) {
   .order-detail__content {
     flex-direction: column;
+    margin-top: 6.4rem;
   }
 
   .order-detail__sidebar {
     width: 100%;
   }
+
+  .order-detail__info th {
+    background: var(--gray-100);
+    padding: 0.8rem;
+  }
+
+  .order-detail__total{
+    margin-right: 0.8rem;
+  }
+  .order-detail__cards{
+    display: flex;
+    gap: 2.4rem;
+  }
 }
 
-/* =============================== */
-/* Modal de factura                */
-/* =============================== */
-
-.invoice-modal {
-  display: none; /* Oculto por defecto */
+/* ========================= */
+/*      MODAL FACTURA        */
+/* ========================= */
+.order-detail__invoice-modal {
   position: fixed;
-  inset: 0; /* top: 0; right: 0; bottom: 0; left: 0 */
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s ease;
+  z-index: 2000;
 }
 
-.invoice-modal.active {
-  display: flex;
+.order-detail__invoice-modal.active {
+  opacity: 1;
+  visibility: visible;
 }
 
-/* Fondo difuminado */
-.invoice-modal__overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(4px);
-}
-
-/* Contenedor principal */
-.invoice-modal__content {
-  position: relative;
-  background: var(--white);
-  padding: 24px;
-  border-radius: 12px;
+.order-detail__invoice-content {
+  background: #ffffff;
   width: 90%;
-  max-width: 480px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  z-index: 1001;
-  animation: fadeInUp 0.3s ease;
-}
-
-/* Título */
-.invoice-modal__title {
-  margin-bottom: 16px;
+  max-width: 340px;
+  padding: 1.6rem;
+  border-radius: 10px;
+  position: relative;
   text-align: center;
-  font-size: var(--fs-md);
-  color: var(--black);
+  animation: popup-zoom 0.25s ease;
 }
 
-/* Cuerpo */
-.invoice-modal__body p {
-  margin: 6px 0;
-  color: var(--black);
-}
-
-.invoice-modal__table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 12px;
-}
-
-.invoice-modal__table th,
-.invoice-modal__table td {
-  border-bottom: 1px solid var(--gray-100);
-  padding: 6px 8px;
-  text-align: left;
-}
-
-.invoice-modal__table th {
-  background: var(--gray-100);
-}
-
-.invoice-modal__total {
-  text-align: right;
-  margin-top: 10px;
-  color: var(--black);
-  font-weight: bold;
+@keyframes popup-zoom {
+  from { transform: scale(0.9); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
 }
 
 /* Botón cerrar */
-.invoice-modal__close {
+.order-detail__invoice-close {
   position: absolute;
-  top: 8px;
-  right: 12px;
+  top: 5px;
+  right: 5px;
+  font-size: 1.8rem;
   background: transparent;
   border: none;
   cursor: pointer;
-  color: var(--black);
-  transition: color 0.2s;
 }
 
-.invoice-modal__close:hover {
-  color: var(--primary-600);
+/* Tabla */
+.order-detail__invoice-table {
+  width: 100%;
+  margin-top: 1rem;
+  border-collapse: collapse;
 }
 
-/* Animación */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.order-detail__invoice-table th{
+  padding: 16px;
+  background-color: var(--gray-100);
+
+}
+.order-detail__invoice-table td {
+  border-bottom: 1px solid #ddd;
+  padding: 16px;
 }
 
-.order-detail__invoice-button {
-  color: var(--white);
-  border: none;             /* elimina el borde */
-  outline: none;            /* elimina el contorno negro */
-  padding: 10px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
+.order-detail__invoice-total {
+  margin-top: 1rem;
+  font-size: var(--fs-xs);
 }
-
-/* Efecto hover */
-.order-detail__invoice-button:hover {
-  transform: scale(1.03);
-}
-
-/* Estado de foco accesible, sin borde negro */
-.order-detail__invoice-button:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(72, 239, 128, 0.5);
-}
-

@@ -86,6 +86,8 @@ y index_seller.html (seller-pages) */
   align-items: center;
   flex: 0 0 auto;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  padding: 1.6rem;
+  gap: 1.6rem;
 }
 
 /* Imagen dentro de la tarjeta */
@@ -94,10 +96,9 @@ y index_seller.html (seller-pages) */
   max-width: 192px;         /* 12rem */
   height: 176px;            /* 11rem */
   object-fit: contain;
-  margin-bottom: 10px;      /* 0.6rem */
 }
 
-.category__btn {
+.category-index__btn {
   background: var(--btn-bg, var(--primary-500));
   color: var(--btn-text, var(--white));
   font-weight: var(--btn-font-weight, 500);
@@ -106,12 +107,11 @@ y index_seller.html (seller-pages) */
   letter-spacing: var(--btn-letter-spacing, 0.02857em);
 
   padding: var(--btn-padding); 
-  margin: var(--btn-margin, 8px);                                      /* 0.5rem */
 
   border: var(--btn-border, none);
   border-radius: var(--btn-border-radius, 8px); /* 0.5rem */
 
-  min-height: 40px;
+  min-height: var(--btn-max-height);
   min-width: var(--btn-min-width, 56px);
 
   display: inline-flex;
@@ -129,14 +129,14 @@ y index_seller.html (seller-pages) */
 }
 
 /* Hover */
-.category__btn:hover {
+.category-index__btn:hover {
   background: var(--btn-bg-hover, var(--primary-600));
   color: var(--btn-text-hover, var(--white));
   box-shadow: var(--btn-shadow-hover, 0 4px 8px rgba(0, 0, 0, 0.2));
 }
 
 /* Presionado */
-.category__btn:active {
+.category-index__btn:active {
   background: var(--btn-bg-pressed, var(--primary-700));
   color: var(--btn-text-pressed, var(--white));
   box-shadow: var(--btn-shadow-pressed, 0 2px 4px rgba(0, 0, 0, 0.25));
@@ -144,7 +144,7 @@ y index_seller.html (seller-pages) */
 }
 
 /* Deshabilitado */
-.category__btn:disabled {
+.category-index__btn:disabled {
   background: var(--btn-bg-disabled, var(--primary-200));
   color: var(--btn-text-disabled, var(--gray-500));
   box-shadow: none;
@@ -213,7 +213,6 @@ y index_seller.html (seller-pages) */
   .category-index__grid {
     justify-content: center;
     gap: 24px;
-    padding: 0 16px 16px 16px;
     scroll-padding-left: 16px;
   }
   .category-index__item {

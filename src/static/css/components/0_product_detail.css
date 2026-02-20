@@ -215,6 +215,36 @@ Componentes principales:
   color: var(--gray-600);
 }
 
+.product-detail__extra-info {
+  padding: 1rem;
+  border-radius: 10px;
+  margin-left: 20px;
+}
+
+.product-detail__subtitle {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  margin-bottom: .5rem;
+}
+
+.product-detail__info-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* dos columnas */
+  gap: 12px 20px; /* espacio vertical y horizontal */
+  list-style: none;
+  padding: 0;
+}
+
+.product-detail__info-list li strong {
+  color: var(--primary-600); 
+}
+
+.product-detail__info-list li {
+  margin-bottom: 2px; 
+}
+
+
+
 /*Responsive --------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 

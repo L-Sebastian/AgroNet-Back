@@ -9,12 +9,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     container.innerHTML = html;
 
     const tableBody = document.querySelector(".admin-reports__body");
-    const modal = document.getElementById("reportModal");
+    const modal = document.querySelector(".admin-reports__modal");
     const modalBody = modal.querySelector(".admin-reports__modal-body");
     const closeModal = modal.querySelector(".admin-reports__btn--close");
     const searchInput = document.querySelector(".admin-reports__search");
-    const popupConfirm = document.getElementById("confirm_delete_popup");
-    const popupSuccess = document.getElementById("delete_success_popup");
+
+    // Popups sin ID — usando clases BEM
+    const popupConfirm = document.querySelector(".admin-reports__popup--confirm");
+    const popupSuccess = document.querySelector(".admin-reports__popup--success");
 
     // Datos simulados
     const reports = [
@@ -24,7 +26,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         mensaje: "Faltó un producto en la entrega de ayer.",
         tipo_usuario: "Cliente",
         fecha: "2025-10-25",
-        estado: "Pendiente"
+        estado: "Pendiente",
       },
       {
         asunto: "Error en facturación",
@@ -32,7 +34,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         mensaje: "El valor facturado no coincide con el pedido.",
         tipo_usuario: "Vendedor",
         fecha: "2025-10-24",
-        estado: "Pendiente"
+        estado: "Pendiente",
       },
       {
         asunto: "Actualización del sistema",
@@ -40,8 +42,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         mensaje: "Se implementó mejora en el módulo de productos.",
         tipo_usuario: "Administrador",
         fecha: "2025-10-23",
-        estado: "Resuelto"
-      }
+        estado: "Resuelto",
+      },
     ];
 
     // Renderizar reportes
@@ -107,7 +109,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           <p><strong>Fecha:</strong> ${report.fecha}</p>
           <p><strong>Estado:</strong> ${report.estado}</p>
         `;
-        modal.style.display = "flex";
+        modal.classList.add("show");
       }
 
       if (btn.classList.contains("admin-reports__btn--resolve")) {
@@ -122,25 +124,21 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
     // Cerrar modal
-    closeModal.addEventListener("click", () => (modal.style.display = "none"));
+    closeModal.addEventListener("click", () => modal.classList.remove("show"));
 
-    // Cerrar modales al hacer clic fuera o dentro
-// Cerrar modales al hacer clic en cualquier parte del popup
+    // Cerrar popups al hacer clic fuera
     [popupConfirm, popupSuccess].forEach((popup) => {
-      popup.addEventListener("click", () => {
-        popup.classList.remove("show");
-      });
+      popup.addEventListener("click", () => popup.classList.remove("show"));
     });
 
-    // Evitar que los botones tengan doble efecto (si hay botones dentro)
-    const preventCloseButtons = popupConfirm.querySelectorAll(".btn, .close-popup");
-    preventCloseButtons.forEach(btn => {
-      btn.addEventListener("click", (e) => e.stopPropagation());
+    // Evitar cierre al hacer clic dentro del contenido
+    document.querySelectorAll(".admin-reports__popup-content").forEach((content) => {
+      content.addEventListener("click", (e) => e.stopPropagation());
     });
 
-    // Botones del popup de confirmación
-    const btnCancel = popupConfirm.querySelector(".btn.cancel");
-    const btnAccept = popupConfirm.querySelector(".btn.accept");
+    // Botones de confirmación
+    const btnCancel = popupConfirm.querySelector(".admin-reports__popup-btn--cancel");
+    const btnAccept = popupConfirm.querySelector(".admin-reports__popup-btn--accept");
 
     btnCancel.addEventListener("click", () => popupConfirm.classList.remove("show"));
 

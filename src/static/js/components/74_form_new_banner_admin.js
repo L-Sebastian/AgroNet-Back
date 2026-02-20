@@ -12,24 +12,26 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function initNewBannerForm() {
-  const form = document.getElementById("formNuevoBanner");
-  const inputFile = document.getElementById("imagen");
-  const btnFile = document.getElementById("btnFileBanner");
-  const fileText = document.getElementById("fileBannerText");
-  const popupSuccess = document.getElementById("banner_success_popup");
+  const form = document.querySelector(".form-datos__form");
+  const inputFile = form.querySelector(".form-datos__file-input");
+  const btnFile = form.querySelector(".form-datos__file-btn");
+  const fileText = form.querySelector(".form-datos__file-text");
+  const popupSuccess = document.querySelector(".popup--banner-success");
 
-  // ✅ Botón para abrir el selector de archivos
+  if (!form || !inputFile || !btnFile || !fileText || !popupSuccess) return;
+
+  // Botón para abrir el selector de archivos
   btnFile.addEventListener("click", () => inputFile.click());
 
-  // ✅ Mostrar nombre del archivo seleccionado
+  // Mostrar nombre del archivo seleccionado
   inputFile.addEventListener("change", () => {
-    const fileName = inputFile.files.length 
-      ? inputFile.files[0].name 
+    const fileName = inputFile.files.length
+      ? inputFile.files[0].name
       : "Ningún archivo seleccionado";
     fileText.textContent = fileName;
   });
 
-  // ✅ Envío del formulario con popup
+  //  Envío del formulario con popup
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
@@ -51,14 +53,14 @@ function initNewBannerForm() {
     }
   });
 
-  // Cerrar popup al hacer clic en la X, fuera o dentro
+  // Cerrar popup al hacer clic en el fondo o en la X
   popupSuccess.addEventListener("click", (e) => {
     if (
-      e.target.classList.contains("close-popup") ||
-      e.target === popupSuccess ||
-      e.target.closest(".popup-content")
+      e.target.classList.contains("popup") ||       // clic en el fondo
+      e.target.closest(".popup__close")            // clic en la X
     ) {
       popupSuccess.classList.remove("show");
+
       // Redirigir después de cerrar el popup
       window.location.href = "/src/templates/admin-pages/banners.html";
     }

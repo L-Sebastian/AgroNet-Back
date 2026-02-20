@@ -1,4 +1,5 @@
-class FormEdit extends HTMLElement {
+
+class EditProduct extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
@@ -10,43 +11,51 @@ class FormEdit extends HTMLElement {
 
   async loadTemplate() {
     try {
-      const res = await fetch("/src/templates/components/63_edit_product.html");
-      const html = await res.text();
-      const template = document.createElement("div");
-      template.innerHTML = html;
+      const [htmlRes, cssRes] = await Promise.all([
+        fetch("/src/templates/components/63_edit_product.html"),
+        fetch("/src/static/css/components/63_edit_product.css")
+      ]);
 
-      const content = template.querySelector("template").content.cloneNode(true);
+      const html = await htmlRes.text();
+      const css = await cssRes.text();
 
-      const linkStyle = document.createElement("link");
-      linkStyle.rel = "stylesheet";
-      linkStyle.href = "/src/static/css/components/63_edit_product.css";
+      const tempContainer = document.createElement("div");
+      tempContainer.innerHTML = html.trim();
+
+      const template = tempContainer.querySelector("template");
+      if (!template) {
+        console.error("❌ No se encontró el <template>");
+        return;
+      }
+
+      const content = template.content.cloneNode(true);
+
+      const style = document.createElement("style");
+      style.textContent = css;
 
       const linkFA = document.createElement("link");
       linkFA.rel = "stylesheet";
       linkFA.href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css";
 
-      this.shadowRoot.append(linkStyle, linkFA, content);
+      this.shadowRoot.append(style, linkFA, content);
 
       setTimeout(() => {
         this.initDropdowns();
         this.initModals();
       }, 150);
     } catch (error) {
-      console.error("Error al cargar el componente FormEdit:", error);
+      console.error("Error al cargar el componente EditProduct:", error);
     }
   }
 
-  // ==========================
-  // 🔹 MENÚS DESPLEGABLES
-  // ==========================
   initDropdowns() {
     const shadow = this.shadowRoot;
-    const dropdowns = shadow.querySelectorAll(".dropdown-edit");
+    const dropdowns = shadow.querySelectorAll(".edit-product__dropdown-wrapper");
 
     dropdowns.forEach((dropdown) => {
-      const trigger = dropdown.querySelector(".dropdown-edit__trigger");
-      const optionsBox = dropdown.querySelector(".dropdown-edit__options");
-      const options = dropdown.querySelectorAll(".dropdown-edit__option");
+      const trigger = dropdown.querySelector(".edit-product__dropdown-trigger");
+      const optionsBox = dropdown.querySelector(".edit-product__dropdown-options");
+      const options = dropdown.querySelectorAll(".edit-product__dropdown-option");
       const select = dropdown.parentElement.querySelector("select");
 
       if (!trigger || !optionsBox || !options.length || !select) return;
@@ -73,61 +82,42 @@ class FormEdit extends HTMLElement {
     });
   }
 
-  // ==========================
-  // 🔹 MODALES (Confirmación y Éxito)
-  // ==========================
   initModals() {
     const shadow = this.shadowRoot;
 
-    const editBtn = shadow.querySelector(".opinions__btn-edit_product");
-    const confirmModal = shadow.getElementById("edit_confirm_popup");
-    const successModal = shadow.getElementById("edit_success_modal");
+    const editBtn = shadow.querySelector(".edit-product__btn-edit");
+    const confirmModal = shadow.getElementById("edit-product__confirm-modal");
+    const successModal = shadow.getElementById("edit-product__success-modal");
 
     const cancelBtn = shadow.getElementById("cancel_edit");
     const acceptBtn = shadow.getElementById("accept_edit");
     const closeSuccess = shadow.getElementById("close_edit_success");
 
-    if (!editBtn || !confirmModal || !successModal) {
-      console.error(" No se encontraron los elementos del modal dentro del Shadow DOM.");
-      return;
-    }
+    if (!editBtn || !confirmModal || !successModal) return;
 
-    // Mostrar modal de confirmación
-    editBtn.addEventListener("click", () => {
-      confirmModal.classList.add("show");
-    });
-
-    // Cerrar confirmación (clic dentro o fuera)
+    editBtn.addEventListener("click", () => confirmModal.classList.add("show"));
     cancelBtn.addEventListener("click", () => confirmModal.classList.remove("show"));
-    confirmModal.addEventListener("click", (e) => {
-      if (e.target === confirmModal || e.target.closest(".modal-content")) {
-        confirmModal.classList.remove("show");
-      }
-    });
 
-    // Aceptar y cerrar confirmación y mostrar éxito
     acceptBtn.addEventListener("click", () => {
       confirmModal.classList.remove("show");
       successModal.classList.add("show");
     });
 
-    // ==========================
-    // Solo el modal de ÉXITO redirige
-    // ==========================
-    const redirectURL = "/src/templates/seller-pages/my_products.html"; // 
+    const redirectURL = "/src/templates/seller-pages/my_products.html";
 
     closeSuccess.addEventListener("click", () => {
       successModal.classList.remove("show");
-      window.location.href = redirectURL; 
+      window.location.href = redirectURL;
     });
 
     successModal.addEventListener("click", (e) => {
-      if (e.target === successModal || e.target.closest(".modal-content")) {
+      if (e.target === successModal || e.target.closest(".edit-product__modal-content")) {
         successModal.classList.remove("show");
-        window.location.href = redirectURL; 
+        window.location.href = redirectURL;
       }
     });
   }
 }
 
-customElements.define("form-edit", FormEdit);
+customElements.define("edit-product", EditProduct);
+

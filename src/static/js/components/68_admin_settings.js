@@ -3,72 +3,120 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (container) {
     fetch("/src/templates/components/68_admin_settings.html")
-      .then(response => response.text())
+      .then(response => {
+        if (!response.ok) throw new Error("Error al cargar componente settings");
+        return response.text();
+      })
       .then(data => {
         container.innerHTML = data;
-        initSettingsPopups(); // inicializa las ventanas emergentes
+
+        // Inicializamos pasando el root principal
+        const root = container.querySelector(".admin-settings");
+        initSettingsPopups(root);
       })
       .catch(error => console.error("Error al cargar el componente Settings:", error));
   }
 });
 
-function initSettingsPopups() {
-  // Botones del formulario
-  const btnGuardar = document.querySelector(".admin-settings__btn");
-  const btnPassword = document.querySelector(".admin-settings__btn--secure");
+function initSettingsPopups(root) {
+  if (!root) return;
 
-  // Ventanas emergentes
-  const confirmPopup = document.getElementById("confirm_settings_popup");
-  const successPopup = document.getElementById("success_settings_popup");
+  // --- Botones principales del formulario ---
+  const btnGuardar = root.querySelector(".admin-settings__btn--save");
+  const btnPassword = root.querySelector(".admin-settings__btn--secure");
 
-  // Botones internos de confirmación
-  const cancelBtn = confirmPopup.querySelector(".cancel");
-  const acceptBtn = confirmPopup.querySelector(".accept");
+  // --- Popups ---
+  const popupConfirm = document.querySelector(".admin-settings__popup--confirm");
+  const popupSuccess = document.querySelector(".admin-settings__popup--success");
 
-  // Función para abrir popup de confirmación
-  function openConfirmPopup() {
-    confirmPopup.classList.add("show");
+  // Clase que controla la visibilidad del popup
+  const SHOW_CLASS = "admin-settings__popup--show";
+
+  // --- Botones internos ---
+  const cancelBtn = popupConfirm?.querySelector(".admin-settings__popup-btn--cancel");
+  const acceptBtn = popupConfirm?.querySelector(".admin-settings__popup-btn--accept");
+  const closeBtns = document.querySelectorAll(".admin-settings__popup-close");
+
+  // Si no existen los popups, detener ejecución
+  if (!popupConfirm || !popupSuccess) {
+    console.warn("⚠️ No se encontraron los popups en el HTML — revisa las clases BEM.");
+    return;
   }
 
-  // Abrir confirmación al hacer clic en guardar o actualizar contraseña
-  if (btnGuardar) {
-    btnGuardar.addEventListener("click", e => {
+  // ---  Funciones para abrir/cerrar popups ---
+  function openConfirm() {
+    popupConfirm.classList.add(SHOW_CLASS);
+  }
+
+  function closeConfirm() {
+    popupConfirm.classList.remove(SHOW_CLASS);
+  }
+
+  function openSuccess() {
+    popupSuccess.classList.add(SHOW_CLASS);
+  }
+
+  function closeSuccess() {
+    popupSuccess.classList.remove(SHOW_CLASS);
+  }
+
+  // ---  Abrir confirmación al hacer clic en guardar o actualizar contraseña ---
+  [btnGuardar, btnPassword].forEach(btn => {
+    if (!btn) return;
+    btn.addEventListener("click", e => {
       e.preventDefault();
-      openConfirmPopup();
-    });
-  }
-
-  if (btnPassword) {
-    btnPassword.addEventListener("click", e => {
-      e.preventDefault();
-      openConfirmPopup();
-    });
-  }
-
-  // Cerrar popup de confirmación (cancelar)
-  cancelBtn.addEventListener("click", () => {
-    confirmPopup.classList.remove("show");
-  });
-
-  // Aceptar → cerrar confirmación y mostrar éxito
-  acceptBtn.addEventListener("click", () => {
-    confirmPopup.classList.remove("show");
-    successPopup.classList.add("show");
-  });
-
-  // Cerrar popup de éxito (X o clic)
-  const closeButtons = successPopup.querySelectorAll(".close-popup, .popup-content");
-  closeButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-      successPopup.classList.remove("show");
-      // 🔁 Redirige después de cerrar
-      window.location.href = "/src/templates/admin-pages/settings.html";
+      openConfirm();
     });
   });
 
-  // Cerrar también al hacer clic en la X del popup de confirmación
-  const closeConfirm = confirmPopup.querySelector(".close-popup");
-  closeConfirm.addEventListener("click", () => {
-    confirmPopup.classList.remove("show");
+  // ---  Botón "Cancelar" cierra confirmación ---
+  cancelBtn?.addEventListener("click", e => {
+    e.preventDefault();
+    closeConfirm();
+  });
+
+  // --- Botón "Aceptar" muestra popup de éxito ---
+  acceptBtn?.addEventListener("click", e => {
+    e.preventDefault();
+    closeConfirm();
+    setTimeout(openSuccess, 250); // leve retardo visual
+  });
+
+  // --- Cerrar con la X ---
+  closeBtns.forEach(btn => {
+    btn.addEventListener("click", e => {
+      const popupRoot = btn.closest(".admin-settings__popup");
+      if (!popupRoot) return;
+      popupRoot.classList.remove(SHOW_CLASS);
+
+      // Si se cierra el popup de éxito, recarga o redirige
+      if (popupRoot.classList.contains("admin-settings__popup--success")) {
+        window.location.href = "/src/templates/admin-pages/settings.html";
+      }
+    });
+  });
+
+  // --- Cerrar si se hace clic fuera del contenido ---
+  [popupConfirm, popupSuccess].forEach(popup => {
+    popup.addEventListener("click", e => {
+      if (e.target === popup) {
+        popup.classList.remove(SHOW_CLASS);
+        if (popup === popupSuccess) {
+          window.location.href = "/src/templates/admin-pages/settings.html";
+        }
+      }
+    });
+
+    // Evitar cierre al hacer clic dentro del contenido
+    const content = popup.querySelector(".admin-settings__popup-content");
+    content?.addEventListener("click", e => e.stopPropagation());
+  });
+
+  // --- Cerrar con tecla ESC ---
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape") {
+      closeConfirm();
+      closeSuccess();
+    }
   });
 }

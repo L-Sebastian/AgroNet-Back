@@ -2,19 +2,16 @@ async function cargarMensaje() {
   const contenedor = document.querySelector(".contact-container");
 
   try {
-    // Cargar el formulario
     const resForm = await fetch("/src/templates/components/19_message.html");
     const htmlForm = await resForm.text();
     const div = document.createElement("div");
     div.innerHTML = htmlForm;
     contenedor.appendChild(div);
 
-    // Cargar el modal (al final del body)
     const resModal = await fetch("/src/templates/components/52_popup_contact.html");
     const htmlModal = await resModal.text();
     document.body.insertAdjacentHTML("beforeend", htmlModal);
 
-    // Inicializar funcionalidad del modal
     inicializarModal();
 
   } catch (error) {
@@ -49,7 +46,7 @@ function inicializarModal() {
     window.location.href = redireccion;
   }
 
-  // Clic en la X o en el ícono 
+  // Clic en la X o en el ícono ✔
   closeBtn.addEventListener("click", cerrarYRedirigir);
   okIcon.addEventListener("click", cerrarYRedirigir);
 

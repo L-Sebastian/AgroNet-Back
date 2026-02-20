@@ -14,7 +14,7 @@ async function cargarMensaje() {
     const htmlModal = await resModal.text();
     document.body.insertAdjacentHTML("beforeend", htmlModal);
 
-    //  Inicializar funcionalidad del modal
+    // Inicializar funcionalidad del modal
     inicializarModal();
 
   } catch (error) {
@@ -35,7 +35,7 @@ function inicializarModal() {
   const okIcon = modal.querySelector(".ok");
 
   // Página a la que redirigirá al cerrar el modal
-  const redireccion = "/src/templates/customer-pages/contact-customer.html";
+  const redireccion = "/src/templates/pages-general/contact-customer.html";
 
   // Mostrar modal al enviar
   form.addEventListener("submit", (e) => {

@@ -36,6 +36,7 @@
   text-align: left;     /* texto alineado a la izquierda */
   margin-bottom: 6px;   /* separación con el input */
   width: 100%; 
+  font-size: var(--fs-xxxs);
 }
 
 .form-personal__input,
@@ -63,3 +64,17 @@
   border: 1px solid var(--gray-600);
 }
 
+/* Breakpoints */
+/* alias sm: 640px se usa normalmente para celulares grandes*/
+@media (max-width: 640px){
+  .form-personal{
+    width: 90vw;
+    padding: 0.8rem;
+  }
+}
+
+
+/* alias md: 768px se usa normalmente para tablets*/
+/* alias lg: 1024px se usa normalmente para tablets grandes y laptops*/
+/* alias xl: 1280px se usa normalmente para laptops grandes y desktops*/
+/* alias 2xl: 1536px se usa normalmente para desktops grandes*/

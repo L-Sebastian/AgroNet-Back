@@ -1,9 +1,9 @@
-class FormPost extends HTMLElement {
+class FormCreatedProduct extends HTMLElement {
   constructor() {
     super();
     const shadow = this.attachShadow({ mode: "open" });
 
-    // Importar template del HTML externo
+    // Importar template externo
     fetch("/src/templates/components/16_create_product.html")
       .then((res) => res.text())
       .then((html) => {
@@ -26,81 +26,72 @@ class FormPost extends HTMLElement {
         linkFA.href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css";
         shadow.appendChild(linkFA);
 
-        // ============================
-        // Dropdowns personalizados
-        // ============================
-        const dropdowns = shadow.querySelectorAll(".dropdown");
+
+        const dropdowns = shadow.querySelectorAll(".form-created-product__dropdown");
+
         dropdowns.forEach((dropdown) => {
-          const trigger = dropdown.querySelector(".dropdown__trigger");
-          const options = dropdown.querySelectorAll(".dropdown__option");
-          const select = dropdown.querySelector("select.hidden-select");
-          const optionsBox = dropdown.querySelector(".dropdown__options");
+          const trigger = dropdown.querySelector(".form-created-product__dropdown-trigger");
+          const optionsBox = dropdown.querySelector(".form-created-product__dropdown-options");
+          const options = dropdown.querySelectorAll(".form-created-product__dropdown-option");
+          const select = dropdown.querySelector(".form-created-product__hidden-select");
 
-          if (trigger && select) {
-            trigger.addEventListener("click", () => {
-              const open = optionsBox.style.display === "flex";
-              optionsBox.style.display = open ? "none" : "flex";
-            });
+          // Abrir / cerrar dropdown
+          trigger.addEventListener("click", (e) => {
+            e.stopPropagation();
+            dropdown.classList.toggle("form-created-product__dropdown--open");
+          });
 
-            options.forEach((opt) => {
-              opt.addEventListener("click", () => {
-                trigger.querySelector("span").textContent = opt.textContent;
-                select.value = opt.dataset.value;
-                optionsBox.style.display = "none";
-              });
+          // Seleccionar opción
+          options.forEach((opt) => {
+            opt.addEventListener("click", () => {
+              trigger.querySelector("span").textContent = opt.textContent;
+              select.value = opt.dataset.value;
+              dropdown.classList.remove("form-created-product__dropdown--open");
             });
+          });
 
-            shadow.addEventListener("click", (e) => {
-              if (!dropdown.contains(e.target)) optionsBox.style.display = "none";
-            });
-          }
+          // Cerrar si se hace clic fuera
+          shadow.addEventListener("click", (e) => {
+            if (!dropdown.contains(e.target)) {
+              dropdown.classList.remove("form-created-product__dropdown--open");
+            }
+          });
         });
 
-        // ============================
-        // Modal de éxito
-        // ============================
-        const modal = shadow.querySelector("#success_modal");
-        const modalContent = shadow.querySelector(".modal-content");
-        const closeBtn = shadow.querySelector("#close_success");
-        const registerBtn = shadow.querySelector(".opinions__btn-publish_product");
+        // MODAL DE ÉXITO 
 
-        if (registerBtn && modal && closeBtn && modalContent) {
-          // Mostrar modal
-          registerBtn.addEventListener("click", () => {
-            modal.style.display = "flex";
-          });
+        const modal = shadow.querySelector(".form-created-product__modal");
+        const modalContent = shadow.querySelector(".form-created-product__modal-content");
+        const closeBtn = shadow.querySelector(".form-created-product__modal-close");
+        const publishBtn = shadow.querySelector(".form-created-product__btn-publish-product");
 
-          // Cerrar con la X
-          closeBtn.addEventListener("click", () => {
-            modal.style.display = "none";
-            window.location.href = "/src/templates/seller-pages/my_products.html"; // ← redirige
-          });
-
-          // Cerrar al hacer clic fuera o dentro del modal
-          modal.addEventListener("click", () => {
-            modal.style.display = "none";
-            window.location.href = "/src/templates/seller-pages/my_products.html"; // ← redirige
-          });
-
-          // Evitar cierre si se hace clic dentro del contenido
-          modalContent.addEventListener("click", (e) => e.stopPropagation());
-          // Nuevo: también cerrar y redirigir si se hace clic en el popup
-          modalContent.addEventListener("click", () => {
-            modal.style.display = "none";
-            window.location.href = "/src/templates/seller-pages/my_products.html"; // cambia esta ruta si deseas
-          });
-        } else {
-          console.error("No se encontró el modal o los botones dentro del Shadow DOM");
+        if (!modal || !modalContent || !closeBtn || !publishBtn) {
+          console.error("Error: No se encontraron elementos del modal en el Shadow DOM");
+          return;
         }
-      })
+
+        // Abrir modal
+        publishBtn.addEventListener("click", () => {
+          modal.classList.add("show");
+        });
+
+        // Cerrar con la X
+        closeBtn.addEventListener("click", () => {
+          modal.classList.remove("show");
+          window.location.href = "/src/templates/seller-pages/my_products.html";
+        });
+
+        // Cerrar al hacer clic fuera del contenido
+        modal.addEventListener("click", () => {
+          modal.classList.remove("show");
+          window.location.href = "/src/templates/seller-pages/my_products.html";
+        });
+
+        // Evitar cierre cuando se hace clic dentro del contenido
+        modalContent.addEventListener("click", (e) => e.stopPropagation());
+              })
       .catch((err) => console.error("Error cargando el componente:", err));
   }
 }
 
-// Registrar el componente
-customElements.define("form-post", FormPost);
-
-
-
-
-
+customElements.define("form-created-product", FormCreatedProduct);

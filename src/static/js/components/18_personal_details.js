@@ -1,7 +1,7 @@
 async function cargarDatos() {
   const contenedor = document.querySelector(".contact-container");
 
-  const res = await fetch("/src/templates/components/18_personal_details.html");   // tu archivo con el formulario de datos personales
+  const res = await fetch("/src/templates/components/18_personal_details.html");   
   const html = await res.text();
 
   const div = document.createElement("div");

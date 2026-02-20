@@ -49,6 +49,7 @@
 
 .store-profile__name {
   font-size: var(--fs-md);
+  font-weight: var(--font-bold);
   margin: 0;
   color: var(--white);
   height: 5rem;
@@ -60,52 +61,67 @@
 }
 
 .store-profile__body {
-  padding: 80px 40px 40px;
+  padding: 8rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
 }
 
 .store-profile__section {
-  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  
 }
 
 .store-profile__title {
   color: var(--black);
-  font-weight: 600;
-  margin-bottom: 10px;
+  font-weight: var(--font-bold);
+  font-size: var(--fs-sm);
+  margin: 0;
 }
 
 .store-profile__text {
   background-color: var(--gray-100);
-  padding: 15px;
+  padding: 1.6rem;
   border-radius: 8px;
   min-height: 60px;
+  margin: 0;
+}
+
+.store-profile__row {
+  display: flex;
 }
 
 .store-profile__button {
-  background-color: var(--primary-600);
+  background-color: var(--primary-500);
   color: var(--white);
   border: none;
-  padding: 10px 15px;
+  padding: 1.6rem;
   font-size: var(--fs-xs);
   border-radius: 8px;
   cursor: pointer;
   margin-top: 10px;
   transition: background-color 0.3s ease;
-  margin: 20px;
+  margin: 0 auto;
   margin-left: 1px;
+  display: flex;
+  flex-direction: row;
+  gap: 1.6rem;
 }
 
+
 .store-profile__products {
-  background-color: var(--primary-600);
+  background-color: var(--primary-500);
   color: var(--white);
   border: none;
-  padding: 10px 15px;
+  padding: 1.6rem;
   font-size: var(--fs-xs);
   border-radius: 8px;
   cursor: pointer;
-  margin-top: 10px;
   transition: background-color 0.3s ease;
-  margin: 20px;
-  margin-left: 1px;
+  margin: 0 auto;
+  margin-left: 59rem;
 }
 
 .store-profile__button:hover {
@@ -120,11 +136,14 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
 }
 
 .store-profile__payment-item {
   background-color: var(--gray-100);
-  padding: 10px 12px;
+  padding: 1.6rem;
   margin-bottom: 6px;
   border-radius: 6px;
   display: flex;
@@ -132,20 +151,187 @@
   gap: 8px;
 }
 
-@media (max-width: 768px) {
-  .store-profile__info {
-    flex-direction: column;
-    align-items: flex-start;
-    bottom: -40px;
-  }
+.store-profile__button--disable-store {
+  background-color: var(--gray-100);
+  color: var(--gray-800);
+}
 
-  .store-profile__avatar {
-    width: 80px;
-    height: 80px;
-  }
+/*MODAL*/
 
-  .store-profile__body {
-    padding: 70px 20px 30px;
+/* ======================
+   MODAL BASE
+====================== */
+.store-profile__modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 15, 15, 0.55);
+  backdrop-filter: blur(2px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.6rem;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .25s ease, visibility .25s ease;
+}
+
+/* Cuando está activa */
+.store-profile__modal--active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ======================
+   CONTENIDO DEL MODAL
+====================== */
+.store-profile__modal-content {
+  background: var(--white);
+  width: 100%;
+  max-width: 320px;
+  padding: 1.6rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.12);
+  position: relative;
+  animation: storeProfileFade .25s ease;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+@keyframes storeProfileFade {
+  from { transform: scale(.95); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+/* ======================
+   BOTÓN CERRAR
+====================== */
+.store-profile__modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--gray-500);
+}
+
+.store-profile__modal-close:hover {
+  color: var(--gray-700);
+}
+
+/* ======================
+   ICONOS
+====================== */
+.store-profile__modal-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.store-profile__modal-icon--ok {
+  color: var(--success-500, #16a34a);
+}
+
+.store-profile__modal-icon--warning {
+  color: var(--warning-500, #eab308);
+}
+
+/* ======================
+   TEXTO
+====================== */
+.store-profile__modal-message {
+  color: var(--gray-700);
+}
+
+/* ======================
+   BOTONES DE ACCIÓN
+====================== */
+.store-profile__modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 2.4rem;
+  margin-top: .8rem;
+}
+
+.store-profile__modal-button {
+  padding: 1.6rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: var(--fs-xs);
+}
+
+/* cancelar */
+.store-profile__modal-button--cancel {
+  background: var(--gray-200);
+  color: var(--gray-700);
+}
+
+.store-profile__modal-button--cancel:hover {
+  background: var(--gray-300);
+  font-size: var(--fs-xs);
+}
+
+/* aceptar */
+.store-profile__modal-button--accept {
+  background: var(--primary-500, #2563eb);
+  color: white;
+}
+
+.store-profile__modal-button--accept:hover {
+  background: var(--primary-600, #1d4ed8);
+  font-size: var(--fs-xs);
+}
+
+.store-profile__modal-close--success {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--gray-500);
+  font-size: 1.6rem;
+}
+
+.store-profile__modal-close--success:hover {
+  color: var(--gray-700);
+}
+
+
+
+
+/* Breakpoints **************************************************************************************************************************************************************/
+
+/* alias sm: 640px se usa normalmente para celulares grandes*/
+@media (max-width: 640px){
+  .store-profile{
+    width: 95vw;
+    margin-top: 16rem;
+  }
+  .store-profile__body{
+    padding: 8rem 1.6rem;
+  }
+  .store-profile__button{
+    margin: 0 auto;
   }
 }
+/* alias md: 768px se usa normalmente para tablets*/
+@media (min-width: 768px) and (max-width: 1023px) {
+  .store-profile{
+    width: 95vw;
+  }
+  
+}
+/* alias lg: 1024px se usa normalmente para tablets grandes y laptops*/
+/* alias xl: 1280px se usa normalmente para laptops grandes y desktops*/
+/* alias 2xl: 1536px se usa normalmente para desktops grandes*/
+
+
 

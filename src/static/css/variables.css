@@ -126,7 +126,7 @@
 --btn-shadow-hover: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.2);
 
 /* Tamaños mínimos */
---btn-min-height: 3.6rem;       /* 36px */
+--btn-min-height: 4rem;       /* 40px */
 --btn-max-height: 5.6rem;       /* 56px */
 --btn-min-width: 5.6rem;        /* 56px */
 
@@ -166,7 +166,8 @@
 }
 
 
-/* Breakpoints */
+/* Breakpoints **************************************************************************************************************************************************************/
+
 /* alias sm: 640px se usa normalmente para celulares grandes*/
 /* alias md: 768px se usa normalmente para tablets*/
 /* alias lg: 1024px se usa normalmente para tablets grandes y laptops*/

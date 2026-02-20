@@ -33,7 +33,7 @@ y contact-two_seller.html (seller-pages) */
   flex-direction: column;
   align-items: center;
 
-  gap: 1.25rem;
+  gap: 2.4rem;
   margin-top: 10rem;
 
 }
@@ -78,6 +78,7 @@ y contact-two_seller.html (seller-pages) */
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
+  gap: 2.4rem;
 }
 
 /* Título interno de cada card */
@@ -181,7 +182,7 @@ y contact-two_seller.html (seller-pages) */
     
   width: auto;             
   max-width: max-content;  
-  margin: 8px auto;        /* 0.5rem auto */
+  margin: 0 auto;        /* 0.5rem auto */
 }
 
 
@@ -211,10 +212,35 @@ y contact-two_seller.html (seller-pages) */
    Zona de acciones (botón atrás)
    ================================ */
 .contact-two__back {
-  width: 100%;
+  background: var(--btn-bg, var(--primary-500));
+  color: var(--btn-text, var(--white));
+  font-weight: var(--btn-font-weight, 500);
+  font-family: var(--main-font);
+  font-size: var(--fs-xs);
+
+  padding: var(--btn-padding); 
+  margin: 0;
+
+  border: var(--btn-border, none);
+  border-radius: var(--btn-border-radius, 8px); /* 0.5rem */
+
+  min-height: var(--btn-max-height);
+  min-width: var(--btn-min-width, 56px);
+
   display: flex;
-  justify-content: flex-start;
-  padding-top: 8px;               /* 0.5rem */
+  align-self: start;
+  align-items: center;
+
+
+
+  cursor: pointer;
+  user-select: none;
+
+  box-shadow: var(--btn-shadow, 0 2px 6px rgba(0, 0, 0, 0.15));
+  transition:
+    background var(--btn-transition-duration, 150ms) var(--btn-transition-timing, ease-in-out),
+    box-shadow var(--btn-transition-duration, 150ms) var(--btn-transition-timing, ease-in-out),
+    transform var(--btn-transition-duration, 150ms) var(--btn-transition-timing, ease-in-out);
 }
 
 
@@ -226,8 +252,14 @@ y contact-two_seller.html (seller-pages) */
 @media (max-width: 479px) {
   .contact-two__content {
     flex-direction: column;
-    gap: 20px;
+    gap: 24px;
     align-items: stretch;
+    align-self: center;
+    margin: 0 auto;
+  }
+
+  .contact-two__panel{
+    margin-top: 20rem;
   }
 
   .contact-two__card {
@@ -242,11 +274,16 @@ y contact-two_seller.html (seller-pages) */
   .contact-two__open-maps {
     max-width: 100%;
   }
+
+  .contact-two__back{
+    align-self: center;
+  }
+
 }
 
 
 /* sm: ≤639px (teléfonos grandes) */
-@media (max-width: 639px) {
+@media (min-width: 639px) {
   .contact-two__content {
     gap: 24px;
     padding: 1.5rem 24px; /* agrega espacio de 24px a los lados */
@@ -262,7 +299,7 @@ y contact-two_seller.html (seller-pages) */
 }
 
 /* md: ≤767px (tablets) */
-@media (max-width: 767px) {
+@media (min-width: 767px) {
   .contact-two__panel {
     padding: 16px;
     min-height: auto;
@@ -284,41 +321,17 @@ y contact-two_seller.html (seller-pages) */
   .contact-two__map {
     height: 220px;
   }
-}
-
-/* lg: ≤1023px (laptops / tablets grandes) */
-@media (max-width: 1023px) {
-  .contact-two__panel {
-    padding: 20px;
-  }
-
-  .contact-two__content {
-    flex-direction: column;
-    gap: 32px;
-  }
-
-  .contact-two__card {
-    width: 100%;
-    padding: 20px;
-  }
-
-  .contact-two__map {
-    height: 240px;
+  .contact-two__back{
+    align-self: center;
   }
 }
 
-/* xl: ≤1279px (desktops medianos) */
-@media (max-width: 1279px) {
-  .contact-two__content {
-    gap: 48px;
-  }
 
-  .contact-two__card {
-    width: 100%;
-    max-width: 560px;
-  }
+/* alias lg: 1024px se usa normalmente para tablets grandes y laptops*/
 
-  .contact-two__map {
-    height: 280px;
+@media (min-width: 1024px){
+  .contact-two__content{
+    flex-direction: row;
   }
 }
+

@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-  const heroElement = document.querySelector(".loginfor-container");
+  const heroElement = document.querySelector(".register-container");
 
   if (heroElement) {
     fetch("/src/templates/components/6_edit_profile.html")
@@ -8,87 +8,132 @@ document.addEventListener("DOMContentLoaded", function() {
         heroElement.innerHTML = data;
 
         setTimeout(() => {
-          const steps = heroElement.querySelectorAll(".form-step");
-          const nextBtns = heroElement.querySelectorAll(".next");
-          const prevBtns = heroElement.querySelectorAll(".prev");
-          const form = heroElement.querySelector("#formRegistro");
+
+          const steps = Array.from(heroElement.querySelectorAll(".register-form__step"));
+          const nextBtns = heroElement.querySelectorAll(".register-form__button--next");
+          const prevBtns = heroElement.querySelectorAll(".register-form__button--prev");
+          const form = heroElement.querySelector(".register-form");
+
           let currentStep = 0;
 
-          const popup = document.getElementById("update_confirm_popup");
-          const successModal = document.getElementById("update_success_modal");
-          const btnCancel = document.getElementById("update_cancel");
-          const btnAccept = document.getElementById("update_accept");
-          const btnCloseSuccess = document.getElementById("close_success");
+          // Buscar popup y modal (pueden ser null si no están en el HTML)
+          const popup = heroElement.querySelector(".register-form__confirm-popup");
+          const successModal = heroElement.querySelector(".register-form__success-modal");
 
-          // Paso inicial
-          steps.forEach((step, i) => step.classList.toggle("active", i === currentStep));
+          // Elementos dentro del popup/modal (declaramos but only attach listeners if exist)
+          const btnCancel = popup ? popup.querySelector(".register-form__confirm-popup-btn--cancel") : null;
+          const btnAccept = popup ? popup.querySelector(".register-form__confirm-popup-btn--accept") : null;
+          const btnCloseSuccess = successModal ? successModal.querySelector(".register-form__success-modal-close") : null;
 
-          // Botones siguiente
+          // =======================
+          // Paso inicial (usar modificador BEM)
+          // =======================
+          steps.forEach((step, i) => {
+            step.classList.toggle("register-form__step--active", i === currentStep);
+          });
+
+          // =======================
+          // Botones Siguiente
+          // =======================
           nextBtns.forEach(btn => {
             btn.addEventListener("click", () => {
               const inputs = steps[currentStep].querySelectorAll("input, select");
+
               for (let input of inputs) {
                 if (!input.checkValidity()) {
                   input.reportValidity();
                   return;
                 }
               }
+
               if (currentStep < steps.length - 1) {
-                steps[currentStep].classList.remove("active");
+                // cambiar clases BEM
+                steps[currentStep].classList.remove("register-form__step--active");
                 currentStep++;
-                steps[currentStep].classList.add("active");
+                steps[currentStep].classList.add("register-form__step--active");
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }
             });
           });
 
-          // Botones atrás
+          // =======================
+          // Botones Atrás
+          // =======================
           prevBtns.forEach(btn => {
             btn.addEventListener("click", () => {
               if (currentStep > 0) {
-                steps[currentStep].classList.remove("active");
+                steps[currentStep].classList.remove("register-form__step--active");
                 currentStep--;
-                steps[currentStep].classList.add("active");
+                steps[currentStep].classList.add("register-form__step--active");
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }
             });
           });
 
-          // Enviar formulario
-          form.addEventListener("submit", e => {
-            e.preventDefault();
-            popup.style.display = "flex";
-          });
+          // =======================
+          // Enviar formulario → Abrir popup (si existe)
+          // =======================
+          if (form) {
+            form.addEventListener("submit", e => {
+              e.preventDefault();
+              if (popup) {
+                popup.classList.add("show");
+              } else if (successModal) {
+                // si no hay confirm popup, abrir directamente el success (comodidad)
+                successModal.classList.add("show");
+              } else {
+                // fallback: redirigir o hacer otra acción
+                window.location.href = "/src/templates/customer-pages/my_profile.html";
+              }
+            });
+          }
 
-          // Cancelar popup
-          btnCancel.addEventListener("click", () => {
-            popup.style.display = "none";
-          });
+          // =======================
+          // Listeners del popup (solo si existe)
+          // =======================
+          if (popup) {
+            // Cancelar popup
+            if (btnCancel) {
+              btnCancel.addEventListener("click", () => {
+                popup.classList.remove("show");
+              });
+            }
 
-          // Aceptar y mostrar modal
-          btnAccept.addEventListener("click", () => {
-            popup.style.display = "none";
-            successModal.style.display = "flex";
-          });
+            // Aceptar: cerrar popup y abrir success (si existe)
+            if (btnAccept) {
+              btnAccept.addEventListener("click", () => {
+                popup.classList.remove("show");
+                if (successModal) successModal.classList.add("show");
+              });
+            }
 
-          // Cerrar modal con la X y redirigir
-          btnCloseSuccess.addEventListener("click", () => {
-            successModal.style.display = "none";
-            window.location.href = "/src/templates/customer-pages/my_profile.html"; //  redirección
-          });
+            // Cerrar popup haciendo clic en el fondo (no cierra al clicar dentro del contenido)
+            popup.addEventListener("click", (e) => {
+              if (e.target.classList.contains("register-form__confirm-popup")) {
+                popup.classList.remove("show");
+              }
+            });
+          }
 
-          //  Cerrar al hacer clic en cualquier parte del popup
-          popup.addEventListener("click", (e) => {
-            e.stopPropagation();
-            popup.style.display = "none";
-          });
+          // =======================
+          // Listeners del successModal (solo si existe)
+          // =======================
+          if (successModal) {
+            if (btnCloseSuccess) {
+              btnCloseSuccess.addEventListener("click", () => {
+                successModal.classList.remove("show");
+                window.location.href = "/src/templates/customer-pages/my_profile.html";
+              });
+            }
 
-          //  Cerrar al hacer clic en cualquier parte del modal de éxito y redirigir
-          successModal.addEventListener("click", (e) => {
-            e.stopPropagation();
-            successModal.style.display = "none";
-            window.location.href = "/src/templates/customer-pages/my_profile.html"; //  redirección también aquí
-          });
+            // Cerrar modal éxito con clic en el fondo
+            successModal.addEventListener("click", (e) => {
+              if (e.target.classList.contains("register-form__success-modal")) {
+                successModal.classList.remove("show");
+                window.location.href = "/src/templates/customer-pages/my_profile.html";
+              }
+            });
+          }
 
         }, 300);
       })

@@ -2,20 +2,25 @@
 
 /* =============================== */
 /* Componente: admin-orders        */
-/* Metodología: BEM                */
+/* Metodología: BEM coherente      */
 /* =============================== */
 
 .admin-orders {
-  padding: 20px;
-  background-color: var(--white);
+  max-width: 1200px;
+  width: 100%;
+  padding: 24px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin: 2px;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
-/* ---------- Header ---------- */
+/* =============================== */
+/* Header                          */
+/* =============================== */
+
 .admin-orders__header {
   display: flex;
   flex-direction: column;
@@ -32,16 +37,21 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .admin-orders__btn {
   background-color: var(--button-add-color);
   color: var(--white);
   border: none;
-  padding: 8px 14px;
+  padding: 16px;
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .admin-orders__btn:hover {
@@ -50,13 +60,18 @@
 }
 
 .admin-orders__search {
-  padding: 8px 12px;
+  padding: 16px;
   border: 1px solid var(--gray-200);
   border-radius: 6px;
   width: 250px;
+  max-width: 100%;
+  font-size: 12px;
 }
 
-/* ---------- Tabla ---------- */
+/* =============================== */
+/* Tabla                           */
+/* =============================== */
+
 .admin-orders__table-container {
   overflow-x: auto;
   background-color: var(--white);
@@ -67,18 +82,16 @@
 .admin-orders__table {
   width: 100%;
   border-collapse: collapse;
-  table-layout: fixed;
   min-width: 1000px;
 }
 
 .admin-orders__table th,
 .admin-orders__table td {
   padding: 10px 12px;
-  text-align: left;
   border-bottom: 1px solid var(--gray-200);
-  word-wrap: break-word;
   font-size: var(--fs-xxs);
   color: var(--black);
+  text-align: left;
 }
 
 .admin-orders__table th {
@@ -86,17 +99,9 @@
   font-weight: 600;
 }
 
-.admin-orders__table th:last-child,
-.admin-orders__table td:last-child {
-  width: 200px;
-  text-align: center;
-}
-
-/* ---------- Botones de acciones ---------- */
 .admin-orders__actions-btns {
   display: flex;
   justify-content: center;
-  align-items: center;
   gap: 6px;
 }
 
@@ -124,7 +129,10 @@
   background-color: var(--button-delete-hover-color);
 }
 
-/* ---------- Modal ---------- */
+/* =============================== */
+/* Modal general                   */
+/* =============================== */
+
 .admin-orders__modal {
   display: none;
   position: fixed;
@@ -142,47 +150,84 @@
   width: 400px;
   max-width: 90%;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  animation: popupFade 0.3s ease-in-out;
 }
 
-.admin-orders__modal-title {
-  margin-bottom: 10px;
-  font-size: var(--fs-sm);
-  font-weight: 600;
-  color: var(--black);
+/* =============================== */
+/* POPUPS (confirmación y éxito)   */
+/* =============================== */
+
+.popup.popup--show {
+  display: flex;
 }
 
-.admin-orders__modal-body {
-  margin-bottom: 15px;
-  color: var(--black);
+.admin-orders__modal.popup--show {
+  display: flex;
 }
 
-.admin-orders__btn--close {
-  background-color: var(--gray-400);
-  width: 100%;
+/* =============================== */
+/* Animación                       */
+/* =============================== */
+
+@keyframes popupFade {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
 
-.admin-orders__btn--close:hover {
-  background-color: var(--gray-500);
-}
+/* =============================== */
+/* RESPONSIVE                      */
+/* =============================== */
 
-/* ---------- Responsividad ---------- */
-@media (max-width: 768px) {
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .admin-orders {
+    padding: 24px;
+  }
+
   .admin-orders__actions {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 10px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: nowrap;
+  }
+
+  .admin-orders__actions > * {
+    min-width: 0;
+  }
+
+  .admin-orders__btn {
+    flex: 0 0 auto;
+    width: auto;
+    white-space: nowrap;
   }
 
   .admin-orders__search {
-    width: 100%;
+    flex: 0 0 260px;
+    width: auto;
+    max-width: 45%;
+    box-sizing: border-box;
+  }
+}
+
+
+@media (max-width: 767px) {
+  .admin-orders {
+    padding: 24px;
   }
 
-  .admin-orders__table {
-    font-size: 13px;
+  .admin-orders__actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    flex-wrap: nowrap;
   }
 
-  .admin-orders__table th,
-  .admin-orders__table td {
-    padding: 8px 10px;
+  .admin-orders__btn,
+  .admin-orders__search {
+    width: auto;
+    max-width: 60%;
+    flex: 0 0 auto;
+    box-sizing: border-box;
   }
 }

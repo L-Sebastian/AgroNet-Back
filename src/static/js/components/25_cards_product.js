@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       throw new Error("Error al cargar los productos");
     }
 
-    const data = await response.json(); // Convertimos a objeto JS
+    const data = await response.json();
 
     if (contenedor) {
 

@@ -3,56 +3,45 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(response => response.text())
     .then(data => {
       const container = document.querySelector(".profile-container");
-      if (container) {
-        container.innerHTML = data;
+      if (!container) return;
 
-        // ===============================
-        // 🔹 Lógica para el modal de éxito
-        // ===============================
-        const addBtn = container.querySelector(".client-profile__edit-btn");
-        const modal = container.querySelector("#success_modal");
-        const modalContent = container.querySelector(".modal-content");
-        const closeBtn = container.querySelector("#close_success");
+      container.innerHTML = data;
 
-        if (addBtn && modal && closeBtn && modalContent) {
-          // Mostrar modal al hacer clic
-          addBtn.addEventListener("click", () => {
-            modal.style.display = "flex";
-          });
+      const addBtn = container.querySelector(".client-profile__edit-btn");
+      const modal = container.querySelector(".client-profile__modal");
+      const modalContent = container.querySelector(".client-profile__modal-content");
+      const closeBtn = container.querySelector(".client-profile__modal-close");
 
-          // Cerrar al hacer clic en la X
-          closeBtn.addEventListener("click", () => {
-            modal.style.display = "none";
-            marcarComoAgregado();
-          });
+      if (!addBtn || !modal || !modalContent || !closeBtn) {
+        console.error("Elementos del modal no encontrados.");
+        return;
+      }
 
-          // Cerrar al hacer clic en cualquier parte del modal
-          modal.addEventListener("click", () => {
-            modal.style.display = "none";
-            marcarComoAgregado();
-          });
+      // Abrir modal
+      addBtn.addEventListener("click", () => {
+        modal.classList.add("client-profile__modal--active");
+      });
 
-          // Cerrar al hacer clic en el fondo del modal (fuera del contenido)
-          modal.addEventListener("click", (e) => {
-            if (e.target === modal) {
-              modal.style.display = "none";
-              marcarComoAgregado();
-            }
-          });
+      // Cerrar modal (botón X)
+      closeBtn.addEventListener("click", () => {
+        cerrarModal();
+      });
 
-          // 🔸 Cambiar texto y estilo del botón al cerrar
-          function marcarComoAgregado() {
-            addBtn.textContent = "Agregado a la libreta";
-            addBtn.classList.add("added");
-            addBtn.disabled = true;
+      // Cerrar si clic en fondo
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) cerrarModal();
+      });
 
-            // 🔹 OPCIONAL: redirigir después de cerrar
-            // window.location.href = "/frontend/public/views/customer-pages/contact_list.html";
-          }
-        } else {
-          console.error("No se encontraron los elementos del modal dentro del componente cargado.");
-        }
+      function cerrarModal() {
+        modal.classList.remove("client-profile__modal--active");
+        marcarComoAgregado();
+      }
+
+      function marcarComoAgregado() {
+        addBtn.textContent = "Agregado a la libreta";
+        addBtn.classList.add("client-profile__edit-btn--added");
+        addBtn.disabled = true;
       }
     })
-    .catch(error => console.error("Error al cargar el perfil del cliente:", error));
+    .catch(error => console.error("Error al cargar perfil del cliente:", error));
 });

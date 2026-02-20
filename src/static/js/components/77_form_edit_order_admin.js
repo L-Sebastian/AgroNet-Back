@@ -13,38 +13,38 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function initEditOrderPopups() {
-  const form = document.querySelector("#formDatosPedido");
-  const confirmPopup = document.querySelector("#confirm_edit_order_popup");
-  const successPopup = document.querySelector("#edit_order_success_popup");
+  const form = document.querySelector(".form-datos__form");
+  const confirmPopup = document.querySelector(".confirm_edit_popup");
+  const successPopup = document.querySelector(".edit_success_popup");
 
   if (!form || !confirmPopup || !successPopup) {
     console.warn("⚠️ No se encontraron los elementos del formulario o popups.");
     return;
   }
 
-  const confirmAccept = confirmPopup.querySelector(".btn.accept");
-  const confirmCancel = confirmPopup.querySelector(".btn.cancel");
+  const confirmAccept = confirmPopup.querySelector(".popup__btn--accept");
+  const confirmCancel = confirmPopup.querySelector(".popup__btn--cancel");
   const confirmClose = confirmPopup.querySelector(".close-popup");
   const successClose = successPopup.querySelector(".close-popup");
 
-  // 🟠 Mostrar popup de confirmación al guardar
+  // Mostrar popup de confirmación al guardar
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     confirmPopup.classList.add("show");
   });
 
-  // 🔴 Cerrar popup de confirmación
+  // Cerrar popup de confirmación
   [confirmCancel, confirmClose].forEach(btn => {
     btn.addEventListener("click", () => confirmPopup.classList.remove("show"));
   });
 
-  // 🟢 Aceptar confirmación → mostrar popup de éxito
+  // Aceptar confirmación → mostrar popup de éxito
   confirmAccept.addEventListener("click", () => {
     confirmPopup.classList.remove("show");
     successPopup.classList.add("show");
   });
 
-  // 🔁 Cerrar popup de éxito y redirigir
+  // Cerrar popup de éxito y redirigir
   function closeSuccessAndRedirect() {
     successPopup.classList.remove("show");
     window.location.href = "/src/templates/admin-pages/orders.html";
