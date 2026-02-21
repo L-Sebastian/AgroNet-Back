@@ -1,26 +1,6 @@
 /* Componente utilizado en index-customer.html (customer-pages), index.html (pages-general) 
 y index_seller.html (seller-pages) */
 
-.banner-container {
-  position: relative;
-  width: 100%;
-  height: 450px;
-  overflow: hidden; /* evita que el blur salga de los bordes */
-
-  background-image: url("/src/static/assets/imagen-banner.webp");
-  background-size: cover;         /* Que cubra todo */
-  background-position: center top;/* Centrado arriba */
-  background-repeat: no-repeat;
-
-}
-
-/* Degradado overlay moderno */
-.banner-container::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-}
 
 /* Contenido encima */
 .banner__content {
@@ -51,8 +31,13 @@ y index_seller.html (seller-pages) */
 .banner {
   position: relative;
   width: 100%;
-  height: 500px;
+  height: 390px;
   overflow: hidden;
+
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -180,9 +165,7 @@ y index_seller.html (seller-pages) */
 /* Breakpoints */
 /* alias sm: 640px se usa normalmente para celulares grandes*/
 @media (max-width: 640px) {
-  .banner-container {
-    height: auto;
-  }
+  
   .banner__arrow {
     display: none;
   }
