@@ -237,7 +237,7 @@ body {
 }
 
 .body-contact {
-    background-image: url("/frontend/public/assets/cafe-cultivos.jpg");
+    background-image: url("/static/assets/cafe-cultivos.jpg");
     background-size: cover;
     background-position: top center;
     background-repeat: no-repeat;

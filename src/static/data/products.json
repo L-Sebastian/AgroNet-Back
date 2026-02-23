@@ -3,84 +3,84 @@
     "nombre": "Manzana<br>Gala",
     "precio": "$5.000",
     "categoria": "Fruta",
-    "imagen": "/src/static/assets/manzanagala.jpg",
-    "ruta": "/src/templates/pages-general/product.html"
+    "imagen": "/static/assets/manzanagala.jpg",
+    "ruta": "/templates/pages-general/product.html"
   },
   {
     "nombre": "<br>Naranja",
     "precio": "$5.500",
     "categoria": "Fruta",
-    "imagen": "/src/static/assets/naranja.jpg",
-    "ruta": "/src/templates/views/customer-pages/product-customer.html"
+    "imagen": "/static/assets/naranja.jpg",
+    "ruta": "/templates/customer-pages/product-customer.html"
   },
   {
     "nombre": "<br>Papa - 1 lb",
     "precio": "$3.000",
     "categoria": "Verdura",
-    "imagen": "/src/static/assets/papa.jpg",
-    "ruta": "/src/templates/views/seller-pages/product_seller.html"
+    "imagen": "/static/assets/papa.jpg",
+    "ruta": "/templates/seller-pages/product_seller.html"
   },
   {
     "nombre": "<br>Café - 400gr",
     "precio": "$31.000",
     "categoria": "Grano",
-    "imagen": "/src/static/assets/cafe.jpg",
-    "ruta": "/src/templates/pages-general/product.html"
+    "imagen": "/static/assets/cafe.jpg",
+    "ruta": "/templates/pages-general/product.html"
   },
   {
     "nombre": "<br>Huevos - docena",
     "precio": "$12.000",
     "categoria": "Animal",
-    "imagen": "/src/static/assets/huevos.jpg",
+    "imagen": "/static/assets/huevos.jpg",
     "ruta": "/src/templates/pages-general/product.html"
   },
   {
     "nombre": "<br>Banano",
     "precio": "$4.000",
     "categoria": "Fruta",
-    "imagen": "/src/static/assets/banano.webp",
-    "ruta": "/src/templates/pages-general/product.html"
+    "imagen": "/static/assets/banano.webp",
+    "ruta": "/templates/pages-general/product.html"
   },
   {
     "nombre": "<br>Lechuga",
     "precio": "$2.500",
     "categoria": "Verdura",
-    "imagen": "/src/static/assets/lechuga.jpg",
-    "ruta": "/src/templates/pages-general/product.html"
+    "imagen": "/static/assets/lechuga.jpg",
+    "ruta": "/templates/pages-general/product.html"
   },
   {
     "nombre": "Platano<br>Verde",
     "precio": "$2.500",
     "categoria": "Verdura",
-    "imagen": "/src/static/assets/platano.webp",
-    "ruta": "/src/templates/pages-general/product.html"
+    "imagen": "/static/assets/platano.webp",
+    "ruta": "/templates/pages-general/product.html"
   },
   {
     "nombre": "Cebolla<br>Larga",
     "precio": "$2.500",
     "categoria": "Verdura",
-    "imagen": "/src/static/assets/cebolla_larga.jpg",
-    "ruta": "/src/templates/pages-general/product.html"
+    "imagen": "/static/assets/cebolla_larga.jpg",
+    "ruta": "/templates/pages-general/product.html"
   },
   {
     "nombre": "<br>Frijol",
     "precio": "$2.500",
     "categoria": "Grano",
-    "imagen": "/src/static/assets/frijol.jpg",
-    "ruta": "/src/templates/pages-general/product.html"
+    "imagen": "/static/assets/frijol.jpg",
+    "ruta": "/templates/pages-general/product.html"
   },
   {
     "nombre": "<br>Leche",
     "precio": "$2.500",
     "categoria": "Animal",
-    "imagen": "/src/static/assets/leche.jpg",
-    "ruta": "/src/templates/pages-general/product.html"
+    "imagen": "/static/assets/leche.jpg",
+    "ruta": "/templates/pages-general/product.html"
   },
   {
     "nombre": "<br>Queso",
     "precio": "$3.200",
     "categoria": "Animal",
-    "imagen": "/src/static/assets/queso.jpg",
-    "ruta": "/src/templates/pages-general/product.html"
+    "imagen": "/static/assets/queso.jpg",
+    "ruta": "/templates/pages-general/product.html"
   }
 ]

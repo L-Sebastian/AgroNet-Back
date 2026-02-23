@@ -1,39 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto</title>
-    <link rel="stylesheet" href='/src/static/css/main.css'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
+{% extends "base.html" %}
+{% load static %}
 
-    <!-- Scripts navbar -->
-    <script src="/src/static/js/components/20_navbar_general.js" defer></script>
-    <!-- Scripts footer -->
-    <script src="/src/static/js/components/1_footer.js" defer></script>
-    <script src="/src/static/js/components/18_personal_details.js" defer></script>
-    <script src="/src/static/js/components/19_message.js" defer></script>
-    
-    
+{% block title %}Contacto{% endblock %}
 
-</head>
-<body class="body-contact">
+{% block body_class %}body-contact{% endblock %}
 
-    <!-- Navbar -->
-    <header class="head">
-        <div class="navbar-general-container"></div>
-    </header>
+{% block content %}
 
-    <!-- Contenido de la pagina -->
-    <div class="contact-container"></div>
-        
-    
-    <!-- footer -->
-    <footer class="footer">
-        <div class="footer-container"></div>
-    </footer>
+<div class="contact-container">
+{% include "components/18_personal_details.html" %}
+{% include "components/19_message.html" %}
+</div>
+ <div id="modal-contact" class="modal-contact">
+    {% include "components/52_popup_contact.html" %}
+    </div>
+{% endblock %}
 
-</body>
-</html>
+{% block scripts %}
+
+<script src="{% static 'js/components/19_message.js' %}" defer></script>
+
+{% endblock %}

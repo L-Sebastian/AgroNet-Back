@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   if (!container) return;
 
   try {
-    const response = await fetch("/src/static/data/categories.json");
+    const response = await fetch("/static/data/categories.json");
     if (!response.ok) throw new Error("Error al cargar categorías");
 
     const categories = await response.json();

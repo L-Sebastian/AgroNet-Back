@@ -1,25 +1,4 @@
-async function cargarMensaje() {
-  const contenedor = document.querySelector(".contact-container");
-
-  try {
-    const resForm = await fetch("/src/templates/components/19_message.html");
-    const htmlForm = await resForm.text();
-    const div = document.createElement("div");
-    div.innerHTML = htmlForm;
-    contenedor.appendChild(div);
-
-    const resModal = await fetch("/src/templates/components/52_popup_contact.html");
-    const htmlModal = await resModal.text();
-    document.body.insertAdjacentHTML("beforeend", htmlModal);
-
-    inicializarModal();
-
-  } catch (error) {
-    console.error("Error al cargar los componentes:", error);
-  }
-}
-
-function inicializarModal() {
+document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("mensaje-form__form");
   const modal = document.getElementById("modal-contact");
 
@@ -31,31 +10,24 @@ function inicializarModal() {
   const closeBtn = modal.querySelector(".close1");
   const okIcon = modal.querySelector(".ok");
 
-  // Página a la que redirigirá al cerrar el modal
-  const redireccion = "/src/templates/pages-general/contact.html";
-
-  // Mostrar modal al enviar
+  // Mostrar modal al enviar formulario
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    modal.style.display = "flex";
+    modal.classList.add("active");
   });
 
-  // Cerrar o redirigir al hacer clic en cualquier parte
-  function cerrarYRedirigir() {
-    modal.style.display = "none";
-    window.location.href = redireccion;
+  function cerrarModal() {
+    modal.classList.remove("active");
+    form.reset();
   }
 
-  // Clic en la X o en el ícono ✔
-  closeBtn.addEventListener("click", cerrarYRedirigir);
-  okIcon.addEventListener("click", cerrarYRedirigir);
+  closeBtn.addEventListener("click", cerrarModal);
+  okIcon.addEventListener("click", cerrarModal);
 
-  // Clic fuera del contenido del modal o en cualquier parte
-  window.addEventListener("click", (e) => {
-    if (modal.style.display === "flex") {
-      cerrarYRedirigir();
+  // Cerrar al hacer click fuera del contenido
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      cerrarModal();
     }
   });
-}
-
-cargarMensaje();
+});

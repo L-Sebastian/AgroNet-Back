@@ -1,33 +1,17 @@
+{% extends "base.html" %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>AgroNet</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="{% static 'css/main.css' %}">
-</head>
+{% block title %}AgroNet{% endblock %}
 
-<body class="body-index">
-    
-    <header class="head">
-        {% include "components/20_navbar_general.html" %}
-    </header>
+{% block body_class %}body-index{% endblock %}
 
-    <main>
-        {% include "components/12_banner.html" %}
-        {% include "components/13_products-index.html" %}
-        {% include "components/14_category-index.html" %}
-    </main>
+{% block content %}
+    {% include "components/12_banner.html" %}
+    {% include "components/13_products-index.html" %}
+    {% include "components/14_category-index.html" %}
+{% endblock %}
 
-    <footer class="footer">
-        {% include "components/1_footer.html" %}
-    </footer>
-
-    <!-- Scripts -->
+{% block scripts %}
     <script src="{% static 'js/components/12_banner.js' %}" defer></script>
-
-</body>
-</html>
+{% endblock %}

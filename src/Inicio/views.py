@@ -13,8 +13,17 @@ from django.views.generic import TemplateView
 # Create your views here.
 
 class Inicio(TemplateView):
-    
     template_name = 'pages-general/index.html'
+
+class Catalogo(TemplateView):
+    template_name = 'pages-general/catalog.html'
+
+class Contacto(TemplateView):
+    template_name = 'pages-general/contact.html'
+
+
+
+
 
 
     

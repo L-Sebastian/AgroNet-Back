@@ -1,9 +1,11 @@
 <div class="mensaje-form">
   <h2 class="mensaje-form__title">Mensaje</h2>
-  <form class="mensaje-form__form">
+
+  <form id="mensaje-form__form" class="mensaje-form__form">
+
     <div class="mensaje-form__group">
       <label for="asunto" class="mensaje-form__label">Asunto</label>
-      <input type="text"  name="asunto" class="mensaje-form__input" required>
+      <input type="text" name="asunto" class="mensaje-form__input" required>
     </div>
 
     <div class="mensaje-form__group">
@@ -24,11 +26,16 @@
     </div>
 
     <div class="mensaje-form__button-group">
-      <button type="submit" class="mensaje-form__btn mensaje-form__btn--enviar">Enviar Mensaje</button>
-      <button type="button" class="mensaje-form__btn mensaje-form__btn--info"
-        onclick="window.location.href='/src/templates/pages-general/contact-two.html'">Más información</button>
+      <button type="submit" class="mensaje-form__btn mensaje-form__btn--enviar">
+        Enviar Mensaje
+      </button>
+
+      <button type="button"
+        class="mensaje-form__btn mensaje-form__btn--info"
+        onclick="window.location.href='/contact-two/'">
+        Más información
+      </button>
     </div>
+
   </form>
 </div>
-
-
