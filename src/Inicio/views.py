@@ -21,6 +21,14 @@ class Catalogo(TemplateView):
 class Contacto(TemplateView):
     template_name = 'pages-general/contact.html'
 
+class Producto(TemplateView):
+    template_name = 'pages-general/product.html'
+
+class Perfilven(TemplateView):
+    template_name = 'pages-general/seller-profile.html'
+
+
+
 
 
 

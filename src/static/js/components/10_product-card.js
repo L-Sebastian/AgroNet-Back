@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       products.forEach(prod => {
         const tarjeta = document.createElement("a");
         tarjeta.classList.add("product");
-        tarjeta.href = prod.ruta;
+        tarjeta.href = `/product/${prod.id}/`;
 
         tarjeta.innerHTML = `
           <img src="${prod.imagen}" alt="${prod.nombre}" class="product__image">

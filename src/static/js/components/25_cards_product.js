@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   try {
     // Llamada al archivo JSON
-    const response = await fetch("/src/static/data/cards-product.json");
+    const response = await fetch("/static/data/cards-product.json");
     if (!response.ok) {
       throw new Error("Error al cargar los productos");
     }
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         data.similares.forEach(prod => {
           const tarjeta = document.createElement("a");
           tarjeta.classList.add("product1");
-          tarjeta.href = "/src/templates/pages-general/product.html";
+          tarjeta.href = `/product/${prod.id}/`;
 
           tarjeta.innerHTML = `
             <img src="${prod.imagen}" alt="${prod.nombre}" class="product1__image">
