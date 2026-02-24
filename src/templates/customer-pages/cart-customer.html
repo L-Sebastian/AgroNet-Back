@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,25 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Carrito</title>
     <!-- Archivo de estilos -->
-    <link rel="stylesheet" href='/src/static/css/main.css'>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-
-
-    <!-- Scripts navbar -->
-    <script src="/src/static/js/components/5_navbar_seller.js" defer></script>
-
-    <!-- Scripts footer -->
-    <script src="/src/static/js/components/1_footer.js" defer></script>
-
-    <!-- Script que insertará el producto en el carrito -->
-    <script src="/src/static/js/components/7_product_cart.js"></script>
-
-    <script defer src="/src/static/assets/manzan.jpg" ></script>
-
-    <!-- Script que insertará el resumen del producto -->
-    <script src="/src/static/js/components/81_summary2.0.js"></script>
     
 
 </head>
@@ -31,19 +17,36 @@
 
     <!-- Navbar -->
     <header class="head">
-        <div class="navbar-container"></div>
+        {% include "components/5_navbar_seller.html" %}
     </header>
 
     <!-- Contenido de la pagina -->
-    
-    <div class="container__component"></div>
+    <main>
+        {% include "components/7_product_cart.html" %}
+    </main>
 
-    <div class="summary__product__container__general"></div>
+    <main>
+        {% include "components/81_summary2.0.html" %}
+    </main>
 
     <!-- footer -->
     <footer class="footer">
-        <div class="footer-container"></div>
+        {% include "components/1_footer.html" %}
     </footer>
 
 </body>
 </html>
+
+    <!-- Scripts navbar -->
+    <!-- <script src="/src/static/js/components/5_navbar_seller.js" defer></script> -->
+
+    <!-- Scripts footer -->
+    <!-- <script src="/src/static/js/components/1_footer.js" defer></script> -->
+
+    <!-- Script que insertará el producto en el carrito -->
+    <!-- <script src="/src/static/js/components/7_product_cart.js"></script> -->
+
+    <!-- <script defer src="/src/static/assets/manzan.jpg" ></script> -->
+
+    <!-- Script que insertará el resumen del producto -->
+    <!-- <script src="/src/static/js/components/81_summary2.0.js"></script> -->

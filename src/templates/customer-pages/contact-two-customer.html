@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -7,13 +9,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Archivo de estilos -->
-  <link rel="stylesheet" href='/src/static/css/main.css'>
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
 
-
-    <!--Enlaces de los componentes en JavaScript-->
-  <script src="/src/static/js/components/5_navbar_seller.js" defer></script>
-  <script src="/src/static/js/components/15_contact-two.js" defer></script>
-  <script src="/src/static/js/components/1_footer.js" defer></script>
   
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY&callback=initMap">
@@ -25,19 +22,23 @@
 <body>
 
     <header class="head">
-        <div class="navbar-container"></div>
+        {% include "components/5_navbar_seller.html" %}
     </header>
 
     <main>
-        <div class="contact-two-container"></div>
+        {% include "components/15_contact-two.html" %}
     </main>
 
-
-
     <footer class="footer">
-        <div class="footer-container"></div>
+        {% include "components/1_footer.html" %}
     </footer>
 
     
 </body>
 </html>
+
+  <!-- <script src="/src/static/js/components/5_navbar_seller.js" defer></script> -->
+
+  <!-- <script src="/src/static/js/components/1_footer.js" defer></script> -->
+
+  <!-- <script src="/src/static/js/components/15_contact-two.js" defer></script> -->

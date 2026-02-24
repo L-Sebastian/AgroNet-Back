@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,17 +8,12 @@
     <title>AgroNet - Catálogo</title>
     
     <!-- Archivo de estilos -->
-    <link rel="stylesheet" href="/src/static/css/main.css">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
 
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 
-    <!-- Scripts navbar -->
-    <script src="/src/static/js/components/5_navbar_seller.js" defer></script>
-
-    <!-- Scripts footer -->
-    <script src="/src/static/js/components/1_footer.js" defer></script>
 
     <!-- Script que insertará las tarjetas -->
     <script defer src="/src/static/js/components/10_product-card.js"></script>
@@ -28,7 +25,7 @@
 
     <!-- Navbar -->
     <header class="head">
-        <div class="navbar-container"></div>
+        {% include "components/5_navbar_seller.html" %}
     </header>
     
 
@@ -56,8 +53,15 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-container"></div>
+        {% include "components/1_footer.html" %}
     </footer>
 
 </body>
 </html>
+
+
+    <!-- Scripts navbar -->
+    <!-- <script src="/src/static/js/components/5_navbar_seller.js" defer></script> -->
+
+    <!-- Scripts footer -->
+    <!-- <script src="/src/static/js/components/1_footer.js" defer></script> -->

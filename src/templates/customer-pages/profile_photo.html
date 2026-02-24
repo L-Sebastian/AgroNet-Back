@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,7 +8,7 @@
   <title>Detalle Producto - AgroNet</title>
 
   <!-- Estilos -->
-  <link rel="stylesheet" href="/src/static/css/main.css">
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Scripts -->
@@ -22,7 +24,7 @@
 
   <!-- Navbar -->
   <header class="head">
-    <div class="navbar-container"></div>
+    {% include "components/5_navbar_seller.html" %}
   </header>
 
   <main class="container-profile-photo"></main>
@@ -30,7 +32,7 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="footer-container"></div>
+    {% include "components/1_footer.html" %}
   </footer>
 
 

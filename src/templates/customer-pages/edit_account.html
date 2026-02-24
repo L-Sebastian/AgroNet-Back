@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,13 +7,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi perfil</title>
-    <link rel="stylesheet" href='/src/static/css/main.css'>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
     
 
-    <!-- Scripts navbar -->
-    <script src="/src/static/js/components/5_navbar_seller.js" defer></script>
-    <!-- Scripts footer -->
-    <script src="/src/static/js/components/1_footer.js" defer></script>
+
+
     <script src="/src/static/js/components/6_edit_profile.js" defer></script>
     
     
@@ -22,16 +22,21 @@
 
     <!-- Navbar -->
     <header class="head">
-        <div class="navbar-container"></div>
+        {% include "components/5_navbar_seller.html" %}
     </header>
 
+    <main>
     <!-- Contenido de la pagina (6_edit_profile) -->
-    <div class="register-container"></div>
+        {% include "components/6_edit_profile.html" %}
+    </main>
     
     <!-- footer -->
     <footer class="footer">
-        <div class="footer-container"></div>
+        {% include "components/1_footer.html" %}
     </footer>
 
 </body>
 </html>
+
+    <!-- <script src="/src/static/js/components/5_navbar_seller.js" defer></script>
+    <script src="/src/static/js/components/1_footer.js" defer></script>-->
