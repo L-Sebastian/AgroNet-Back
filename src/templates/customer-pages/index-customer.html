@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    
+  <meta charset="UTF-8">
+  <title>AgroNet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Archivo de estilos -->
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+  
+</head>
+
+
+<body class="body-index" >
+    
+    <header class="head">
+        {% include "components/5_navbar_seller.html" %}
+    </header>
+
+    <main>
+        {% include "components/12_banner.html" %}
+    </main>
+
+    <main>
+        {% include "components/13_products-index.html" %}
+    </main>
+
+    <main>
+        {% include "components/14_category-index.html" %}
+    </main>
+
+
+    <footer class="footer">
+        {% include "components/1_footer.html" %}
+    </footer>
+
+    
+</body>
+</html>
+
+<!--Enlaces de los componentes en JavaScript-->
+
+
+  <!-- <script src="/src/static/js/components/13_products-index.js" defer></script> -->
+  <!-- <script src="/src/static/js/components/14_category-index.js" defer></script> -->
+
+
+  <!-- <script src="/src/static/js/components/5_navbar_seller.js" defer></script> -->
+
+    <!-- <script src="/src/static/js/components/12_banner.js" defer></script>
+
+  <script src="/src/static/js/components/1_footer.js" defer></script> -->

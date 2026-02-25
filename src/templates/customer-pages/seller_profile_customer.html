@@ -1,0 +1,45 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perfil del vendedor | AgroNet</title>
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+
+
+</head>
+
+<body class="body-seller-profile">
+  <!-- Navbar -->
+  <header class="head">
+    {% include "components/5_navbar_seller.html" %}
+  </header>
+
+  <!-- Contenido principal del perfil -->
+  <main class="main-profile">
+    {% include "components/33_seller-profile.html" %}
+  </main>
+
+  <!-- Productos del vendedor -->
+  <section class="products-index">
+    {% include "components/34_products-index-seller.html" %}
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    {% include "components/1_footer.html" %}
+  </footer>
+
+</body>
+</html>
+
+  <!-- Scripts de componentes -->
+  <!-- <script src="/src/static/js/components/5_navbar_seller.js" defer></script>
+  <script src="/src/static/js/components/1_footer.js" defer></script>
+  <script src="/src/static/js/components/33_seller-profile.js" defer></script>
+  <script src="/src/static/js/components/34_products-index-seller.js" defer></script> -->
