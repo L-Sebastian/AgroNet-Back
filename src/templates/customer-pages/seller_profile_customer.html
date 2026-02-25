@@ -11,11 +11,7 @@
   <!-- Estilos -->
   <link rel="stylesheet" href="{% static 'css/main.css' %}" />
 
-  <!-- Scripts de componentes -->
-  <script src="/src/static/js/components/5_navbar_seller.js" defer></script>
-  <script src="/src/static/js/components/1_footer.js" defer></script>
-  <script src="/src/static/js/components/33_seller-profile.js" defer></script>
-  <script src="/src/static/js/components/34_products-index-seller.js" defer></script>
+
 </head>
 
 <body class="body-seller-profile">
@@ -26,12 +22,12 @@
 
   <!-- Contenido principal del perfil -->
   <main class="main-profile">
-    <div class="seller-profile-container"></div>
+    {% include "components/33_seller-profile.html" %}
   </main>
 
   <!-- Productos del vendedor -->
   <section class="products-index">
-    <div class="products-index-seller-container"></div>
+    {% include "components/34_products-index-seller.html" %}
   </section>
 
   <!-- Footer -->
@@ -41,3 +37,9 @@
 
 </body>
 </html>
+
+  <!-- Scripts de componentes -->
+  <!-- <script src="/src/static/js/components/5_navbar_seller.js" defer></script>
+  <script src="/src/static/js/components/1_footer.js" defer></script>
+  <script src="/src/static/js/components/33_seller-profile.js" defer></script>
+  <script src="/src/static/js/components/34_products-index-seller.js" defer></script> -->

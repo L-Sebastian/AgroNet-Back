@@ -11,13 +11,8 @@
   <link rel="stylesheet" href="{% static 'css/main.css' %}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <!-- Scripts -->
-  <script src="/src/static/js/components/5_navbar_seller.js"></script>
-  <script src="/src/static/js/components/35_product_detail_customer.js"></script>
-  <script src="/src/static/js/components/26_detail_similar.js" defer></script>
-  <script src="/src/static/js/components/24_opinions.js"></script>
-  <script src="/src/static/js/components/25_cards_product.js"></script>
-  <script src="/src/static/js/components/1_footer.js"></script>
+
+
 
 </head>
 
@@ -30,19 +25,22 @@
   </header>
 
   <section class="product-detail">
-    <div class="product-detail-customer-container" id="product-detail-customer-container"></div>
+    {% include "components/35_product_detail_customer.html" %}
   </section>
 
+  <main>
+    {% include "components/26_detail_similar.html" %}
+  </main>
 
-  <div class="similar-container"></div>
-  
   <!-- Contenedor de productos -->
   <section class="products" id="products-detail">
-    <!-- Aquí se insertarán dinámicamente las tarjetas -->
+    {% include "components/25_cards_product.html" %}
   </section>
 
   <!-- Opiniones -->
-  <div id="opinions-container"></div>
+  <main>
+    {% include "components/24_opinions.html" %}
+  </main>
 
   <!-- Footer -->
   <footer class="footer">
@@ -52,3 +50,14 @@
 
 </body>
 </html>
+
+  <!-- <script src="/src/static/js/components/35_product_detail_customer.js"></script> -->
+
+  <!-- <script src="/src/static/js/components/5_navbar_seller.js"></script> -->
+
+  <!-- <script src="/src/static/js/components/26_detail_similar.js" defer></script> -->
+
+  <!-- <script src="/src/static/js/components/1_footer.js"></script> -->
+  <!-- <script src="/src/static/js/components/25_cards_product.js"></script> -->
+
+    <!-- <script src="/src/static/js/components/24_opinions.js"></script> -->
