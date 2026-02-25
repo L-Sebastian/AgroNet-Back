@@ -1,39 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Inicio sesión</title>
-    <!-- Archivo de estilos -->
-    <link rel="stylesheet" href='/src/static/css/main.css'>
+{% extends "base.html" %}
+{% load static %}
 
-    <!-- Scripts navbar -->
-    <script src="/src/static/js/components/20_navbar_general.js" defer></script>
 
-    <!-- Scripts footer -->
-    <script src="/src/static/js/components/1_footer.js" defer></script>
+{% block title %}Inicia Sesion{% endblock %}
 
-    <!-- Script que insertará el formulario de inicio de sesión -->
-    <script src="/src/static/js/components/8_login-form.js" defer></script>
+{% block body_class %}body-login{% endblock %}
+
+{% block content %}
+
+<main class="main">
+    <div class="login-container">
+        {% include "components/8_login-form.html" %}
+    </div>
+</main>
+
+{% endblock %}
     
-
-</head>
-<body>
-    
-    <!-- Navbar -->
-    <header class="head">
-        <div class="navbar-general-container"></div>
-    </header>
-
-    <!-- Contenido de la pagina -->
-    <main class="main">
-        <div class="login-container"></div>
-    </main>
-
-    <!-- footer -->
-    <footer class="footer">
-        <div class="footer-container"></div>
-    </footer>
-
-</body>
-</html>
+{% block scripts %}
+{% endblock %} 

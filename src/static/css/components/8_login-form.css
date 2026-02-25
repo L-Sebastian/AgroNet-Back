@@ -20,7 +20,7 @@ a{
 .login__background {
     position: fixed;
     inset: 0;
-    background: url('/src/static/assets/bg-forest.jpg') center center/cover no-repeat;
+    background: url('/static/assets/bg-forest.jpg') center center/cover no-repeat;
     filter: blur(3px) brightness(0.9);
     z-index: -1;
 }

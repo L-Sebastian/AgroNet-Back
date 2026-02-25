@@ -1,22 +1,17 @@
-document.addEventListener("DOMContentLoaded", function() {
-  const heroElement = document.querySelector(".recover-container");
+document.addEventListener("DOMContentLoaded", function () {
 
-  if (heroElement) {
-    fetch("/src/templates/components/11_forgot_password.html")
-      .then(response => response.text())
-      .then(data => {
-        heroElement.innerHTML = data;
-        initRecoverForm();
-      })
-      .catch(error =>
-        console.log("Error al cargar el formulario de recuperación:", error)
-      );
-  }
+  const heroElement = document.querySelector(".recover-container");
+  if (!heroElement) return;
+
+  initRecoverForm(heroElement);
+
 });
 
-function initRecoverForm() {
-  const form = document.querySelector(".recover__form");
-  const popup = document.querySelector(".recover-popup");
+
+function initRecoverForm(scope) {
+
+  const form = scope.querySelector(".recover__form");
+  const popup = scope.querySelector(".recover-popup");
 
   if (!form || !popup) return;
 
@@ -33,15 +28,20 @@ function initRecoverForm() {
 
   // Cerrar popup
   popup.addEventListener("click", (e) => {
+
     const clickedOverlay = e.target.classList.contains("recover-popup");
     const clickedClose = e.target.closest(".recover-popup__close");
 
     if (clickedOverlay || clickedClose) {
+
       popup.classList.remove("show");
 
       setTimeout(() => {
-        window.location.href = "/src/templates/pages-general/token_forgot_password.html";
+        window.location.href = "/token-forgot-password/";
       }, 250);
+
     }
+
   });
+
 }

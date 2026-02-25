@@ -27,6 +27,30 @@ class Producto(TemplateView):
 class Perfilven(TemplateView):
     template_name = 'pages-general/seller-profile.html'
 
+class QuienesSomos(TemplateView):
+    template_name = 'pages-general/whoweare.html'
+
+class Carrito(TemplateView):
+    template_name = 'pages-general/cart-general.html'
+
+class InicioSesion(TemplateView):
+    template_name = 'pages-general/login.html'
+
+class CrearCuenta(TemplateView):
+    template_name = 'pages-general/register_an_account.html'
+
+class ContactoDos(TemplateView):
+    template_name = 'pages-general/contact-two.html'
+
+class OlvidasteContraseña(TemplateView):
+    template_name = 'pages-general/forgot_password.html'
+
+class TokenOlvidasteContraseña(TemplateView):
+    template_name = 'pages-general/token_forgot_password.html'
+
+class ConfirmaContraseña(TemplateView):
+    template_name = 'pages-general/confirm_forgot_password.html'
+
 
 
 

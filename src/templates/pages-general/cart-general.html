@@ -1,34 +1,20 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AgroNet - Catálogo</title>
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block title %}Carrito{% endblock %}
+
+{% block body_class %}body-cart{% endblock %}
+
+{% block content %}
+
+<div class="empty-cart-container">
+    {% include "components/41_cart_general.html" %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}    
     
-    <!-- Archivo de estilos -->
-    <link rel="stylesheet" href="/src/static/css/main.css">
+    
 
-    <script src="/src/static/js/components/20_navbar_general.js" defer></script>
-    <script src="/src/static/js/components/41_cart_general.js"></script>
-    <script src="/src/static/js/components/1_footer.js" defer></script>
-
-</head>
-
-<body>
-
-    <!-- Navbar -->
-    <header class="head">
-        <div class="navbar-general-container"></div>
-    </header>
-
-    <main>
-        <div class="empty-cart-container"></div>
-
-    </main>
-
-    <footer class="footer">
-        <div class="footer-container"></div>
-    </footer>
-
-</body>
-</html>

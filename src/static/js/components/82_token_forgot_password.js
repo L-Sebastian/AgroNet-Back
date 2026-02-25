@@ -1,54 +1,65 @@
 document.addEventListener("DOMContentLoaded", () => {
+
   const container = document.querySelector(".token-container");
+  if (!container) return;
 
-  if (container) {
-    fetch("/src/templates/components/82_token_forgot_password.html")
-      .then((response) => response.text())
-      .then((data) => {
-        container.innerHTML = data;
+  initTokenHandlers(container);
 
-        const inputs = container.querySelectorAll(".token__input");
-        const form = container.querySelector(".token__form");
-        const resendLink = container.querySelector(".token__resend-link");
-        const popup = container.querySelector(".popup--token-success");
-
-        //Autoenfoque entre inputs
-        inputs.forEach((input, index) => {
-          input.addEventListener("input", (e) => {
-            if (e.target.value.length === 1 && index < inputs.length - 1) {
-              inputs[index + 1].focus();
-            }
-          });
-
-          input.addEventListener("keydown", (e) => {
-            if (e.key === "Backspace" && !e.target.value && index > 0) {
-              inputs[index - 1].focus();
-            }
-          });
-        });
-
-
-        // Mostrar popup al hacer clic en “Reenviar código”
-        resendLink.addEventListener("click", (e) => {
-          e.preventDefault();
-          if (popup) popup.classList.add("show");
-        });
-
-        // Cerrar popup al hacer clic fuera o en la X
-        if (popup) {
-          popup.addEventListener("click", (e) => {
-            if (
-              e.target.classList.contains("popup") || 
-              e.target.closest(".popup__close") 
-            ) {
-              popup.classList.remove("show");
-
-            }
-          });
-        }
-      })
-      .catch((error) =>
-        console.error("Error al cargar el componente de token:", error)
-      );
-  }
 });
+
+
+function initTokenHandlers(scope) {
+
+  const inputs = scope.querySelectorAll(".token__input");
+  const form = scope.querySelector(".token__form");
+  const resendLink = scope.querySelector(".token__resend-link");
+  const popup = scope.querySelector(".popup--token-success");
+
+  /* -------------------------
+     Autoenfoque entre inputs
+  ------------------------- */
+  inputs.forEach((input, index) => {
+
+    input.addEventListener("input", (e) => {
+      if (e.target.value.length === 1 && index < inputs.length - 1) {
+        inputs[index + 1].focus();
+      }
+    });
+
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Backspace" && !e.target.value && index > 0) {
+        inputs[index - 1].focus();
+      }
+    });
+
+  });
+
+
+  /* -------------------------
+     Reenviar código
+  ------------------------- */
+  if (resendLink && popup) {
+    resendLink.addEventListener("click", (e) => {
+      e.preventDefault();
+      popup.classList.add("show");
+    });
+  }
+
+
+  /* -------------------------
+     Cerrar popup
+  ------------------------- */
+  if (popup) {
+    popup.addEventListener("click", (e) => {
+
+      const clickedOverlay = e.target.classList.contains("popup");
+      const clickedClose = e.target.closest(".popup__close");
+
+      if (clickedOverlay || clickedClose) {
+        popup.classList.remove("show");
+      }
+
+    });
+  }
+
+}
